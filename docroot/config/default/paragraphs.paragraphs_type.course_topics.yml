@@ -1,0 +1,9 @@
+uuid: 125cd727-5426-4214-b3dc-dab93a174c1b
+langcode: en
+status: true
+dependencies: {  }
+id: course_topics
+label: 'Course Topics'
+icon_uuid: null
+description: 'Migrated from paragraph bundle Course Topics'
+behavior_plugins: {  }

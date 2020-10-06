@@ -1,0 +1,6 @@
+langcode: en
+status: true
+dependencies: {  }
+id: administer_file_system
+label: 'Administer file system'
+path: admin/config/media/file-system

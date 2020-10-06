@@ -1,0 +1,35 @@
+uuid: 65bb09e8-b587-4ea1-b116-fdd7ac443ee7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.field_last_password_reset
+    - field.field.user.user.field_password_expiration
+    - field.field.user.user.user_picture
+  module:
+    - image
+    - user
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  member_for:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  user_picture:
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: content
+    type: image
+    weight: 6
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_last_password_reset: true
+  field_password_expiration: true
+  langcode: true
+  search_api_excerpt: true

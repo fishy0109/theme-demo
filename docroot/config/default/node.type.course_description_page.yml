@@ -1,0 +1,17 @@
+uuid: 9af9c2e3-34e8-46df-8437-c72416970124
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Course Description Page'
+type: course_description_page
+description: 'This content type is used for e-learning course material.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,39 @@
+uuid: b41b2bd7-6b25-46a0-b4c3-698bf7366ccb
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access contextual links'
+  - 'access search_api_page'
+  - 'access service links'
+  - 'access site map'
+  - 'access site-wide contact form'
+  - 'change own e-mail'
+  - 'change own openid'
+  - 'change own password'
+  - 'create multi_purpose_tiles_landing_page content'
+  - 'delete any multi_purpose_tiles_landing_page content'
+  - 'delete own multi_purpose_tiles_landing_page content'
+  - 'edit any multi_purpose_tiles_landing_page content'
+  - 'edit own account'
+  - 'edit own comments'
+  - 'edit own multi_purpose_tiles_landing_page content'
+  - 'post comments'
+  - 'search content'
+  - 'skip comment approval'
+  - 'use text format full_html'
+  - 'use text format rich_text'
+  - 'view any basic_content bean'
+  - 'view any image_and_text bean'
+  - 'view any image_and_text_homepage_hero bean'
+  - 'view any social_media_block bean'
+  - 'view files'
+  - 'view own unpublished content'

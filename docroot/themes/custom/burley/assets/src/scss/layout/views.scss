@@ -1,0 +1,29 @@
+.region-home-news {
+  .views-row {
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+}
+
+.path-news-and-events,
+.path-search,
+.path-documents {
+  .view {
+    border-top: 3px solid $nca-orange;
+  }
+}
+
+.view-display-id-attachment_1 {
+  border-top: none !important;
+}
+
+.views-exposed-form {
+  .btn.form-control {
+    max-width: 16.666%;
+    margin-top: 36px;
+    margin-right: 5px;
+  }
+}

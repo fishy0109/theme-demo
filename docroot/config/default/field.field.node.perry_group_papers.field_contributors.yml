@@ -1,0 +1,21 @@
+uuid: c3be1e8f-f944-49ea-be85-81aa8f3709d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contributors
+    - node.type.perry_group_papers
+  module:
+    - text
+id: node.perry_group_papers.field_contributors
+field_name: field_contributors
+entity_type: node
+bundle: perry_group_papers
+label: Contributors
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

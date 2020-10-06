@@ -1,0 +1,10 @@
+uuid: 273fa13a-9773-4500-933c-dc8594ff45ed
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.blog_teaser
+label: blog_teaser
+targetEntityType: node
+cache: true

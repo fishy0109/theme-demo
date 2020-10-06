@@ -1,0 +1,21 @@
+<div class="footer-top mt-5">
+    {% block footer_top %}
+        {% if page.footer_top %}
+            {{ page.footer_top }}
+        {% endif %}
+    {% endblock %}
+</div>
+
+<footer id="footer">
+    <a id="to-top" href="" aria-label="back to top"><i
+                class="fas fa-angle-up fa-2x"></i></a>
+    {% block footer %}
+        <div class="{{ container }}">
+            {% if page.footer %}
+                <div class="clearfix">
+                    {{ page.footer }}
+                </div>
+            {% endif %}
+        </div>
+    {% endblock %}
+</footer>

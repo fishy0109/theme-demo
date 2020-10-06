@@ -1,0 +1,11 @@
+id: share_this
+label: 'Share This'
+ui_limit: ''
+properties:
+  content:
+    value: "<div class=\"share-wrapper\">\r\n<p class=\"text-upper letter-spacing\">Share</p>\r\n<div class=\"share-links\"><a class=\"close share-link\"><i class=\"fal fa-times\"></i></a><a href=\"https://www.facebook.com/sharer/sharer.php?u=[node:url]\" class=\"share-link\"><i class=\"fab fa-facebook-square\"></i><span class=\"sr-only\">share this post to Facebook</span></a> <a href=\"https://www.linkedin.com/shareArticle?mini=true&amp;url=[node:url]\" class=\"share-link\"><i class=\"fab fa-linkedin\"></i><span class=\"sr-only\">share this post to LinkedIn</span></a> <a href=\"https://twitter.com/intent/tweet?url=[node:url]\" class=\"share-link\"><i class=\"fab fa-twitter-square\"></i><span class=\"sr-only\">share this post to Twitter</span></a> <a href=\"mailto:?subject=[node:title];body=Read this article on [node:url]\" class=\"share-link\"><i class=\"fas fa-envelope-open-text\"></i><span class=\"sr-only\">share this post via email</span></i></a></div>\r\n</div>"
+    format: full_html
+type: token
+type_label: 'Token field'
+entities:
+  node: node

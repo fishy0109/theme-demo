@@ -1,0 +1,11 @@
+uuid: a23e93ef-de31-47b3-85ae-c1a65fe255b0
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: '-3n-3lwuv1OQiMSz2HBC7hs26CzLjrsPY6wFCZ3vhN4'
+id: node_list
+label: 'Node List'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,189 @@
+uuid: 2648579c-0dae-46e3-83d9-850f1a59d58d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.course_topics.field_downloadable_resources
+    - field.field.paragraph.course_topics.field_sub_topic
+    - field.field.paragraph.course_topics.field_title
+    - field.field.paragraph.course_topics.field_topic_description
+    - field.field.paragraph.course_topics.field_total_time_taken
+    - paragraphs.paragraphs_type.course_topics
+  module:
+    - ds
+    - entity_reference_revisions
+    - field_group
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+          ds_content: {  }
+    regions:
+      ds_content:
+        - group_wrapper
+        - field_title
+        - field_topic_description
+        - field_sub_topic
+        - field_downloadable_resources
+  field_group:
+    group_wrapper:
+      children:
+        - field_title
+        - field_topic_description
+        - field_sub_topic
+        - field_downloadable_resources
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      region: ds_content
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: course-modules
+      label: 'Inner Wrapper'
+id: paragraph.course_topics.default
+targetEntityType: paragraph
+bundle: course_topics
+mode: default
+content:
+  field_downloadable_resources:
+    label: hidden
+    weight: 5
+    type: entity_reference_revisions_entity_view
+    settings:
+      view_mode: full
+      link: ''
+    third_party_settings: {  }
+    region: ds_content
+  field_sub_topic:
+    label: hidden
+    weight: 4
+    type: entity_reference_revisions_entity_view
+    settings:
+      view_mode: full
+      link: ''
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: sub-topic
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+    region: ds_content
+  field_title:
+    label: hidden
+    weight: 1
+    type: string
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: div
+            lbw-cl: tab-label
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: course-title
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+    region: ds_content
+  field_topic_description:
+    label: hidden
+    weight: 3
+    type: text_default
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: course-desc
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+    region: ds_content
+hidden:
+  field_total_time_taken: true
+  search_api_excerpt: true

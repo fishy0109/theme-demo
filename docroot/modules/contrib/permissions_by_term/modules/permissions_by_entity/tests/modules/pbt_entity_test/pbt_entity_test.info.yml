@@ -1,0 +1,10 @@
+name: 'pbt_entity_test'
+type: module
+description: 'Permissions by term - Entity test module'
+core: 8.x
+package: Testing
+
+# Information added by Drupal.org packaging script on 2019-09-26
+version: '8.x-2.12'
+project: 'permissions_by_term'
+datestamp: 1569507512

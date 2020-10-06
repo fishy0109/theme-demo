@@ -1,0 +1,27 @@
+@charset 'utf-8';
+@import './variables';
+@import "~bootstrap/scss/bootstrap.scss";
+
+// WYSIWYG stuff, duplicate into
+@import './editor';
+
+@import '../../../node_modules/slick-carousel/slick/slick.scss';
+
+// Custom components
+@import './components/mixin';
+@import './components/forms';
+
+// Custom styles
+@import './layout/base';
+@import './layout/widgets';
+@import './layout/header';
+@import './layout/footer';
+@import './layout/content';
+@import './layout/announcement';
+@import './layout/news';
+@import './layout/events';
+@import './layout/menu-mobile';
+@import './layout/slick';
+@import './layout/homepage';
+@import './layout/views';
+@import './layout/responsive';

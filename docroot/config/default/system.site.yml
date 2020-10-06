@@ -1,0 +1,14 @@
+uuid: 9a7ec695-2de0-4e84-9a44-e1298654f588
+name: 'The Forge'
+mail: andrew.dresden@iconagency.com
+slogan: ''
+page:
+  403: ''
+  front: /node/437
+  404: ''
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

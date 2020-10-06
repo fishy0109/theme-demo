@@ -1,0 +1,26 @@
+uuid: d313856f-7f50-4d4c-9757-37403a987914
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tags
+    - node.type.multi_purpose_tiles_landing_page
+    - taxonomy.vocabulary.core_study_areas
+id: node.multi_purpose_tiles_landing_page.field_tags
+field_name: field_tags
+entity_type: node
+bundle: multi_purpose_tiles_landing_page
+label: 'Core study areas'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler_settings:
+    sort:
+      field: _none
+    target_bundles:
+      core_study_areas: core_study_areas
+  handler: 'default:taxonomy_term'
+field_type: entity_reference

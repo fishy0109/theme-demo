@@ -1,0 +1,8 @@
+uuid: 8dd332d7-71c4-4e17-93ab-802abe5d373f
+langcode: en
+status: true
+dependencies: {  }
+id: header_banner
+label: 'Header Banner'
+revision: 1
+description: 'Block for adding full width banner images to the header region.'

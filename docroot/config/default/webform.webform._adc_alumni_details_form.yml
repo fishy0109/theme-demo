@@ -1,0 +1,221 @@
+uuid: 48238daa-f3fe-44b2-bf4a-4e0146fb0cf8
+langcode: en
+status: open
+dependencies:
+  module:
+    - honeypot
+third_party_settings:
+  honeypot:
+    honeypot: true
+open: null
+close: null
+weight: 0
+uid: 1
+template: false
+archive: false
+id: _adc_alumni_details_form
+title: ' ADC Alumni Details Form'
+description: ''
+category: ''
+elements: "personal_details:\n  '#type': fieldset\n  '#title': 'Personal Details'\n  your_name:\n    '#type': textfield\n    '#title': 'First Name'\n    '#required': true\n  last_name:\n    '#type': textfield\n    '#title': 'Last Name'\n    '#required': true\n  date_of_birth:\n    '#type': date\n    '#title': 'Date of Birth'\n    '#date_date_min': '-114 years'\n    '#date_date_max': today\n    '#datepicker': true\n  personal_email:\n    '#type': email\n    '#title': 'Personal Email'\n  defence_email:\n    '#type': email\n    '#title': 'Defence Email'\n  phone_number:\n    '#type': tel\n    '#title': 'Phone Number'\n  current_location_city_:\n    '#type': textfield\n    '#title': 'Current Location (City)'\n  preferred_contact:\n    '#type': select\n    '#title': 'Preferred Contact'\n    '#options':\n      EA: EA\n      partner: partner\n  linkedin_name:\n    '#type': textfield\n    '#title': 'Linkedin Name'\nprofessional_details:\n  '#type': fieldset\n  '#title': 'Professional Details'\n  current_title_or_rank:\n    '#type': textfield\n    '#title': 'Current Title or Rank'\n  current_position_or_assignment:\n    '#type': textfield\n    '#title': 'Current Position'\n  department_division:\n    '#type': textfield\n    '#title': 'Department / Division'\n  service:\n    '#type': select\n    '#title': Service\n    '#options':\n      Navy: Navy\n      Army: Army\n      'Air Force': 'Air Force'\n      Marine: Marine\n      'Public Service': 'Public Service'\n      'Emergency Service': 'Emergency Service'\n      'Defence Civilian': 'Defence Civilian'\n      'Government Civilian': 'Government Civilian'\n      'Industry Civilian': 'Industry Civilian'\n  country_of_service:\n    '#type': textfield\n    '#title': 'Country of Service'\n  honours_and_awards:\n    '#type': textfield\n    '#title': 'Honours and Awards'\n  please_share_any_professional_and_or_personal_achievements_here:\n    '#type': textarea\n    '#title': 'Please share any professional and/or personal achievements here'\nadc_education_details:\n  '#type': fieldset\n  '#title': 'ADC Education Details'\n  which_adc_college_academy_centre_or_unit_did_you_attend:\n    '#type': webform_select_other\n    '#title': 'Which ADC College, Academy, Centre or Unit did you attend'\n    '#options':\n      'Capability & Technology Management College (CTMC)': 'Capability & Technology Management College (CTMC)'\n      'Australian Defence Force Peace Operations Training Centre (POTC)': 'Australian Defence Force Peace Operations Training Centre (POTC)'\n      'The Australian Defence Force Warfare Training Centre (ADFWTC)': 'The Australian Defence Force Warfare Training Centre (ADFWTC)'\n      'Defence International Training Centre (DITC)': 'Defence International Training Centre (DITC)'\n      'Defence Force School of Languages (DFSL)': 'Defence Force School of Languages (DFSL)'\n      'Defence Chaplains College (DCC)': 'Defence Chaplains College (DCC)'\n      'Australian War College (AWC)': 'Australian War College (AWC)'\n      'Australian Defence Force Academy (ADFA)': 'Australian Defence Force Academy (ADFA)'\n  which_course_s_at_adc_did_you_attend_:\n    '#type': webform_select_other\n    '#title': 'Which course/s at ADC did you attend?'\n    '#options':\n      'Capability & Technology Management Program': 'Capability & Technology Management Program'\n      'ADFA Undergraduate Program': 'ADFA Undergraduate Program'\n      'UN Pre Deployment Training': 'UN Pre Deployment Training'\n      'Gender Adviser Course ': 'Gender Adviser Course '\n      'Peace Operations Seminar': 'Peace Operations Seminar'\n      'Introduction to Joint Operations Course ': 'Introduction to Joint Operations Course '\n      'Joint Operations Planning Course': 'Joint Operations Planning Course'\n      'Joint Logistics Planning Course': 'Joint Logistics Planning Course'\n      'Joint Health Planning Course': 'Joint Health Planning Course'\n      'Joint Movements Planning Course': 'Joint Movements Planning Course'\n      'Introduction to Amphibious Planning Course ': 'Introduction to Amphibious Planning Course '\n      'Information Operations Staff Officer Course ': 'Information Operations Staff Officer Course '\n      'Joint Civilian Military Cooperation Planning Course ': 'Joint Civilian Military Cooperation Planning Course '\n      'Mortuary Affairs Officers Course ': 'Mortuary Affairs Officers Course '\n      'Operational Contract Management Course': 'Operational Contract Management Course'\n      'The Australian Defence College Preparation Course': 'The Australian Defence College Preparation Course'\n      'The Pre-Officer Training Preparation Course': 'The Pre-Officer Training Preparation Course'\n      'Methodology of English Language Teaching Course': 'Methodology of English Language Teaching Course'\n      'English Teaching Development Course': 'English Teaching Development Course'\n      'English Curriculum Development Course': 'English Curriculum Development Course'\n      'Teaching Pronunciation Course': 'Teaching Pronunciation Course'\n      'ADFELPS Training Course': 'ADFELPS Training Course'\n      'Advanced Australian English Language Courses': 'Advanced Australian English Language Courses'\n      'Intermediate Australian English Language Course': 'Intermediate Australian English Language Course'\n      'Preliminary Australian English Language Course': 'Preliminary Australian English Language Course'\n      'English for Specific Purposes ': 'English for Specific Purposes '\n      'Special Australian English Language Course': 'Special Australian English Language Course'\n      'Defence Force School of Language Course': 'Defence Force School of Language Course'\n      'Chaplains Initial Course ': 'Chaplains Initial Course '\n      'Chaplains Intermediate Course ': 'Chaplains Intermediate Course '\n      'Chaplains Senior Course – Under construction ': 'Chaplains Senior Course – Under construction '\n      'Character Leadership Course ': 'Character Leadership Course '\n      'Clinical Pastoral Education Course': 'Clinical Pastoral Education Course'\n      'Defence Strategic Studies Course': 'Defence Strategic Studies Course'\n      'Australian Command and Staff Course': 'Australian Command and Staff Course'\n      'Operations Based on Operational Experience Course': 'Operations Based on Operational Experience Course'\n      'Royal Australian Navy Staff Acquaint Course': 'Royal Australian Navy Staff Acquaint Course'\n      'Australian Command and Staff Course (Reserve)': 'Australian Command and Staff Course (Reserve)'\n      'Joint Warrant Officer Course': 'Joint Warrant Officer Course'\n    '#states':\n      visible:\n        ':input[name=\"which_adc_college_academy_centre_or_unit_did_you_attend[select]\"]':\n          filled: true\n  year_s_of_graduation:\n    '#type': textfield\n    '#title': 'Year/s of Graduation'\n    '#states':\n      visible:\n        ':input[name=\"which_course_s_at_adc_did_you_attend_[select]\"]':\n          filled: true\nadc_staff_details:\n  '#type': fieldset\n  '#title': 'ADC Staff  Details'\n  are_you_a_former_staff_member_of_adc_:\n    '#type': checkboxes\n    '#title': 'Are you a former staff member of ADC?'\n    '#options':\n      'YES': 'YES'\n      'NO': 'NO'\n  if_yes_what_was_your_position_:\n    '#type': textfield\n    '#title': 'If YES, what was your position?'\n    '#states':\n      visible:\n        ':input[name=\"which_adc_college_academy_centre_or_unit_did_you_attend[select]\"]':\n          checked: true\n  years_as_a_staff_member_e_g_2006_2009_:\n    '#type': textfield\n    '#title': 'Years as a staff member (e.g. 2006-2009)'\nprivacy:\n  '#type': fieldset\n  '#title': Privacy\n  i_give_adc_permission_to_publish_my_professional_and_or_personal:\n    '#type': checkbox\n    '#title': 'I give ADC permission to publish my professional and/or personal achievements'\n  i_understand_that_the_forge_does_not_store_my_details_therefore_:\n    '#type': checkbox\n    '#title': 'I understand that The Forge does NOT store my details, therefore, they cannot be provided if requested by other parties'\n  would_you_like_to_subscribe_to_the_adc_alumni_newsletter_to_your:\n    '#type': checkboxes\n    '#title': 'Would you like to subscribe to the ADC Alumni Newsletter to your personal email?'\n    '#options':\n      'YES': 'YES'\n      'NO': 'NO'"
+css: ''
+javascript: ''
+settings:
+  ajax: true
+  ajax_scroll_top: form
+  ajax_progress_type: fullscreen
+  ajax_effect: fade
+  ajax_speed: 1000
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  page_admin_theme: false
+  form_title: both
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_remote_addr: true
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  submission_label: ''
+  submission_log: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_progress_states: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: url
+  confirmation_title: ''
+  confirmation_message: ''
+  confirmation_url: thank-you-your-feedback
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  results_customize: false
+  token_view: false
+  token_update: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  email:
+    id: email
+    label: Email
+    handler_id: email
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: the.forge@defence.gov.au
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: '[webform_submission:values:personal_email:raw]'
+      from_options: {  }
+      from_name: '[webform_submission:values:your_name:raw]'
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: forge_bootstrap
+      parameters: {  }
+variants: {  }

@@ -1,0 +1,18 @@
+uuid: b48c49f0-e71f-4c1f-ab1d-6cfda9799b37
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Perry Group papers'
+type: perry_group_papers
+description: ''
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,38 @@
+uuid: 27d0a6c4-7aba-44aa-94be-ce1798634d1f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image
+    - node.type.journal
+  module:
+    - image
+id: node.journal.field_image
+field_name: field_image
+entity_type: node
+bundle: journal
+label: Icon
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: 5c9191ad-200f-433e-b157-31c9de3207e6
+    alt: 'Defence Journal'
+    title: ''
+    width: 165
+    height: 201
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

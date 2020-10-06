@@ -1,0 +1,14 @@
+name: 'DropzoneJs Test'
+type: module
+description: 'Support module for DropzoneJs tests.'
+package: Testing
+# version: VERSION
+dependencies:
+ - drupal:media
+ - dropzonejs:dropzonejs
+ - dropzonejs:dropzonejs_eb_widget
+
+# Information added by Drupal.org packaging script on 2020-03-31
+version: '8.x-2.1'
+project: 'dropzonejs'
+datestamp: 1585662326

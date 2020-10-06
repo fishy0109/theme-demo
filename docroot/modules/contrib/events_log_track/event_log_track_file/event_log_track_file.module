@@ -1,0 +1,69 @@
+<?php
+
+/**
+ * @file
+ * Logs file entity CUD commands in the event_log_track module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_event_log_track_handlers().
+ */
+function event_log_track_file_event_log_track_handlers() {
+  $handlers = array();
+  // File event log handler
+  $handlers['file'] = array(
+    'title' => t('File'),
+  );
+
+  return $handlers;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function event_log_track_file_insert(EntityInterface $entity) {
+  $log = [
+    'type' => 'file',
+    'operation' => 'insert',
+    'description' => $entity->getFileUri(),
+    'ref_numeric' => $entity->id(),
+    'ref_char' => $entity->getFilename(),
+  ];
+
+  // Insert log.
+  event_log_track_insert($log);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+function event_log_track_file_update(EntityInterface $entity) {
+  $log = [
+    'type' => 'file',
+    'operation' => 'update',
+    'description' => $entity->getFileUri(),
+    'ref_numeric' => $entity->id(),
+    'ref_char' => $entity->getFilename(),
+  ];
+
+  // Insert log.
+  event_log_track_insert($log);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_delete().
+ */
+function event_log_track_file_delete(EntityInterface $entity) {
+  $log = [
+    'type' => 'file',
+    'operation' => 'delete',
+    'description' => $entity->getFileUri(),
+    'ref_numeric' => $entity->id(),
+    'ref_char' => $entity->getFilename(),
+  ];
+
+  // Insert log.
+  event_log_track_insert($log);
+}

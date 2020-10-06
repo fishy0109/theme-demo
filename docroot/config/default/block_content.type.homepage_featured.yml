@@ -1,0 +1,8 @@
+uuid: 6be59dcd-8490-4ebc-bf9b-8e3271baf6c5
+langcode: en
+status: true
+dependencies: {  }
+id: homepage_featured
+label: 'Homepage Featured'
+revision: 1
+description: 'Block for adding featured homepage content.'

@@ -1,0 +1,9 @@
+name: Events Log Track Media
+description: 'Logs node CUD events performed by the user.'
+type: module
+dependencies:
+  - event_log_track
+  - media
+core: '8.x'
+package: Statistics
+project: 'events_log_track'

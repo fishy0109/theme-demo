@@ -1,0 +1,15 @@
+uuid: a44bcce6-c900-41f5-a361-c1de269aa065
+langcode: en
+status: true
+dependencies: {  }
+name: core_study_areas
+label: 'Core Study Areas'
+effects:
+  d777a400-445e-4207-a25c-42536616fb2a:
+    uuid: d777a400-445e-4207-a25c-42536616fb2a
+    id: image_scale
+    weight: 1
+    data:
+      width: 70
+      height: 70
+      upscale: false

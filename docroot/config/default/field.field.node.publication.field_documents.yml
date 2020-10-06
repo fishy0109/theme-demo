@@ -1,0 +1,27 @@
+uuid: d485dcc6-d70f-403b-9c6f-24b3310d3db5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_documents
+    - node.type.publication
+  module:
+    - file
+id: node.publication.field_documents
+field_name: field_documents
+entity_type: node
+bundle: publication
+label: Documents
+description: 'Allows one of more documents to be associated with this <em>Publication</em>.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  description_field: true
+  file_directory: ''
+  file_extensions: 'txt pdf doc docx xls xlsx ppt pptx'
+  max_filesize: '64 MB'
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

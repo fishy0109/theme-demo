@@ -1,0 +1,26 @@
+uuid: 2178f920-b12a-4793-bb2d-e4b2ae1618fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_primary_tag
+    - node.type.publication
+    - taxonomy.vocabulary.core_study_areas
+id: node.publication.field_primary_tag
+field_name: field_primary_tag
+entity_type: node
+bundle: publication
+label: 'Primary tag'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler_settings:
+    sort:
+      field: _none
+    target_bundles:
+      core_study_areas: core_study_areas
+  handler: 'default:taxonomy_term'
+field_type: entity_reference

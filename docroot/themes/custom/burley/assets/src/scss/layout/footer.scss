@@ -1,0 +1,167 @@
+$footer-top-menu-mt: 1.5rem;
+$footer-top-menu-li-padding: 2rem;
+$footer-top-icon-menu-li-padding: 1rem;
+
+.footer-top {
+  padding: 2rem 0;
+  background-color: $grey-10;
+
+  .footer-top-menu {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+
+    li {
+      padding-right: $footer-top-menu-li-padding;
+
+      a {
+        color: $black;
+
+        &:hover {
+          color: $nca-pink;
+          text-decoration: none;
+
+          svg {
+            color: $nca-pink;
+          }
+        }
+      }
+    }
+
+    .footer-top-first-text {
+      color: $nca-blue-5;
+      font-weight: 500;
+
+      &:hover {
+        color: $nca-blue;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .footer-top-icon-menu {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      padding-right: $footer-top-icon-menu-li-padding;
+
+      a {
+        color: $jungle;
+
+        &:hover {
+          color: $jungle;
+        }
+      }
+
+      i,
+      svg {
+        font-size: $h2-font-size;
+      }
+    }
+  }
+
+  .footer-top-second {
+    color: $text-grey;
+    align-items: center;
+  }
+
+  .footer-top-logo-group {
+    display: flex;
+
+    .footer-top-logo {
+      margin-left: 2rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+#footer {
+  background-color: $nca-black;
+  padding: 2rem 0 4rem;
+  border-top: $border-width-bottom solid $nca-pink;
+  position: relative;
+
+  .region-footer {
+    margin-left: 0;
+    margin-right: 0;
+    color: $grey-25;
+
+    .footer-menu {
+      list-style: none;
+      padding-left: 0;
+
+      li {
+        margin-bottom: 0.8rem;
+
+        a {
+          color: $white;
+          border-bottom: 1px solid transparent;
+
+          &:hover {
+            color: $nca-pink;
+            border-bottom: 1px solid $nca-pink;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    .footer-menu-logo-group {
+      display: flex;
+
+      .footer-menu-logo {
+        width: 25%;
+        padding: 1rem;
+
+        a {
+          @include linkOpacityHover();
+        }
+      }
+
+      .anu-ftr-edx {
+        text-align: right;
+
+        img {
+          width: 60px;
+        }
+      }
+
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+
+  #to-top {
+    position: absolute;
+    background: $grey-50;
+    width: 54px;
+    height: 54px;
+    text-align: center;
+    line-height: 4rem;
+    top: -$spacer * 2;
+    right: 1%;
+    cursor: pointer;
+
+    color: $white;
+
+    svg {
+      margin-right: 0;
+    }
+
+    &:hover {
+      background: $nca-red;
+    }
+  }
+}

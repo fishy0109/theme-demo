@@ -1,0 +1,19 @@
+uuid: edfdae01-9ec2-4d3c-87b1-94ced5a1cfc9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.multipurpose_tile
+id: paragraph.multipurpose_tile.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: multipurpose_tile
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

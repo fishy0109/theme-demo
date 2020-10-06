@@ -1,0 +1,296 @@
+uuid: c29bd3e1-ad50-4025-86aa-f67f2ae13fb3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.perry_group_papers.body
+    - field.field.node.perry_group_papers.field_contributors
+    - field.field.node.perry_group_papers.field_duration
+    - field.field.node.perry_group_papers.field_file
+    - field.field.node.perry_group_papers.field_image
+    - field.field.node.perry_group_papers.field_team
+    - field.field.node.perry_group_papers.field_year
+    - image.style.perry_group_thumb
+    - node.type.perry_group_papers
+  module:
+    - aggregator
+    - ds
+    - field_group
+    - image
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: content
+        link_custom: ''
+        classes:
+          layout_class: {  }
+          ds_content: {  }
+    regions:
+      ds_content:
+        - group_row
+        - field_team
+        - node_title
+        - body
+        - field_image
+        - field_duration
+        - 'dynamic_token_field:node-share_this'
+        - group_column_left
+        - group_column_right
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 1
+        label: hidden
+        formatter: default
+        settings:
+          wrapper: h3
+          class: ''
+          link: false
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+      'dynamic_token_field:node-share_this':
+        plugin_id: 'dynamic_token_field:node-share_this'
+        weight: 4
+        label: hidden
+        formatter: default
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+  field_group:
+    group_row:
+      children:
+        - group_column_left
+        - group_column_right
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      region: ds_content
+      format_settings:
+        id: ''
+        classes: row
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+      label: Row
+    group_column_left:
+      children:
+        - field_image
+      parent_name: group_row
+      weight: 21
+      format_type: html_element
+      region: ds_content
+      format_settings:
+        id: ''
+        classes: col-md-5
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Column left'
+    group_column_right:
+      children:
+        - field_team
+        - node_title
+        - body
+        - field_duration
+        - 'dynamic_token_field:node-share_this'
+      parent_name: group_row
+      weight: 22
+      format_type: html_element
+      region: ds_content
+      format_settings:
+        id: ''
+        classes: col-md-7
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Column right'
+id: node.perry_group_papers.teaser
+targetEntityType: node
+bundle: perry_group_papers
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 2
+    settings:
+      trim_length: 600
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: body
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+    region: ds_content
+  field_duration:
+    type: aggregator_xss
+    weight: 3
+    region: ds_content
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: '<div class="duration"><i class="fal fa-clock"></i>'
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: '</div><div class="share"><i class="fal fa-share"></i></div>'
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+  field_image:
+    type: image
+    weight: 2
+    region: ds_content
+    label: hidden
+    settings:
+      image_style: perry_group_thumb
+      image_link: ''
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: thumbnail
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+  field_team:
+    type: text_trimmed
+    weight: 0
+    region: ds_content
+    label: inline
+    settings:
+      trim_length: 600
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: team
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+hidden:
+  field_contributors: true
+  field_file: true
+  field_year: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

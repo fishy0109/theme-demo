@@ -1,0 +1,24 @@
+uuid: e1e14ec9-530a-4c4f-8bf0-4d6dabfbb551
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.downloadable_resources.field_upload_resources
+    - paragraphs.paragraphs_type.downloadable_resources
+  module:
+    - file
+id: paragraph.downloadable_resources.default
+targetEntityType: paragraph
+bundle: downloadable_resources
+mode: default
+content:
+  field_upload_resources:
+    weight: 2
+    type: file_generic
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true

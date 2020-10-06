@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * Adds the "administer config permissions" permission.
+ */
+function config_perms_update_8101() {
+  $roles = \Drupal::entityTypeManager()->getStorage('user_role')->loadMultiple();
+  /** @var \Drupal\user\Entity\Role $role */
+  foreach ($roles as $role) {
+    // There is now a dedicated permission to configure the module, to keep the
+    // things working let's provide this new permission to the users that were
+    // already able to configure the module before.
+    if ($role->hasPermission('administer site configuration')) {
+      $role->grantPermission('administer config permissions');
+      $role->save();
+    }
+  }
+}
+

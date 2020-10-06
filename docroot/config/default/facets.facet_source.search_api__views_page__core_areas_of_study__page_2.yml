@@ -1,0 +1,12 @@
+uuid: 29dece03-0ced-41a6-b4c2-86251c1d4027
+langcode: en
+status: true
+dependencies: {  }
+id: search_api__views_page__core_areas_of_study__page_2
+name: 'search_api:views_page__core_areas_of_study__page_2'
+filter_key: '2'
+url_processor: query_string
+breadcrumb:
+  active: false
+  before: true
+  group: false

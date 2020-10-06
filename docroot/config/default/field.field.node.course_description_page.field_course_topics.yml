@@ -1,0 +1,76 @@
+uuid: bff4e692-449e-413e-8fc7-ca5d82d8d0f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_topics
+    - node.type.course_description_page
+    - paragraphs.paragraphs_type.course_topics
+  module:
+    - entity_reference_revisions
+id: node.course_description_page.field_course_topics
+field_name: field_course_topics
+entity_type: node
+bundle: course_description_page
+label: 'Course Topics'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler_settings:
+    negate: 0
+    target_bundles:
+      course_topics: course_topics
+    target_bundles_drag_drop:
+      course_topics:
+        enabled: true
+        weight: 2
+      downloadable_resources:
+        enabled: false
+        weight: 3
+      sub_topics:
+        enabled: false
+        weight: 4
+      accordion:
+        enabled: false
+        weight: 5
+      accordion_group:
+        enabled: false
+        weight: 6
+      color_background_modifier:
+        enabled: false
+        weight: 7
+      content:
+        enabled: false
+        weight: 8
+      custom_linear_gradient_modifier:
+        enabled: false
+        weight: 9
+      image_bg_modifier:
+        enabled: false
+        weight: 10
+      item:
+        enabled: false
+        weight: 11
+      item_list:
+        enabled: false
+        weight: 12
+      multipurpose_tile:
+        enabled: false
+        weight: 13
+      node_list:
+        enabled: false
+        weight: 14
+      padding_modifier:
+        enabled: false
+        weight: 15
+      parallax_bg_modifier:
+        enabled: false
+        weight: 16
+      relative_height_modifier:
+        enabled: false
+        weight: 17
+  handler: 'default:paragraph'
+field_type: entity_reference_revisions

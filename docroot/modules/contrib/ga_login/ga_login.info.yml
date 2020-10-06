@@ -1,0 +1,13 @@
+name: "Google Login Authenticator"
+type: module
+package: System
+description: "TFA plugins for Hmac-Based One Time Passwords & Time Based One Time Password with recovery codes as fallback."
+# core: 8.x
+dependencies:
+ - tfa (>=8.x-1.0-alpha4)
+
+# Information added by Drupal.org packaging script on 2018-03-20
+version: '8.x-1.0-alpha4'
+core: '8.x'
+project: 'ga_login'
+datestamp: 1521587889

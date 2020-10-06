@@ -1,0 +1,212 @@
+uuid: dd8cb397-388e-486c-ad2a-46969ee8fcd8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.publication.body
+    - field.field.node.publication.field_author
+    - field.field.node.publication.field_date
+    - field.field.node.publication.field_documents
+    - field.field.node.publication.field_duration
+    - field.field.node.publication.field_file
+    - field.field.node.publication.field_gallery
+    - field.field.node.publication.field_image
+    - field.field.node.publication.field_keyword_tags
+    - field.field.node.publication.field_knowledge_level
+    - field.field.node.publication.field_media_type
+    - field.field.node.publication.field_primary_tag
+    - field.field.node.publication.field_related_content
+    - field.field.node.publication.field_resource_type
+    - field.field.node.publication.field_tags
+    - image.style.thumbnail
+    - node.type.publication
+  module:
+    - datetime
+    - file
+    - image
+    - paragraphs
+    - path
+    - text
+id: node.publication.default
+targetEntityType: node
+bundle: publication
+mode: default
+content:
+  body:
+    weight: 4
+    type: text_textarea_with_summary
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_author:
+    weight: 3
+    type: string_textfield
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_date:
+    weight: 15
+    type: datetime_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_documents:
+    weight: 16
+    type: file_generic
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    region: content
+  field_duration:
+    weight: 5
+    type: string_textfield
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_gallery:
+    weight: 22
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_image:
+    weight: 1
+    type: image_image
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings: {  }
+    region: content
+  field_keyword_tags:
+    weight: 9
+    type: options_select
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_knowledge_level:
+    weight: 13
+    type: options_select
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_media_type:
+    weight: 10
+    type: options_select
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_primary_tag:
+    weight: 7
+    type: options_select
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_related_content:
+    weight: 14
+    type: options_select
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_resource_type:
+    weight: 11
+    type: options_select
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_tags:
+    weight: 8
+    type: options_select
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 19
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 17
+    region: content
+    third_party_settings: {  }
+  publish_on:
+    weight: 122
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_timestamp
+    region: content
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 21
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 18
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 6
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+  unpublish_on:
+    weight: 123
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_timestamp
+    region: content
+  url_redirects:
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_file: true

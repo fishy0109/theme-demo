@@ -1,0 +1,28 @@
+uuid: 450fd013-c2db-4c80-8a30-6cad035f1ce9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_minisite_asset
+    - node.type.html_content_page
+  module:
+    - minisite
+id: node.html_content_page.field_minisite_asset
+field_name: field_minisite_asset
+entity_type: node
+bundle: html_content_page
+label: 'Minisite Asset'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: minisite/upload
+  file_extensions: 'zip tar'
+  max_filesize: '16 MB'
+  description_field: true
+  minisite_extensions: 'html htm js css png jpg gif svg pdf doc docx ppt pptx xls xlsx tif xml txt woff woff2 ttf eot xsd inf'
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: minisite

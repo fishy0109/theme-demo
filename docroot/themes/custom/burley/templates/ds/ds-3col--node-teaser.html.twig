@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Display Suite 3 column template.
+ *
+ * Available variables:
+ * - outer_wrapper: outer wrapper element
+ * - left_wrapper: wrapper element around left region
+ * - middle_wrapper: wrapper element around middle region
+ * - right_wrapper: wrapper element around right region
+ * - attributes: layout attributes
+ * - left_attributes: attributes for left region
+ * - middle_attributes: attributes for middle region
+ * - right_attributes: attributes for right region
+ * - left: content of left region
+ * - middle: content of middle region
+ * - right: content of right region
+ */
+#}
+
+<div class="container">
+<hr class="mt-5 mb-5">
+
+<{{ outer_wrapper }}{{ attributes.addClass('row', 'clearfix', 'burley-row') }}>
+
+  {{ title_suffix.contextual_links }}
+
+  <{{ left_wrapper }}{{ left_attributes.addClass('col-xs-12', 'col-md-3', 'burley-col') }}>
+    {{ left }}
+  </{{ left_wrapper }}>
+
+  <{{ middle_wrapper }}{{ middle_attributes.addClass('col-xs-12', 'col-md-3', 'scholar-name') }}>
+    {{ middle }}
+  </{{ middle_wrapper }}>
+
+  <{{ right_wrapper }}{{ right_attributes.addClass('col-xs-12', 'col-md-6', 'scholar-info') }}>
+    {{ right }}
+  </{{ right_wrapper }}>
+
+</{{ outer_wrapper }}>
+</div>

@@ -1,0 +1,15 @@
+uuid: 0e8356e6-7660-49ac-97a0-ca233910ca5c
+langcode: en
+status: true
+dependencies: {  }
+name: blog_teaser_thumbnail
+label: blog_teaser_thumbnail
+effects:
+  329e1535-7fcb-4f3e-846c-21deedb520e6:
+    uuid: 329e1535-7fcb-4f3e-846c-21deedb520e6
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 360
+      height: 180
+      anchor: center-center

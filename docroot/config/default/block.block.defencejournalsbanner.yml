@@ -1,0 +1,31 @@
+uuid: 97e35e8a-815d-470e-8a64-b1ee967ff26c
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:header_banner:30d17e9e-bd97-48ea-8d30-612c3ae8cf29'
+  module:
+    - block_content
+    - system
+  theme:
+    - forge_bootstrap
+id: defencejournalsbanner
+theme: forge_bootstrap
+region: header
+weight: -6
+provider: null
+plugin: 'block_content:30d17e9e-bd97-48ea-8d30-612c3ae8cf29'
+settings:
+  id: 'block_content:30d17e9e-bd97-48ea-8d30-612c3ae8cf29'
+  label: 'Defence Journals Banner'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /defence-journals
+    negate: false
+    context_mapping: {  }

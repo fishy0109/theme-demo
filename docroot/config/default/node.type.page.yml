@@ -1,0 +1,19 @@
+uuid: 54335a8e-65a6-41d8-82b4-92064794190c
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - menu-footer-sub-menu
+      - main-menu
+    parent: 'main-menu:0:'
+name: 'Standard page'
+type: page
+description: 'Use <em>Standard pages</em> for your static content such as an ''About us'' page or other informational pages that will always be accessible on the site.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,23 @@
+uuid: 1ab72678-afe4-4f37-9f60-bd948b33eaa1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_nl_style_classes
+    - paragraphs.paragraphs_type.node_list
+  module:
+    - options
+_core:
+  default_config_hash: Z5UfqK5hhHubqLLR-UpeXFJ3K4hyolouzOHgGvhLw8I
+id: paragraph.node_list.field_nl_style_classes
+field_name: field_nl_style_classes
+entity_type: paragraph
+bundle: node_list
+label: Style
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

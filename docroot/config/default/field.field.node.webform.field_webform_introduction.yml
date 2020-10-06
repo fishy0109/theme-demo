@@ -1,0 +1,23 @@
+uuid: 67aadc32-f5ea-4920-be99-974ed234da74
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_webform_introduction
+    - node.type.webform
+  module:
+    - text
+id: node.webform.field_webform_introduction
+field_name: field_webform_introduction
+entity_type: node
+bundle: webform
+label: 'Webform introduction'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

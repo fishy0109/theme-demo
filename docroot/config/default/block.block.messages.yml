@@ -1,0 +1,20 @@
+uuid: 516aa102-2b7f-4aea-867a-b98682dc3b4f
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - forge_bootstrap
+id: messages
+theme: forge_bootstrap
+region: messages
+weight: -9
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  provider: system
+  label_display: '0'
+visibility: {  }

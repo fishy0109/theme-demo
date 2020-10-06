@@ -1,0 +1,236 @@
+uuid: 251eefd4-c136-47d3-88a7-fbe7ddfcfcaa
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api_solr
+    - node
+    - search_api
+  config:
+    - field.storage.node.body
+    - field.storage.node.field_author
+    - field.storage.node.field_date
+    - field.storage.node.field_duration
+    - field.storage.node.field_keyword_tags
+    - field.storage.node.field_knowledge_level
+    - field.storage.node.field_media_type
+    - field.storage.node.field_primary_tag
+    - field.storage.node.field_related_content
+    - field.storage.node.field_resource_type
+    - field.storage.node.field_tags
+    - search_api.server.solr
+third_party_settings:
+  search_api_solr:
+    finalize: false
+    commit_before_finalize: false
+    commit_after_finalize: false
+    multilingual:
+      limit_to_content_language: false
+      include_language_independent: true
+    highlighter:
+      maxAnalyzedChars: 51200
+      fragmenter: gap
+      regex:
+        slop: 0.5
+        pattern: blank
+        maxAnalyzedChars: 10000
+      usePhraseHighlighter: true
+      highlightMultiTerm: true
+      preserveMulti: false
+      highlight:
+        mergeContiguous: false
+        requireFieldMatch: false
+        snippets: 3
+        fragsize: 0
+    mlt:
+      mintf: 1
+      mindf: 1
+      maxdf: 0
+      maxdfpct: 0
+      minwl: 0
+      maxwl: 0
+      maxqt: 100
+      maxntp: 2000
+      boost: false
+      interestingTerms: none
+    advanced:
+      index_prefix: ''
+      collection: ''
+      timezone: ''
+id: forge
+name: forge
+description: ''
+read_only: false
+field_settings:
+  body:
+    label: Body
+    datasource_id: 'entity:node'
+    property_path: body
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.body
+  changed:
+    label: Changed
+    datasource_id: 'entity:node'
+    property_path: changed
+    type: date
+    dependencies:
+      module:
+        - node
+  created:
+    label: 'Authored on'
+    datasource_id: 'entity:node'
+    property_path: created
+    type: date
+    dependencies:
+      module:
+        - node
+  field_author:
+    label: Author
+    datasource_id: 'entity:node'
+    property_path: field_author
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_author
+  field_date:
+    label: 'Date of Publication'
+    datasource_id: 'entity:node'
+    property_path: field_date
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_date
+  field_duration:
+    label: Duration
+    datasource_id: 'entity:node'
+    property_path: field_duration
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_duration
+  field_keyword_tags:
+    label: Keywords
+    datasource_id: 'entity:node'
+    property_path: field_keyword_tags
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_keyword_tags
+  field_knowledge_level:
+    label: 'JPMET level'
+    datasource_id: 'entity:node'
+    property_path: field_knowledge_level
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_knowledge_level
+  field_media_type:
+    label: 'Media type'
+    datasource_id: 'entity:node'
+    property_path: field_media_type
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_media_type
+  field_primary_tag:
+    label: 'Primary tag'
+    datasource_id: 'entity:node'
+    property_path: field_primary_tag
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_primary_tag
+  field_related_content:
+    label: 'Related Content'
+    datasource_id: 'entity:node'
+    property_path: field_related_content
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_related_content
+  field_resource_type:
+    label: 'Resource type'
+    datasource_id: 'entity:node'
+    property_path: field_resource_type
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_resource_type
+  field_tags:
+    label: Tags
+    datasource_id: 'entity:node'
+    property_path: field_tags
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_tags
+  langcode:
+    label: Language
+    datasource_id: 'entity:node'
+    property_path: langcode
+    type: string
+    dependencies:
+      module:
+        - node
+  nid:
+    label: ID
+    datasource_id: 'entity:node'
+    property_path: nid
+    type: integer
+    dependencies:
+      module:
+        - node
+  status:
+    label: Published
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    dependencies:
+      module:
+        - node
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: !!float 3
+    dependencies:
+      module:
+        - node
+  url:
+    label: URI
+    property_path: search_api_url
+    type: string
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: true
+      selected:
+        - course_description_page
+        - html_content_page
+        - journal
+        - multi_purpose_tiles_landing_page
+        - page
+        - slide
+        - webform
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  entity_status: {  }
+  language_with_fallback: {  }
+  rendered_item: {  }
+  solr_date_range:
+    weights:
+      preprocess_index: 0
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: solr

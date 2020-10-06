@@ -1,0 +1,28 @@
+uuid: 9ea03d34-24ba-474a-beb2-7336b9752ce0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.compact
+    - field.field.node.slide.body
+    - field.field.node.slide.field_read_more
+    - field.field.node.slide.field_slide_image
+    - node.type.slide
+  module:
+    - user
+id: node.slide.compact
+targetEntityType: node
+bundle: slide
+mode: compact
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  body: true
+  field_read_more: true
+  field_slide_image: true
+  langcode: true
+  search_api_excerpt: true

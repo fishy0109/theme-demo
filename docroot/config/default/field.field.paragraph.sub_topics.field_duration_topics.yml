@@ -1,0 +1,19 @@
+uuid: 4a6678c5-ce5e-40d9-963f-8def572ad159
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_duration_topics
+    - paragraphs.paragraphs_type.sub_topics
+id: paragraph.sub_topics.field_duration_topics
+field_name: field_duration_topics
+entity_type: paragraph
+bundle: sub_topics
+label: Duration
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

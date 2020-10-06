@@ -1,0 +1,21 @@
+uuid: 6484b4cf-ff50-4961-aa12-a53bbd4038f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_abstract
+    - paragraphs.paragraphs_type.multipurpose_tile
+  module:
+    - text
+id: paragraph.multipurpose_tile.field_abstract
+field_name: field_abstract
+entity_type: paragraph
+bundle: multipurpose_tile
+label: Abstract
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

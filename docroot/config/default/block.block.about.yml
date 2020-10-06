@@ -1,0 +1,31 @@
+uuid: 8c9f6ebc-d046-44c1-901a-5da9014d133d
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:homepage_featured:d8f061cc-c4c2-400c-8785-f5679d231fcc'
+  module:
+    - block_content
+    - system
+  theme:
+    - forge_bootstrap
+id: about
+theme: forge_bootstrap
+region: content
+weight: -5
+provider: null
+plugin: 'block_content:d8f061cc-c4c2-400c-8785-f5679d231fcc'
+settings:
+  id: 'block_content:d8f061cc-c4c2-400c-8785-f5679d231fcc'
+  label: About
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,77 @@
+uuid: a893c287-468a-4ebb-9265-fe9ba773289f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.webform.field_webform
+    - field.field.node.webform.field_webform_introduction
+    - node.type.webform
+  module:
+    - ds
+    - panelizer
+    - text
+    - user
+    - webform
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+          ds_content: {  }
+    regions:
+      ds_content:
+        - node_title
+        - field_webform_introduction
+        - field_webform
+        - links
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
+id: node.webform.default
+targetEntityType: node
+bundle: webform
+mode: default
+content:
+  field_webform:
+    weight: 2
+    label: hidden
+    settings:
+      source_entity: true
+    third_party_settings: {  }
+    type: webform_entity_reference_entity_view
+    region: ds_content
+  field_webform_introduction:
+    label: hidden
+    weight: 1
+    type: text_default
+    settings: {  }
+    third_party_settings: {  }
+    region: ds_content
+  links:
+    weight: 3
+    region: ds_content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  search_api_excerpt: true

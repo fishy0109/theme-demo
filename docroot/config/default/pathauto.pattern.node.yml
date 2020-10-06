@@ -1,0 +1,28 @@
+uuid: d9f8e7e7-6cf7-4edb-bd27-d2d43714c835
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node
+label: 'Content - default'
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria:
+  d7733305-d7f1-460f-a07b-06fa0e898467:
+    id: node_type
+    bundles:
+      course_description_page: course_description_page
+      html_content_page: html_content_page
+      journal: journal
+      multi_purpose_tiles_landing_page: multi_purpose_tiles_landing_page
+      page: page
+      slide: slide
+      webform: webform
+    negate: false
+    context_mapping:
+      node: node
+    uuid: d7733305-d7f1-460f-a07b-06fa0e898467
+selection_logic: and
+weight: 0
+relationships: {  }

@@ -1,0 +1,13 @@
+name: Events Log Track User
+description: 'Logs user CUD events performed by the user.'
+type: module
+dependencies:
+  - event_log_track
+# core: '8.x'
+package: Statistics
+
+# Information added by Drupal.org packaging script on 2017-02-23
+version: '8.x-1.1'
+core: '8.x'
+project: 'events_log_track'
+datestamp: 1487851990

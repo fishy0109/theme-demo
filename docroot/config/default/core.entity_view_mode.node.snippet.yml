@@ -1,0 +1,10 @@
+uuid: 09b0ad55-2015-4bf9-8fe5-58281393f5f9
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.snippet
+label: snippet
+targetEntityType: node
+cache: true

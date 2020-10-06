@@ -1,0 +1,29 @@
+<header id="header" class="main-header" role="banner" aria-label="{{ 'Site header'|t }}">
+    {% if page.announcement %}
+        {{ page.announcement }}
+    {% endif %}
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">{{ page.header_logo }}</div>
+                <div class="col-sm-6">
+                    {{ page.seconday_menu }}
+                    {{ page.header_search }}
+                </div>
+
+                {# Button to clone in menu #}
+                <button id="mobile-menu-button" class="hamburger hamburger--spin" type="button" aria-hidden="true" hidden aria-controls="mobile-menu">
+                  <span class="mobile-wrapper">
+                      <span class="label">
+                    <span class="sr-only">Mobile</span>MENU
+                  </span>
+                      <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                  </span>
+                  </span>
+
+                </button>
+            </div>
+        </div>
+    </div>
+</header>

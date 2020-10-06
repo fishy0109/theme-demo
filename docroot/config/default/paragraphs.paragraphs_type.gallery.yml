@@ -1,0 +1,9 @@
+uuid: ea3a803d-9fdb-4763-987a-00d86e76a95b
+langcode: en
+status: true
+dependencies: {  }
+id: gallery
+label: Gallery
+icon_uuid: null
+description: 'A paragraph for gallery images.'
+behavior_plugins: {  }

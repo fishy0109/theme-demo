@@ -1,0 +1,29 @@
+uuid: 7a3b3363-389a-4640-83da-c32c18584197
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.core_areas_of_study
+  module:
+    - system
+    - views
+  theme:
+    - forge_bootstrap
+id: exposedformcore_areas_of_studypage_2
+theme: forge_bootstrap
+region: sidebar_first
+weight: -10
+provider: null
+plugin: 'views_exposed_filter_block:core_areas_of_study-page_2'
+settings:
+  id: 'views_exposed_filter_block:core_areas_of_study-page_2'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: 'Limit by keywords'
+visibility:
+  request_path:
+    id: request_path
+    pages: /core-areas-of-study
+    negate: false
+    context_mapping: {  }

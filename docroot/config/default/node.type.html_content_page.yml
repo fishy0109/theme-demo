@@ -1,0 +1,17 @@
+uuid: 10f8f729-4a8b-45cf-8cd0-1bb75aa43f61
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'HTML Content Page'
+type: html_content_page
+description: ''
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

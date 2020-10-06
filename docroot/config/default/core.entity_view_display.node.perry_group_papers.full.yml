@@ -1,0 +1,281 @@
+uuid: 2618017f-a146-43a5-ac84-591188f30fc6
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.perry_group_papers.body
+    - field.field.node.perry_group_papers.field_contributors
+    - field.field.node.perry_group_papers.field_duration
+    - field.field.node.perry_group_papers.field_file
+    - field.field.node.perry_group_papers.field_image
+    - field.field.node.perry_group_papers.field_team
+    - field.field.node.perry_group_papers.field_year
+    - node.type.perry_group_papers
+  module:
+    - ds
+    - field_group
+    - file
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+          ds_content: {  }
+    regions:
+      ds_content:
+        - group_row
+        - body
+        - field_team
+        - field_contributors
+        - field_file
+        - 'dynamic_token_field:node-share_this'
+        - 'dynamic_token_field:node-logo_of_the_perry_group'
+        - group_left_column
+        - group_column_right
+    fields:
+      'dynamic_token_field:node-logo_of_the_perry_group':
+        plugin_id: 'dynamic_token_field:node-logo_of_the_perry_group'
+        weight: 9
+        label: hidden
+        formatter: default
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: logo
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+      'dynamic_token_field:node-share_this':
+        plugin_id: 'dynamic_token_field:node-share_this'
+        weight: 8
+        label: hidden
+        formatter: default
+  field_group:
+    group_row:
+      children:
+        - group_left_column
+        - group_column_right
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      region: ds_content
+      format_settings:
+        id: ''
+        classes: row
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+      label: Row
+    group_left_column:
+      children:
+        - field_team
+        - field_contributors
+        - field_file
+        - 'dynamic_token_field:node-share_this'
+        - 'dynamic_token_field:node-logo_of_the_perry_group'
+      parent_name: group_row
+      weight: 20
+      format_type: html_element
+      region: ds_content
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: col-md-3
+      label: 'Left column'
+    group_column_right:
+      children:
+        - body
+      parent_name: group_row
+      weight: 21
+      format_type: html_element
+      region: ds_content
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: col-md-9
+      label: 'Column right'
+id: node.perry_group_papers.full
+targetEntityType: node
+bundle: perry_group_papers
+mode: full
+content:
+  body:
+    type: text_default
+    weight: 3
+    region: ds_content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_contributors:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw: true
+            lbw-el: h5
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: contributor
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: ''
+            fi-cl: mb-3
+            fi-at: ''
+            suffix: ''
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
+    type: text_default
+    region: ds_content
+  field_file:
+    weight: 7
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw: true
+            lbw-el: h5
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: download
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+    type: file_default
+    region: ds_content
+  field_team:
+    type: text_default
+    weight: 5
+    region: ds_content
+    label: above
+    settings: {  }
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw: true
+            lbw-el: h5
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: team-wrapper
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+hidden:
+  field_duration: true
+  field_image: true
+  field_year: true
+  langcode: true
+  links: true
+  search_api_excerpt: true

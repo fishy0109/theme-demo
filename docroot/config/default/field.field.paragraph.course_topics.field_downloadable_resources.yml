@@ -1,0 +1,76 @@
+uuid: 30a7236c-c02f-4352-8bf2-9a2e2a94a719
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_downloadable_resources
+    - paragraphs.paragraphs_type.course_topics
+    - paragraphs.paragraphs_type.downloadable_resources
+  module:
+    - entity_reference_revisions
+id: paragraph.course_topics.field_downloadable_resources
+field_name: field_downloadable_resources
+entity_type: paragraph
+bundle: course_topics
+label: 'Downloadable Resources'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler_settings:
+    negate: 0
+    target_bundles:
+      downloadable_resources: downloadable_resources
+    target_bundles_drag_drop:
+      course_topics:
+        enabled: false
+        weight: 2
+      downloadable_resources:
+        enabled: true
+        weight: 3
+      sub_topics:
+        enabled: false
+        weight: 4
+      accordion:
+        enabled: false
+        weight: 5
+      accordion_group:
+        enabled: false
+        weight: 6
+      color_background_modifier:
+        enabled: false
+        weight: 7
+      content:
+        enabled: false
+        weight: 8
+      custom_linear_gradient_modifier:
+        enabled: false
+        weight: 9
+      image_bg_modifier:
+        enabled: false
+        weight: 10
+      item:
+        enabled: false
+        weight: 11
+      item_list:
+        enabled: false
+        weight: 12
+      multipurpose_tile:
+        enabled: false
+        weight: 13
+      node_list:
+        enabled: false
+        weight: 14
+      padding_modifier:
+        enabled: false
+        weight: 15
+      parallax_bg_modifier:
+        enabled: false
+        weight: 16
+      relative_height_modifier:
+        enabled: false
+        weight: 17
+  handler: 'default:paragraph'
+field_type: entity_reference_revisions

@@ -1,0 +1,9 @@
+uuid: 6c2eb4f5-c213-4bca-aded-94165fc54f59
+langcode: en
+status: true
+dependencies: {  }
+id: multipurpose_tile
+label: 'Multipurpose tile'
+icon_uuid: null
+description: 'Migrated from paragraph bundle Multipurpose tile'
+behavior_plugins: {  }

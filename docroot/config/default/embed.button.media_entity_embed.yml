@@ -1,0 +1,40 @@
+uuid: f179355f-d223-43da-849c-a41c2477acf2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.embed
+    - core.entity_view_mode.media.media_library
+    - entity_browser.browser.govcms_media_editor_browser
+    - media.type.audio
+    - media.type.file
+    - media.type.image
+    - media.type.remote_video
+    - media.type.video
+  module:
+    - entity_embed
+    - media
+_core:
+  default_config_hash: vWVxoXCJS4M-f-idZ8Dc-6VkzJRQEZUtWcZ22evpIjo
+label: 'Media Entity Embed'
+id: media_entity_embed
+type_id: entity
+type_settings:
+  entity_type: media
+  bundles:
+    - audio
+    - file
+    - image
+    - remote_video
+    - video
+  display_plugins:
+    - 'entity_reference:media_thumbnail'
+    - 'view_mode:media.embed'
+    - 'view_mode:media.media_library'
+  entity_browser: govcms_media_editor_browser
+  entity_browser_settings:
+    display_review: false
+icon:
+  data: iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAA2FBMVEUAAAAAAAD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8AAAAAAAAGBgYAAAAAAABaWlpgYGAHBwcODg4KCgoAAAAAAAAdHR0JCQn///8VFRUZGRkZGRn///8mJiYAAAAMDAwODg4PDw8SEhITExMUFBQXFxcaGhocHBweHh4fHx8iIiIjIyMlJSUpKSkqKiotLS02NjY4ODg5OTk7Ozs8PDw+Pj5AQEBBQUFCQkJERERHR0dJSUlKSkpLS0tMTExOTk5PT09QUFBRUVFSUlJVVVVZWVl33uIHAAAAIHRSTlMACAgKFSEqTFBVYHR2fpygqq2tztXb5ebm6urv8vX4/sE9S38AAACNSURBVBgZhcFXF4FgAIDhV7bskc0XKrIyS1b2//9HnKMLXXke+E8EAIvODwuYSOlqWvKNABNlr+AzAINirYBPA/rIDZmPeAZ0QOUr2uwmMAEVUvkIodLz1YrNAY1Ye11PZg+P+7ViAeNw2bt50+XldDxvZ4CZ27jOznUd27ZXQ0AIQ9e+Bj0BdAIAKYA3G08S5VN3OnoAAAAASUVORK5CYII=
+  uri: 'public://embed_buttons/drupalimage.png'
+icon_uuid: null

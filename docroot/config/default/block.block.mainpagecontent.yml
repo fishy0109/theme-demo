@@ -1,0 +1,25 @@
+uuid: eba85d53-0800-42b8-ad3b-2efd8e447bd3
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - forge_bootstrap
+id: mainpagecontent
+theme: forge_bootstrap
+region: content
+weight: -8
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: true
+    context_mapping: {  }

@@ -1,0 +1,362 @@
+
+#page-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.main-content {
+  width: 100%;
+}
+
+.section-header {
+  background-image: url('../../../assets/img/federal-capital-plan.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  .section-name {
+    font-size: $h2-font-size;
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+    color: $nca-orange;
+  }
+}
+
+#block-owhsp-mainpagecontent {
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: $spacer * 5;
+}
+
+.lead {
+  color: $jungle;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+//Sidebar
+.region-sidebar {
+  margin-top: $spacer * 5;
+  margin-left: 0;
+  margin-right: 0;
+
+  nav {
+    width: 100%;
+
+    ul {
+      li.nav-item {
+        background-color: $grey-50;
+        border-bottom: 1px solid $grey-50;
+
+        a {
+          font-size: $med-font-size;
+          padding: $spacer * 0.7 $spacer !important;
+          display: block;
+
+          &:after {
+            display: none;
+          }
+        }
+
+        &:not(.active){
+          display: none;
+        }
+
+        &.active {
+          border-left: 1px solid rgba(0, 0, 0, 0.1);
+          border-right: 1px solid rgba(0, 0, 0, 0.1);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+          a.nav-link {
+            font-weight: 600;
+          }
+        }
+
+        ul.dropdown-menu {
+          display: block;
+          padding: 0;
+          margin: 0;
+          border: none;
+
+          li {
+            background-color: $white;
+            padding: 0;
+
+            &.active {
+              box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1), inset 8px 0px 0px 0px $grey-50;
+            }
+            
+            a {
+              &:hover {
+                text-decoration: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//Breadcrumb
+.block-system-breadcrumb-block {
+  padding-left: 0;
+  padding-right: 0;
+
+  .breadcrumb {
+    background-color: transparent;
+    padding: $spacer 0;
+  }
+}
+
+//Table of contents
+.table-of-contents {
+  background-color: $grey-50;
+  padding: $spacer;
+}
+
+.block-entity-fieldnodetitle {
+  display: none;
+}
+
+//basic page
+.node--type-page.node--view-mode-full {
+  .full-width {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    height: 480px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .banner-inner-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 480px;
+  }
+
+  .banner-inner {
+    opacity: .9;
+
+    .col-md-6 {
+      background-color: $white;
+      padding: 1.5rem;
+      border-radius: 5px;
+      border-bottom: $border-width-bottom solid $grey-50;
+    }
+
+    .text {
+      font-size: $h2-font-size;
+      color: $text-black;
+      line-height: 1.3;
+      margin-bottom: 2rem;
+    }
+
+    a {
+      @include arrow-link($text-grey, $text-muted, $med-font-size);
+      text-transform: uppercase;
+    }
+  }
+
+  .field--name-node-title {
+    position: relative;
+
+    h1 {
+      color: $white;
+    }
+  }
+
+  .field--name-field-optional-components {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+
+    .paragraph--type-page-content-two-column {
+      margin-bottom: 3rem;
+    }
+
+    h3 {
+      color: $jungle;
+      font-weight: 300;
+      margin-bottom: 3rem;
+    }
+  }
+
+  .paragraph--type--image-with-caption {
+    .field--name-field-image {
+      margin-right: 0;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        margin: 0;
+      }
+    }
+
+    .field--name-field-image-caption {
+      background-color: $grey-10;
+      padding: 2rem;
+    }
+  }
+}
+
+.image-caption-group {
+  .field--name-field-image {
+    margin: 0;
+
+    img {
+      margin: 0;
+      max-width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px 5px 0 0;
+    }
+  }
+
+  .image-caption {
+    background-color: $grey-10;
+    padding: 1rem;
+    border-radius: 0 0 5px 5px;
+    font-size: $small-font-size;
+    display: flex;
+  }
+}
+
+// Views pagination
+.view {
+
+  nav.pager {
+    padding-top: 3rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  nav.pager,
+  nav.summary {
+    ul.pagination {
+      li {
+        padding: 0;
+        a {
+          border-color: $text-grey;
+          color: $text-grey;
+
+          &:hover {
+            background-color: $text-grey;
+            border-color: $text-grey;
+            color: $white;
+          }
+        }
+
+        &.active {
+          .page-link {
+            background-color: $text-grey;
+            border-color: $text-grey;
+          }
+        }
+
+        a.is-active.page-link {
+          background-color: $text-grey;
+          border-color: $text-grey;
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+// Share links
+.icon-large {
+  a {
+    margin-right: .5rem;
+
+    svg {
+      font-size: $h3-font-size;
+      color: $nca-blue;
+    }
+
+    &:hover svg {
+      color: $nca-blue-dark;
+    }
+  }
+}
+
+span.divider-inline {
+  padding-left: .5rem;
+  margin-right: .5rem;
+  border-right: 1px solid $grey-25;
+  display: inline-block;
+  width: 1px;
+  height: 100%;
+}
+
+.document-link-external {
+  display: inline-flex;
+  align-items: center;
+}
+
+.badge {
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: .9rem;
+}
+
+.badge-secondary {
+  background: $grey-50;
+}
+
+//Documents
+.path-documents {
+  .view-id-documents {
+    .view-filters {
+      margin: 2rem 0;
+
+      .form-row {
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .js-form-item {
+        margin-bottom: 0;
+      }
+
+      #edit-field-business-area-target-id,
+      #edit-title {
+        display: inline;
+        width: auto;
+        margin-left: 0.5rem;
+      }
+
+      #edit-submit-documents {
+        width: 20%;
+      }
+    }
+
+    .node--type-document {
+      border-top: 1px solid $grey-25;
+      padding-top: 2rem;
+      padding-bottom: 1.5rem;
+
+      .field--name-body {
+        margin-top: 1rem;
+        p {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.row-search-result {
+  border-top: 1px solid $grey-25;
+}
+
+// Generic views pagination
+.view  nav.pager {
+  @include pagination();
+}

@@ -1,0 +1,23 @@
+uuid: 35b38a7f-e599-44bb-9d11-186ba7cf6e2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_read_more
+    - node.type.journal
+  module:
+    - link
+id: node.journal.field_read_more
+field_name: field_read_more
+entity_type: node
+bundle: journal
+label: Link
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

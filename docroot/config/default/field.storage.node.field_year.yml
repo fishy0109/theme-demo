@@ -1,0 +1,36 @@
+uuid: feb8e8a8-56f0-4c35-9603-e14c1a5b55f5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_year
+field_name: field_year
+entity_type: node
+type: list_integer
+settings:
+  allowed_values:
+    -
+      value: 2020
+      label: '2020'
+    -
+      value: 2021
+      label: '2021'
+    -
+      value: 2022
+      label: '2022'
+    -
+      value: 2023
+      label: '2023'
+    -
+      value: 2024
+      label: '2024'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

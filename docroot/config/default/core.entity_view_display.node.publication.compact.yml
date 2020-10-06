@@ -1,0 +1,76 @@
+uuid: 7aac07f7-4000-4c24-9525-5ae7ab8b71c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.compact
+    - field.field.node.publication.body
+    - field.field.node.publication.field_author
+    - field.field.node.publication.field_date
+    - field.field.node.publication.field_documents
+    - field.field.node.publication.field_duration
+    - field.field.node.publication.field_file
+    - field.field.node.publication.field_gallery
+    - field.field.node.publication.field_image
+    - field.field.node.publication.field_keyword_tags
+    - field.field.node.publication.field_knowledge_level
+    - field.field.node.publication.field_media_type
+    - field.field.node.publication.field_primary_tag
+    - field.field.node.publication.field_related_content
+    - field.field.node.publication.field_resource_type
+    - field.field.node.publication.field_tags
+    - image.style.feature_article
+    - node.type.publication
+  module:
+    - image
+    - user
+id: node.publication.compact
+targetEntityType: node
+bundle: publication
+mode: compact
+content:
+  field_author:
+    label: hidden
+    weight: 2
+    type: string
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  field_duration:
+    label: hidden
+    weight: 1
+    type: string
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  field_image:
+    label: hidden
+    weight: 0
+    type: image
+    settings:
+      image_style: feature_article
+      image_link: content
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  body: true
+  field_date: true
+  field_documents: true
+  field_file: true
+  field_gallery: true
+  field_keyword_tags: true
+  field_knowledge_level: true
+  field_media_type: true
+  field_primary_tag: true
+  field_related_content: true
+  field_resource_type: true
+  field_tags: true
+  langcode: true
+  search_api_excerpt: true

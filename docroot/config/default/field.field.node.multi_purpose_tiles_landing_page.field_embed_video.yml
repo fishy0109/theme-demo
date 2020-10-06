@@ -1,0 +1,21 @@
+uuid: 27d1bb5a-cdc6-478f-9803-67e7a5e349b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_embed_video
+    - node.type.multi_purpose_tiles_landing_page
+  module:
+    - text
+id: node.multi_purpose_tiles_landing_page.field_embed_video
+field_name: field_embed_video
+entity_type: node
+bundle: multi_purpose_tiles_landing_page
+label: 'Embed Video'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

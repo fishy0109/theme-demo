@@ -1,0 +1,26 @@
+uuid: eee53282-a237-4c80-b00e-b8c9d6f5240c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_resource_type
+    - node.type.publication
+    - taxonomy.vocabulary.resource_type
+id: node.publication.field_resource_type
+field_name: field_resource_type
+entity_type: node
+bundle: publication
+label: 'Resource type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler_settings:
+    sort:
+      field: _none
+    target_bundles:
+      resource_type: resource_type
+  handler: 'default:taxonomy_term'
+field_type: entity_reference

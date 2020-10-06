@@ -1,0 +1,30 @@
+uuid: fd975690-a8c4-4817-9919-4978572c2484
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.core_study_areas_home_page_
+  module:
+    - system
+    - views
+  theme:
+    - forge_bootstrap
+id: views_block__core_study_areas_home_page__block_1
+theme: forge_bootstrap
+region: content
+weight: -7
+provider: null
+plugin: 'views_block:core_study_areas_home_page_-block_1'
+settings:
+  id: 'views_block:core_study_areas_home_page_-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

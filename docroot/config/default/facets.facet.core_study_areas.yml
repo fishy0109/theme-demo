@@ -1,0 +1,58 @@
+uuid: 73791b5b-8065-457b-92ab-4c385cf76dcd
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.forge
+    - views.view.core_areas_of_study
+  module:
+    - search_api
+id: core_study_areas
+name: Tags
+url_alias: core_study_areas
+weight: 0
+min_count: 0
+show_only_one_result: false
+field_identifier: field_tags
+facet_source_id: 'search_api:views_page__core_areas_of_study__page_1'
+widget:
+  type: checkbox
+  config:
+    show_numbers: false
+    soft_limit: 50
+    soft_limit_settings:
+      show_less_label: 'Show less'
+      show_more_label: 'Show more'
+query_operator: or
+use_hierarchy: true
+expand_hierarchy: true
+enable_parent_when_child_gets_disabled: true
+hard_limit: 100
+exclude: false
+only_visible_when_facet_source_is_visible: false
+processor_configs:
+  display_value_widget_order:
+    processor_id: display_value_widget_order
+    weights:
+      sort: 40
+    settings:
+      sort: DESC
+  list_item:
+    processor_id: list_item
+    weights:
+      build: 5
+    settings: {  }
+  translate_entity:
+    processor_id: translate_entity
+    weights:
+      build: 5
+    settings: {  }
+  url_processor_handler:
+    processor_id: url_processor_handler
+    weights:
+      pre_query: 50
+      build: 15
+    settings: {  }
+empty_behavior:
+  behavior: none
+show_title: true

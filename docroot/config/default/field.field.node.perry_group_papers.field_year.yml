@@ -1,0 +1,23 @@
+uuid: b63263e5-a92c-4a12-82e0-87e5f830fddb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_year
+    - node.type.perry_group_papers
+  module:
+    - options
+id: node.perry_group_papers.field_year
+field_name: field_year
+entity_type: node
+bundle: perry_group_papers
+label: Year
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 2020
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

@@ -1,0 +1,43 @@
+uuid: 672998dd-84bf-45b6-a343-3a9a2b6d6858
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.sub_topics.field_duration_topics
+    - field.field.paragraph.sub_topics.field_link
+    - field.field.paragraph.sub_topics.field_med
+    - paragraphs.paragraphs_type.sub_topics
+  module:
+    - file
+    - link
+id: paragraph.sub_topics.default
+targetEntityType: paragraph
+bundle: sub_topics
+mode: default
+content:
+  field_duration_topics:
+    weight: 3
+    type: string_textfield
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_link:
+    weight: 1
+    type: link_default
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    region: content
+  field_med:
+    weight: 4
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+hidden:
+  created: true
+  status: true

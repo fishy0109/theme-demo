@@ -1,0 +1,11 @@
+uuid: 492e0ca5-685c-426d-ad35-4b6217e75a54
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.course_description_page
+id: node.course_description_page
+target_entity_type_id: node
+target_bundle: course_description_page
+default_langcode: site_default
+language_alterable: false

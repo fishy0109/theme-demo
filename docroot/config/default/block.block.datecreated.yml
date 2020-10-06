@@ -1,0 +1,29 @@
+uuid: 0191d7d5-7a15-46b1-acf4-99b05fc95f97
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.date_created
+  module:
+    - facets
+    - system
+  theme:
+    - forge_bootstrap
+id: datecreated
+theme: forge_bootstrap
+region: sidebar_first
+weight: -5
+provider: null
+plugin: 'facet_block:date_created'
+settings:
+  id: 'facet_block:date_created'
+  label: 'Limit by date'
+  provider: facets
+  label_display: '0'
+  block_id: datecreated
+visibility:
+  request_path:
+    id: request_path
+    pages: /core-areas-of-study
+    negate: false
+    context_mapping: {  }

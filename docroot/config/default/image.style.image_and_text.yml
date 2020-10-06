@@ -1,0 +1,15 @@
+uuid: f9237433-3ffd-40be-a062-96bac2eedcdc
+langcode: en
+status: true
+dependencies: {  }
+name: image_and_text
+label: image_and_text
+effects:
+  e3817ee3-debf-4124-850f-4fe5388e8155:
+    uuid: e3817ee3-debf-4124-850f-4fe5388e8155
+    id: image_scale
+    weight: 1
+    data:
+      width: 300
+      height: null
+      upscale: false

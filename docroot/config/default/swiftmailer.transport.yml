@@ -1,0 +1,14 @@
+transport: smtp
+smtp_host: 34.192.182.255
+smtp_port: 587
+smtp_encryption: '0'
+smtp_credential_provider: swiftmailer
+smtp_credentials:
+  swiftmailer:
+    username: 9e56bfda35396e
+    password: 0e50cddfd63567
+sendmail_path: /usr/sbin/sendmail
+sendmail_mode: bs
+spool_directory: ''
+_core:
+  default_config_hash: 0dJfQivKgyEp-S8D6gSRTBbpRFApE3VkpltnPMBQ5OY

@@ -1,0 +1,165 @@
+uuid: 6cd5f765-1c5e-4ce9-a5f3-88cbed5c5b1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.course_description_page.field_course_topics
+    - field.field.node.course_description_page.field_embed_video
+    - field.field.node.course_description_page.field_gallery
+    - field.field.node.course_description_page.field_hero_image
+    - field.field.node.course_description_page.field_tags
+    - field.field.node.course_description_page.field_text
+    - field.field.node.course_description_page.field_total_time_full_course
+    - node.type.course_description_page
+  module:
+    - entity_browser
+    - paragraphs
+    - path
+    - text
+id: node.course_description_page.default
+targetEntityType: node
+bundle: course_description_page
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_course_topics:
+    weight: 5
+    type: entity_reference_paragraphs
+    settings:
+      title: 'Course Topic'
+      title_plural: 'Course Topics'
+      edit_mode: open
+      add_mode: select
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_embed_video:
+    weight: 3
+    type: text_textarea
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_gallery:
+    weight: 14
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_hero_image:
+    weight: 1
+    type: entity_browser_file
+    settings:
+      entity_browser: null
+      open: false
+      field_widget_edit: true
+      field_widget_remove: true
+      field_widget_replace: false
+      selection_mode: selection_append
+      view_mode: default
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    region: content
+  field_tags:
+    weight: 6
+    type: entity_reference_autocomplete
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_text:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_total_time_full_course:
+    weight: 4
+    type: string_textfield
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  path:
+    type: path
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 8
+    region: content
+    third_party_settings: {  }
+  publish_on:
+    weight: 122
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_timestamp
+    region: content
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 13
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 9
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 12
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+  unpublish_on:
+    weight: 123
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_timestamp
+    region: content
+  url_redirects:
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true

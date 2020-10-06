@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * The Custom permissions .module file.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function config_perms_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the config_perms module.
+    case 'help.page.config_perms':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Allows additional permissions to be created and managed through an administration form.') . '</p>';
+      return $output;
+
+    default:
+  }
+}

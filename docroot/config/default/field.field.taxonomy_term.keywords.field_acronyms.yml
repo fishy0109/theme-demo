@@ -1,0 +1,19 @@
+uuid: 59334981-9cf3-44f7-9bd5-407c47abfd8c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_acronyms
+    - taxonomy.vocabulary.keywords
+id: taxonomy_term.keywords.field_acronyms
+field_name: field_acronyms
+entity_type: taxonomy_term
+bundle: keywords
+label: Acronym
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

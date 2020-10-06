@@ -1,0 +1,127 @@
+uuid: f7beafbd-3589-45fc-9c76-1c642080277e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.sub_topics.field_duration_topics
+    - field.field.paragraph.sub_topics.field_link
+    - field.field.paragraph.sub_topics.field_med
+    - paragraphs.paragraphs_type.sub_topics
+  module:
+    - ds
+    - file
+    - link
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+          ds_content: {  }
+    regions:
+      ds_content:
+        - field_link
+        - field_duration_topics
+        - field_med
+id: paragraph.sub_topics.default
+targetEntityType: paragraph
+bundle: sub_topics
+mode: default
+content:
+  field_duration_topics:
+    label: hidden
+    weight: 2
+    type: string
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: '<div class="sub-time"><i class="fal fa-clock"></i>'
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ' min</div>'
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+    region: ds_content
+  field_link:
+    label: hidden
+    weight: 1
+    type: link
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: sub-link
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+    region: ds_content
+  field_med:
+    weight: 3
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: ds_content
+hidden:
+  search_api_excerpt: true

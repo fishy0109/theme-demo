@@ -1,0 +1,20 @@
+uuid: 61603ee1-7abf-4b4a-a298-7d5d582084ae
+langcode: en
+status: true
+dependencies:
+  theme:
+    - govcms8_uikit_starter
+_core:
+  default_config_hash: F8G-O2sT1T8GdvMmJu8snYWEsF8cLJ_ZXgnuA7PupQg
+id: govcms8_uikit_starter_pagetitle
+theme: govcms8_uikit_starter
+region: content_top
+weight: -3
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

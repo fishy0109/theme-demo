@@ -1,0 +1,21 @@
+uuid: 577fee52-2227-4e27-90c4-124338adc07d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_published_date_time
+    - node.type.govcms_news_and_media
+_core:
+  default_config_hash: 4k1A9t04L5a-SdZsvikrp2VrhyWfVeynH2JWE7R5kzk
+id: node.govcms_news_and_media.field_published_date_time
+field_name: field_published_date_time
+entity_type: node
+bundle: govcms_news_and_media
+label: 'Published Date Time'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

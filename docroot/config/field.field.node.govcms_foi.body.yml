@@ -1,0 +1,25 @@
+uuid: a0785aa3-9a00-40a9-b041-05e61bbd82fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.govcms_foi
+  module:
+    - text
+_core:
+  default_config_hash: iqbWmv4mPxjf8Ytjj1DGa94GYY4rSWbfoDDvLYfK8ko
+id: node.govcms_foi.body
+field_name: body
+entity_type: node
+bundle: govcms_foi
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

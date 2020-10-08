@@ -1,8 +1,0 @@
-uuid: 78bdcbc4-f6dd-48b9-a6c4-ea8f07ae9d1a
-langcode: en
-status: true
-dependencies: {  }
-id: menu-global-navigation
-label: 'Main menu'
-description: 'The <em>Main</em> menu is used as a top navigation bar. <em>Forge</em>'
-locked: false

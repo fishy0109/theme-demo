@@ -1,0 +1,20 @@
+uuid: e2ad8109-687b-4ea0-9a0a-c47b49beaa71
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: fHNFBVh0fngmEYZmCKWhDSL4MbZjP3b-l61gfaftzM8
+id: node.field_published_date_time
+field_name: field_published_date_time
+entity_type: node
+type: timestamp
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

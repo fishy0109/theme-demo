@@ -1,8 +1,0 @@
-uuid: 300c4b04-62b7-45d0-a320-e919129f448a
-langcode: en
-status: true
-dependencies: {  }
-name: 'JPMET level'
-vid: knowledge_level
-description: ''
-weight: 0

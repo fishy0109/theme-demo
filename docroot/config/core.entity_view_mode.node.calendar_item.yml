@@ -1,0 +1,12 @@
+uuid: fa752eaa-8d43-4264-ae04-7715e230a4ea
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: zymJ35TCC0gyroRxZ4kEXlfxr3c-wEz9xY8T3l0Wlng
+id: node.calendar_item
+label: 'Calendar Item'
+targetEntityType: node
+cache: true

@@ -1,9 +1,0 @@
-uuid: a59bdb8f-818c-4a15-98be-200fabc66c0e
-langcode: en
-status: true
-dependencies: {  }
-id: sub_topics
-label: 'Sub Topics'
-icon_uuid: null
-description: 'Migrated from paragraph bundle Sub Topics'
-behavior_plugins: {  }

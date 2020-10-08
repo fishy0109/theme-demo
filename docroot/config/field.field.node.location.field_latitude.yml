@@ -1,0 +1,19 @@
+uuid: aebad701-dda1-4e34-aa6f-b5caf3735116
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_latitude
+    - node.type.location
+id: node.location.field_latitude
+field_name: field_latitude
+entity_type: node
+bundle: location
+label: Latitude
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,8 +1,0 @@
-uuid: 476d4ac2-fa8b-46c0-b065-a357ab99ea77
-langcode: en
-status: true
-dependencies: {  }
-name: 'Resource type'
-vid: resource_type
-description: ''
-weight: 0

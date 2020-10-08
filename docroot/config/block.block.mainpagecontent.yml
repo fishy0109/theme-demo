@@ -1,0 +1,22 @@
+uuid: 068f13f1-655f-418e-92fa-a2f09c41a632
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - govcmsui
+_core:
+  default_config_hash: SN5O4USMIjJN3W2ACICn7niq8JUUgNoMRGwhwmjMfkw
+id: mainpagecontent
+theme: govcmsui
+region: content
+weight: -2
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,15 @@
+uuid: 8e239291-6d8c-4ac4-b234-41dfb5aca9a4
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: axzDyuy3KDeA93-lszUATAWLasb3I5OZlA_CE8MPcyw
+id: file
+label: File
+description: 'Used for managing files.'
+source: file
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_file
+field_map: {  }

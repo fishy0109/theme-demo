@@ -1,0 +1,23 @@
+uuid: d7b4e40f-e8ea-4397-ad54-f50ab66046b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_media_release_type
+    - node.type.govcms_news_and_media
+  module:
+    - options
+_core:
+  default_config_hash: 94OhqIIVdoS6FNZ-cMPzAYZQJzLuJcdhIjtg2cxqOWk
+id: node.govcms_news_and_media.field_media_release_type
+field_name: field_media_release_type
+entity_type: node
+bundle: govcms_news_and_media
+label: 'Media Release Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,25 @@
+uuid: a8d46e3f-2a04-41b7-aa61-85e656c62158
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.govcms_standard_page
+  module:
+    - text
+_core:
+  default_config_hash: koORzB4gGdnse7jRWu7RyhfG1zrx8ECXED_uSmrzwXU
+id: node.govcms_standard_page.body
+field_name: body
+entity_type: node
+bundle: govcms_standard_page
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

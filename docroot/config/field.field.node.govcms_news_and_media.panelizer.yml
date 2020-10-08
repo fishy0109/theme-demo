@@ -1,0 +1,23 @@
+uuid: d4519488-b9ea-4dcf-b971-b4caf141830f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.panelizer
+    - node.type.govcms_news_and_media
+  module:
+    - panelizer
+_core:
+  default_config_hash: LbiyyPlA7TpgwMvujttaxId-41JyOcj0yuqSIXcekh0
+id: node.govcms_news_and_media.panelizer
+field_name: panelizer
+entity_type: node
+bundle: govcms_news_and_media
+label: Panelizer
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: panelizer

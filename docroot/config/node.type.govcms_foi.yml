@@ -1,0 +1,19 @@
+uuid: f71e6a69-eaad-4675-a8d2-d62b9cc91dbb
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+_core:
+  default_config_hash: NZqVZgU6UoL3pMGbPay57eAwylYXAf57U7Pc3ckrZ00
+name: FOI
+type: govcms_foi
+description: 'Use <em>FOI</em> to display a record of an FOI request. '
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

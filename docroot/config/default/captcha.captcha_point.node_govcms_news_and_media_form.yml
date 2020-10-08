@@ -1,7 +1,0 @@
-uuid: 724049c6-e5f6-445a-ae37-0caa22c1fed0
-langcode: en
-status: false
-dependencies: {  }
-formId: node_govcms_news_and_media_form
-captchaType: default
-label: null

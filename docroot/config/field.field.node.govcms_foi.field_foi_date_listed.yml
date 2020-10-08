@@ -1,0 +1,26 @@
+uuid: dbb7e9c5-d955-40cc-8740-9e63266611cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_foi_date_listed
+    - node.type.govcms_foi
+  module:
+    - datetime
+_core:
+  default_config_hash: veV0cpSeMedH86jCUl0f1tksH5HdCe_MqR02UBUm4CM
+id: node.govcms_foi.field_foi_date_listed
+field_name: field_foi_date_listed
+entity_type: node
+bundle: govcms_foi
+label: 'Date Listed'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

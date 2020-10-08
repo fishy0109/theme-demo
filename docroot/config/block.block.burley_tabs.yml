@@ -1,0 +1,22 @@
+uuid: 5499348c-c307-4904-b59f-41a03b10d221
+langcode: en
+status: true
+dependencies:
+  theme:
+    - burley
+_core:
+  default_config_hash: bnISVpZNgUaiMWJRBHpKuQ2vkbZvmF4UPj32ZKVcNoE
+id: burley_tabs
+theme: burley
+region: announcement
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

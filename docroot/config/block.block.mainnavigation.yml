@@ -1,0 +1,27 @@
+uuid: 464ddb15-6ab2-4415-9da4-a984d6424328
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - govcmsui
+_core:
+  default_config_hash: gzKW3peziFFKkgU-xg6a6O51EpiNpsTamkcBEo-_tg8
+id: mainnavigation
+theme: govcmsui
+region: nav
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

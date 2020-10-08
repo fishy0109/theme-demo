@@ -1,8 +1,0 @@
-uuid: e61413bc-8ff3-4bdd-acc5-822005fdb41c
-langcode: en
-status: true
-dependencies: {  }
-name: 'Core Study Areas'
-vid: core_study_areas
-description: ''
-weight: 0

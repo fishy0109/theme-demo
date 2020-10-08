@@ -1,0 +1,31 @@
+uuid: 214c176f-ca6c-463e-8c94-591c21de82c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.content_search
+  module:
+    - system
+    - views
+  theme:
+    - burley
+_core:
+  default_config_hash: pCXwIO0MZiK2_PRqHffGIf0n4VtpaxdZBY5Eflu-jJU
+id: burley_exposedformcontent_searchpage_1_2
+theme: burley
+region: content
+weight: -4
+provider: null
+plugin: 'views_exposed_filter_block:content_search-page_1'
+settings:
+  id: 'views_exposed_filter_block:content_search-page_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: "/search\r\n/search/*"
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,10 @@
+ignored_config_entities:
+  - clamav.settings
+  - login_security.settings
+  - 'password_policy.*'
+  - seckit.settings
+  - 'system.menu.*'
+  - 'webform.webform.*'
+  - 'webform.webform_options.*'
+_core:
+  default_config_hash: wkcuoFmlPvO6vAZlHjmW0x_dpmKg1XZWLWckYA5GPhw

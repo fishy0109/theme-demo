@@ -1,8 +1,0 @@
-uuid: 4d874980-f665-4448-b2f1-a1825adaccb0
-langcode: en
-status: true
-dependencies: {  }
-id: publication_date
-label: 'Publication Date'
-locked: false
-pattern: 'd M Y'

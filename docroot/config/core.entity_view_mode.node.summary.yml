@@ -1,0 +1,12 @@
+uuid: 47cd3395-b500-453b-9b94-c228fc186031
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: zkAmdvPezBN61XRc9cc91beRaM4-9E8jJ3bN2XVtdDg
+id: node.summary
+label: Summary
+targetEntityType: node
+cache: true

@@ -1,9 +1,0 @@
-uuid: bce025b3-1e38-48d8-a3be-f2a132ebc424
-langcode: en
-status: true
-dependencies: {  }
-id: downloadable_resources
-label: 'Downloadable Resources'
-icon_uuid: null
-description: 'Migrated from paragraph bundle Downloadable Resources'
-behavior_plugins: {  }

@@ -1,0 +1,14 @@
+uuid: 171eccb2-d1c0-4a39-8389-88930ff49ec8
+name: NCA
+mail: root@localhost.localdomain
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

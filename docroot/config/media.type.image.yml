@@ -1,0 +1,15 @@
+uuid: 8423f0e1-2db8-4779-b171-af34947bcd61
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ggC1PEHkA7z-lhyXPvE1oSUnHvVQ24fpfFwht-g-TyM
+id: image
+label: Image
+description: 'Used for managing images.'
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_image
+field_map: {  }

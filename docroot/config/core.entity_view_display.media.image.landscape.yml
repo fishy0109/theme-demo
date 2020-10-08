@@ -1,0 +1,34 @@
+uuid: f6276452-6e93-4720-84d7-6afb07ad68f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.landscape
+    - field.field.media.image.field_media_image
+    - field.field.media.image.field_tags
+    - image.style.landscape
+    - media.type.image
+  module:
+    - image
+_core:
+  default_config_hash: hkVWIDNPOoevK3yR6RHmaQCVeBiaFyX7FzahXk4GIp8
+id: media.image.landscape
+targetEntityType: media
+bundle: image
+mode: landscape
+content:
+  field_media_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: landscape
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  created: true
+  field_tags: true
+  name: true
+  thumbnail: true
+  uid: true

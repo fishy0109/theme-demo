@@ -1,0 +1,24 @@
+uuid: ae2801cd-b089-44df-86fc-f32e9fee1574
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.govcms_standard_page
+_core:
+  default_config_hash: STNVGk3rEcy_gBey2bczQJQ9R4-v0iA5fi6tBr8Dqkg
+id: node.govcms_standard_page.promote
+field_name: promote
+entity_type: node
+bundle: govcms_standard_page
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

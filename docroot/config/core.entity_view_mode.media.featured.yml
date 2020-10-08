@@ -1,0 +1,12 @@
+uuid: 00b83ff3-b19c-4d1d-a054-5e247ceff6d9
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: zE3q61sqW8x-r55623fw91dQxXocknAaF1SO7zZtr3Y
+id: media.featured
+label: Featured
+targetEntityType: media
+cache: true

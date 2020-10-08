@@ -1,0 +1,10 @@
+uuid: 780c66da-178b-4702-b82e-f52f028e5f5d
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 0pMHlYXalaudJEFFh3cS-kk-5L6c1y828DAeXtbC4rk
+name: 'Media tags'
+vid: media_tags
+description: ''
+weight: 0

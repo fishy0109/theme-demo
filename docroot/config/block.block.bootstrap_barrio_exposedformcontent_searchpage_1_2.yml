@@ -1,0 +1,31 @@
+uuid: 5aabbaef-61dc-4ac8-9d45-836a970b1b8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.content_search
+  module:
+    - system
+    - views
+  theme:
+    - bootstrap_barrio
+_core:
+  default_config_hash: pCXwIO0MZiK2_PRqHffGIf0n4VtpaxdZBY5Eflu-jJU
+id: bootstrap_barrio_exposedformcontent_searchpage_1_2
+theme: bootstrap_barrio
+region: content
+weight: -4
+provider: null
+plugin: 'views_exposed_filter_block:content_search-page_1'
+settings:
+  id: 'views_exposed_filter_block:content_search-page_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: "/search\r\n/search/*"
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,23 @@
+uuid: 5ab975c7-6ebe-493f-86bc-d31d05113c7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.panelizer
+    - node.type.govcms_standard_page
+  module:
+    - panelizer
+_core:
+  default_config_hash: AQqoTc4P-70YLqmy8pJVYqWZ7OUTtkzPUMzD_tYw2UU
+id: node.govcms_standard_page.panelizer
+field_name: panelizer
+entity_type: node
+bundle: govcms_standard_page
+label: Panelizer
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: panelizer

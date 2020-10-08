@@ -1,9 +1,0 @@
-uuid: f6497120-88f0-4a39-adfd-0a496fbfb2a1
-langcode: en
-status: true
-dependencies: {  }
-_core:
-  default_config_hash: _Ozsj_lPAlOuaM_ZAoGXR3kLE2ZIr_G6NZMwKxTMyNg
-id: administer_error_logs
-label: 'Administer error logs'
-path: admin/reports/dblog

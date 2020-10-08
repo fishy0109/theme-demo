@@ -1,0 +1,22 @@
+uuid: 7722e6f9-8099-40ae-ac74-f02eb55f3111
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - node
+_core:
+  default_config_hash: XtdH68VJcgDtGMSnja6TRSun0RW0oJaCELlpNvlWuOM
+id: node.field_foi_date_listed
+field_name: field_foi_date_listed
+entity_type: node
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

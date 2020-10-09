@@ -239,6 +239,7 @@ display:
         type: normal
         title: 'FOI Requests'
         menu_name: main
+        enabled: false
       pager:
         type: full
         options:

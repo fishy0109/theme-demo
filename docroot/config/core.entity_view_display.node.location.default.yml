@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.location.body
+    - field.field.node.location.field_description
     - field.field.node.location.field_latitude
     - field.field.node.location.field_longitude
     - field.field.node.location.field_marker_image
@@ -15,7 +15,6 @@ dependencies:
     - link
     - options
     - panelizer
-    - text
     - user
 third_party_settings:
   panelizer:
@@ -28,12 +27,12 @@ targetEntityType: node
 bundle: location
 mode: default
 content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 101
+  field_description:
+    weight: 108
+    label: above
     settings: {  }
     third_party_settings: {  }
+    type: basic_string
     region: content
   field_latitude:
     weight: 103

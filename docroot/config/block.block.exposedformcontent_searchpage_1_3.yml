@@ -1,19 +1,16 @@
-uuid: 2ccd77c0-df8b-4ef5-bad3-c4a57459e47b
+uuid: fdcaf365-2d0d-4a80-a670-0e2c92b28825
 langcode: en
 status: true
 dependencies:
   config:
     - views.view.content_search
   module:
-    - system
     - views
   theme:
     - burley
-_core:
-  default_config_hash: FCCJYYEszPk4voS9WReLDlQKtXAvH6NYYhDrD5f7C7o
-id: burley_exposedformcontent_searchpage_1
+id: exposedformcontent_searchpage_1_3
 theme: burley
-region: announcement
+region: header_search
 weight: 0
 provider: null
 plugin: 'views_exposed_filter_block:content_search-page_1'
@@ -23,9 +20,4 @@ settings:
   provider: views
   label_display: '0'
   views_label: ''
-visibility:
-  request_path:
-    id: request_path
-    pages: "/search\r\n/search/*"
-    negate: true
-    context_mapping: {  }
+visibility: {  }

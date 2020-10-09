@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.location.body
+    - field.field.node.location.field_description
     - field.field.node.location.field_latitude
     - field.field.node.location.field_longitude
     - field.field.node.location.field_marker_image
@@ -12,27 +12,19 @@ dependencies:
     - field.field.node.location.field_website
     - node.type.location
   module:
-    - text
     - user
 id: node.location.teaser
 targetEntityType: node
 bundle: location
 mode: teaser
 content:
-  body:
-    label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
-    region: content
   links:
     weight: 100
     settings: {  }
     third_party_settings: {  }
     region: content
 hidden:
+  field_description: true
   field_latitude: true
   field_longitude: true
   field_marker_image: true

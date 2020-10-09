@@ -10,8 +10,8 @@ _core:
   default_config_hash: XjBe5YAGFJ32-bLhwumQQ-D7MzZxlX9tC4OhvT06SMY
 id: burley_sitebranding
 theme: burley
-region: announcement
-weight: -3
+region: header_logo
+weight: -4
 provider: null
 plugin: system_branding_block
 settings:

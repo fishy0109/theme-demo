@@ -8,7 +8,7 @@ _core:
   default_config_hash: bnISVpZNgUaiMWJRBHpKuQ2vkbZvmF4UPj32ZKVcNoE
 id: burley_tabs
 theme: burley
-region: announcement
+region: content
 weight: -4
 provider: null
 plugin: local_tasks_block

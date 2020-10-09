@@ -10,7 +10,7 @@ _core:
   default_config_hash: Mri_q32TjWrLy9eDVRCwiLnDNe5V8jeP8S8ri-PGDTw
 id: burley_breadcrumbs
 theme: burley
-region: announcement
+region: breadcrumb
 weight: -4
 provider: null
 plugin: system_breadcrumb_block

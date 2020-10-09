@@ -570,10 +570,12 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - 'user.node_grants:view'
       tags:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_event_date'
         - 'config:field.storage.node.field_event_location'
+        - 'config:search_api.index.database_search_index'
   page_1:
     display_plugin: page
     id: page_1
@@ -586,6 +588,7 @@ display:
         type: normal
         title: Events
         menu_name: main
+        enabled: false
       cache:
         type: none
       defaults:
@@ -596,7 +599,9 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - 'user.node_grants:view'
       tags:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_event_date'
         - 'config:field.storage.node.field_event_location'
+        - 'config:search_api.index.database_search_index'

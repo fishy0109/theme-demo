@@ -225,6 +225,7 @@ display:
         type: normal
         title: Blog
         menu_name: main
+        enabled: false
       pager:
         type: full
         options:

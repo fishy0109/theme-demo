@@ -7,6 +7,8 @@ dependencies:
     - field.storage.node.field_latitude
     - field.storage.node.field_longitude
     - field.storage.node.field_marker_image
+    - field.storage.node.field_marker_image_large
+    - field.storage.node.field_marker_image_small
     - field.storage.node.field_website
     - node.type.location
   module:
@@ -180,7 +182,7 @@ display:
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -315,6 +317,132 @@ display:
           settings:
             link_to_entity: false
           group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_marker_image_small:
+          id: field_marker_image_small
+          table: node__field_marker_image_small
+          field: field_marker_image_small
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image_url
+          settings:
+            image_style: ''
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_marker_image_large:
+          id: field_marker_image_large
+          table: node__field_marker_image_large
+          field: field_marker_image_large
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image_url
+          settings:
+            image_style: ''
+          group_column: ''
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -516,7 +644,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "['<a href=\"{{ field_website }}\"><h4>{{ title }}</a></h4> <p>{{ field_description }}</p><a href=\"{{ field_website }}\">Visit website</a>', {{ field_latitude }}, {{ field_longitude }}, {{ counter }},'http://192.168.1.124{{ field_marker_image }}'],\r\n"
+            text: "['<a href=\"{{ field_website }}\"><h4>{{ title }}</a></h4> <p>{{ field_description }}</p><a href=\"{{ field_website }}\">Visit website</a>', {{ field_latitude }}, {{ field_longitude }}, {{ counter }},'http://192.168.1.129{{ field_marker_image }}','http://192.168.1.129{{ field_marker_image_large }}','http://192.168.1.129{{ field_marker_image_small }}'],\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -600,6 +728,8 @@ display:
         - 'config:field.storage.node.field_latitude'
         - 'config:field.storage.node.field_longitude'
         - 'config:field.storage.node.field_marker_image'
+        - 'config:field.storage.node.field_marker_image_large'
+        - 'config:field.storage.node.field_marker_image_small'
         - 'config:field.storage.node.field_website'
   page_1:
     display_plugin: page
@@ -621,4 +751,6 @@ display:
         - 'config:field.storage.node.field_latitude'
         - 'config:field.storage.node.field_longitude'
         - 'config:field.storage.node.field_marker_image'
+        - 'config:field.storage.node.field_marker_image_large'
+        - 'config:field.storage.node.field_marker_image_small'
         - 'config:field.storage.node.field_website'

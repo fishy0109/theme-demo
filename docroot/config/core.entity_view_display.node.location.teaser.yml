@@ -8,6 +8,8 @@ dependencies:
     - field.field.node.location.field_latitude
     - field.field.node.location.field_longitude
     - field.field.node.location.field_marker_image
+    - field.field.node.location.field_marker_image_large
+    - field.field.node.location.field_marker_image_small
     - field.field.node.location.field_type
     - field.field.node.location.field_website
     - node.type.location
@@ -28,6 +30,8 @@ hidden:
   field_latitude: true
   field_longitude: true
   field_marker_image: true
+  field_marker_image_large: true
+  field_marker_image_small: true
   field_type: true
   field_website: true
   search_api_excerpt: true

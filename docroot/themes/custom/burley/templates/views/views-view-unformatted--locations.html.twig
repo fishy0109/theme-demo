@@ -67,17 +67,16 @@
     })(marker, i));
 
     // TODO: when the map zoom changes, resize the icon based on the zoom level so the marker covers the same geographic area
-    google.maps.event.addListener(map, 'zoom_changed', function() {
+    google.maps.event.addListener(map, 'zoom_changed', function(marker, i) {
 
       var zoom = map.getZoom();
-      var marker, i;
 
       for (i = 0; i < locations.length; i++) {  
         console.log(zoom);
-        if (zoom > 14) {
+        if (zoom >= 17) {
           icon = locations[i][5];
         }
-        else if (zoom < 14) {
+        else if (zoom < 15) {
           icon = locations[i][6];
         }
         else {
@@ -88,11 +87,14 @@
           position: new google.maps.LatLng(locations[i][1], locations[i][2]),
           map: map,
           icon: icon,
-        });	 	  	  
-        
+        });
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+          return function() {
+            infowindow.setContent(locations[i][0]);
+            infowindow.open(map, marker);
+          }
+        })(marker, i)); 	  	  
       }
-      
-      console.log('zoom changed');
     });
 	
   </script>

@@ -12,27 +12,28 @@
 <div id="map" style="width: 900px; height: 680px;"></div>
 
   <script type="text/javascript">
+
     var map = new google.maps.Map(document.getElementById('map'), {      	
 		center: {lat: -35.2999, lng: 149.1345},
 		zoom: 16,
 		mapId: 'ad3ce59443fca7dd'
     });
 	
-	var maxZoom = 17;
-	var minZoom = 15;
-	
-	var yourHere = {
-		url: 'markers/medium/your-here.svg',
-		size: new google.maps.Size(60, 60)		
-	};
-	
-  var locations = [
-    {% for row in rows %}
-      {{ row.content }}
-    {% endfor %}
-  ];
-	
-	var yourLocation = ['You are here', -35.3025, 149.13, 4, yourHere];
+    var maxZoom = 17;
+    var minZoom = 15;
+    
+    var yourHere = {
+      url: 'markers/medium/your-here.svg',
+      size: new google.maps.Size(60, 60)		
+    };
+    
+    var locations = [
+      {% for row in rows %}
+        {{ row.content }}
+      {% endfor %}
+    ];
+    
+    var yourLocation = ['You are here', -35.3025, 149.13, 4, yourHere];
 
     var infowindow = new google.maps.InfoWindow();
 
@@ -42,7 +43,7 @@
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
         map: map,
-		    icon: locations[i][4],
+        icon: locations[i][4],
       });	 	  	  
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
@@ -53,10 +54,10 @@
     }
 	
     marker = new google.maps.Marker({
-      	position: new google.maps.LatLng(yourLocation[1], yourLocation[2]),
-      	map: map,
-		    icon: yourLocation[4],
-		    label: yourLocation[0]
+      position: new google.maps.LatLng(yourLocation[1], yourLocation[2]),
+      map: map,
+		  icon: yourLocation[4],
+		  label: yourLocation[0]
     });
 
     google.maps.event.addListener(marker, 'click', (function(marker, i) {
@@ -71,7 +72,7 @@
 
       var zoom = map.getZoom();
 
-      for (i = 0; i < locations.length; i++) {  
+      for (i = 0; i < locations.length; i++) { 
         console.log(zoom);
         if (zoom >= 17) {
           icon = locations[i][5];
@@ -81,20 +82,23 @@
         }
         else {
           icon = locations[i][4];
-        }
+        }  
 
         marker = new google.maps.Marker({
           position: new google.maps.LatLng(locations[i][1], locations[i][2]),
           map: map,
           icon: icon,
         });
+
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
           return function() {
             infowindow.setContent(locations[i][0]);
             infowindow.open(map, marker);
           }
-        })(marker, i)); 	  	  
+        })(marker, i)); 
+
       }
+
     });
 	
   </script>

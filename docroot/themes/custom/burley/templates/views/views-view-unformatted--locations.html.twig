@@ -14,13 +14,12 @@
   <script type="text/javascript">
 
     var map = new google.maps.Map(document.getElementById('map'), {      	
-		center: {lat: -35.2999, lng: 149.1345},
-		zoom: 16,
-		mapId: 'ad3ce59443fca7dd'
+      center: {lat: -35.2999, lng: 149.1345},
+      zoom: 16,
+      mapId: 'ad3ce59443fca7dd',
+      minZoom: 15,
+      maxZoom: 17
     });
-	
-    var maxZoom = 17;
-    var minZoom = 15;
     
     var yourHere = {
       url: 'markers/medium/your-here.svg',
@@ -48,7 +47,7 @@
         if (zoom >= 17) {
           icon = locations[i][5];
         }
-        else if (zoom < 15) {
+        else if (zoom <= 15) {
           icon = locations[i][6];
         }
         else {

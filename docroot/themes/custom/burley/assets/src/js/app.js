@@ -203,6 +203,11 @@ function searchArrowClick() {
   }
 }
 
+$('.view-id-locations input[type=checkbox]').click(function() {
+  alert('clicked');
+
+});
+
 function checkInput(theinput, themessage) {
   elem = document.getElementById(theinput);
   if (elem) {

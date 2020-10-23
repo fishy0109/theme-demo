@@ -13,9 +13,18 @@
 
   <script type="text/javascript">
 
+    if (localStorage.getItem("zoom")) {
+      zoom = parseInt(localStorage.getItem("zoom"));
+    } 
+    else {
+      zoom = 16;
+    }
+
+    console.log(zoom);
+
     var map = new google.maps.Map(document.getElementById('map'), {      	
       center: {lat: -35.2999, lng: 149.1345},
-      zoom: 16,
+      zoom: zoom,
       mapId: 'ad3ce59443fca7dd',
       minZoom: 15,
       maxZoom: 17
@@ -97,18 +106,18 @@
       setMapOnAll(null);
     }
 
-    function deleteMarkers() {
+    function deleteMarkers(zoom) {
       clearMarkers();
       markers = [];
     }
 
     // When the map zoom changes, resize the icon based on the zoom level so the marker covers the same geographic area.
 
-    google.maps.event.addListener(map, 'zoom_changed', function(locations, markers, i) {
+    google.maps.event.addListener(map, 'zoom_changed', function(locations, zoom, markers, i) {
 
       var zoom = map.getZoom();
 
-      deleteMarkers();
+      deleteMarkers(zoom);
 
       var locations = [
         {% for row in rows %}
@@ -118,9 +127,11 @@
 
       addMarkers(locations, zoom, markers);
 
+      localStorage.setItem("zoom", zoom);
+
     });
 
-    addMarkers(locations, 16, markers);
+    addMarkers(locations, zoom, markers);
 	
   </script>
 </div>

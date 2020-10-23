@@ -49,6 +49,9 @@
         "sort-packages": true,
         "optimize-autoloader": true
     },
+    "file-mapping": {
+        "docroot/sites/development.services.yml": false
+    },
     "scripts": {
         "post-install-cmd": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
         "post-update-cmd": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",

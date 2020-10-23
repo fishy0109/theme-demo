@@ -3,7 +3,7 @@
 namespace Drupal\Tests\ds\Functional;
 
 use Drupal\Core\Cache\Cache;
-use Drupal\simpletest\NodeCreationTrait;
+use Drupal\Tests\node\Traits\NodeCreationTrait;
 
 /**
  * Cache field test.
@@ -27,13 +27,16 @@ class DsFieldCacheTest extends TestBase {
 
   /**
    * Test a DS field that returns cache data.
+   *
+   * @throws \Drupal\Core\Entity\EntityMalformedException
+   * @throws \Behat\Mink\Exception\ResponseTextException
    */
   public function testCachedDsField() {
     $fields = [
       'fields[test_caching_field][region]' => 'left',
       'fields[test_caching_field][label]' => 'above',
     ];
-    $this->drupalPostForm('admin/structure/types/manage/article/display', ['layout' => 'ds_2col'], t('Save'));
+    $this->drupalPostForm('admin/structure/types/manage/article/display', ['ds_layout' => 'ds_2col'], t('Save'));
     $this->dsConfigureUi($fields);
 
     // Create and visit the node so that it is cached as empty, ensure the title

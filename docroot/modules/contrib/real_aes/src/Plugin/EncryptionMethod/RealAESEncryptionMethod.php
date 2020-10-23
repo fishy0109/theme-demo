@@ -16,7 +16,8 @@ use \Defuse\Crypto\Encoding;
  *   id = "real_aes",
  *   title = @Translation("Authenticated AES (Real AES)"),
  *   description = "Authenticated encryption based on AES-128 in CBC mode. Verifies ciphertext integrity via an Encrypt-then-MAC scheme using HMAC-SHA256.",
- *   key_type_group = {"encryption"}
+ *   key_type_group = {"encryption"},
+ *   can_decrypt = TRUE
  * )
  */
 class RealAESEncryptionMethod extends EncryptionMethodBase implements EncryptionMethodInterface {

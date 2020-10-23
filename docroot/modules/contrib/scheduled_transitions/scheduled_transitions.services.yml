@@ -5,7 +5,7 @@ services:
 
   scheduled_transitions.runner:
     class: 'Drupal\scheduled_transitions\ScheduledTransitionsRunner'
-    arguments: ['@entity_type.manager', '@config.factory', '@datetime.time', '@logger.channel.scheduled_transitions', '@content_moderation.moderation_information', '@token']
+    arguments: ['@entity_type.manager', '@config.factory', '@datetime.time', '@logger.channel.scheduled_transitions', '@content_moderation.moderation_information', '@token', '@event_dispatcher']
 
   scheduled_transitions.jobs:
     class: 'Drupal\scheduled_transitions\ScheduledTransitionsJobs'
@@ -20,3 +20,9 @@ services:
     arguments: ['@content_moderation.moderation_information', '@scheduled_transitions.utility']
     tags:
       - { name: access_check, applies_to: _scheduled_transitions_supports_content_moderation }
+
+  scheduled_transitions.new_revision:
+    class: Drupal\scheduled_transitions\EventSubscriber\ScheduledTransitionsNewRevision
+    arguments: ['@entity_type.manager', '@logger.channel.scheduled_transitions']
+    tags:
+      - { name: event_subscriber }

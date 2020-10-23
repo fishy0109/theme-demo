@@ -38,6 +38,11 @@ class ScheduledTransitionModalFormTest extends BrowserTestBase {
   ];
 
   /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'classy';
+
+  /**
    * Tests revision logs.
    */
   public function testRevisionLogHtml() {
@@ -105,6 +110,42 @@ class ScheduledTransitionModalFormTest extends BrowserTestBase {
     // Access the modal directly.
     $this->drupalGet($entity->toUrl(ScheduledTransitionsRouteProvider::LINK_TEMPLATE_ADD));
     $this->assertSession()->statusCodeEquals(200);
+  }
+
+  /**
+   * Test by default the latest revision radio is prechecked.
+   */
+  public function testLatestOptionPreselected() {
+    $this->enabledBundles([['st_entity_test', 'st_entity_test']]);
+
+    $workflow = $this->createEditorialWorkflow();
+    $workflow->getTypePlugin()->addEntityTypeAndBundle('st_entity_test', 'st_entity_test');
+    $workflow->save();
+
+    $currentUser = $this->drupalCreateUser([
+      'administer st_entity_test entities',
+      'use editorial transition create_new_draft',
+      'use editorial transition publish',
+      'use editorial transition archive',
+      Permissions::addScheduledTransitionsPermission('st_entity_test', 'st_entity_test'),
+    ]);
+    $this->drupalLogin($currentUser);
+
+    // Create another revision so the list has more options than only the
+    // 'latest' radio.
+    $entity = ScheduledTransitionsTestEntity::create(['type' => 'st_entity_test']);
+    $entity->setNewRevision();
+    $entity->save();
+    $revisionId = $entity->getRevisionId();
+
+    $this->drupalGet($entity->toUrl());
+    // Access the modal directly.
+    $this->drupalGet($entity->toUrl(ScheduledTransitionsRouteProvider::LINK_TEMPLATE_ADD));
+
+    // The revision should be listed.
+    $this->assertSession()->checkboxNotChecked('edit-revision-' . $revisionId);
+    // The latest radio should exist and checked.
+    $this->assertSession()->checkboxChecked('edit-revision-latest-revision');
   }
 
 }

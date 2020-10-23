@@ -40,6 +40,11 @@ class ScheduledTransitionViewsListTest extends BrowserTestBase {
   ];
 
   /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'classy';
+
+  /**
    * Tests list.
    */
   public function testList() {

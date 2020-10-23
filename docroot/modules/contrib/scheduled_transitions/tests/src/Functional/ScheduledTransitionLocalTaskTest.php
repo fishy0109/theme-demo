@@ -44,6 +44,11 @@ class ScheduledTransitionLocalTaskTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
+  protected $defaultTheme = 'classy';
+
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp() {
     parent::setUp();
     $this->drupalPlaceBlock('local_tasks_block');
@@ -114,6 +119,85 @@ class ScheduledTransitionLocalTaskTest extends BrowserTestBase {
     $this->drupalGet($entity->getTranslation('fr')->toUrl());
     $this->assertSession()->statusCodeEquals(200);
     $this->assertSession()->elementTextContains('css', 'nav.tabs', 'Scheduled transitions (0)');
+  }
+
+  /**
+   * Tests latest revision tab.
+   *
+   * @todo add another test method for revision log when there is a generic
+   * log controller. https://www.drupal.org/project/drupal/issues/2350939
+   */
+  public function testLatestRevisionTab() {
+    /** @var \Drupal\Core\Entity\TranslatableRevisionableStorageInterface $entityStorage */
+    $entityStorage = \Drupal::entityTypeManager()->getStorage('st_entity_test');
+
+    $this->enabledBundles([['st_entity_test', 'st_entity_test']]);
+
+    $workflow = $this->createEditorialWorkflow();
+    $workflow->getTypePlugin()->addEntityTypeAndBundle('st_entity_test', 'st_entity_test');
+    $workflow->save();
+
+    $currentUser = $this->drupalCreateUser([
+      'administer st_entity_test entities',
+      'use editorial transition create_new_draft',
+      'use editorial transition publish',
+      'use editorial transition archive',
+      'view latest version',
+      'view any unpublished content',
+    ]);
+    $this->drupalLogin($currentUser);
+
+    $entity = TestEntity::create(['type' => 'st_entity_test']);
+
+    // Test normal Drupal + CM behaviour.
+    $entity = $entityStorage->createRevision($entity, FALSE);
+    $entity->name = 'rev1';
+    $entity->moderation_state = 'draft';
+    $entity->save();
+    $this->drupalGet($entity->toUrl());
+    $this->assertSession()->statusCodeEquals(200);
+    $this->assertSession()->linkExists('View');
+    $this->assertSession()->linkExists('Edit');
+    // Draft + default results = no latest link yet.
+    $this->assertSession()->linkNotExists('Latest version');
+
+    $entity = $entityStorage->createRevision($entity, FALSE);
+    $entity->name = 'rev2';
+    $entity->moderation_state = 'published';
+    $entity->save();
+    $this->drupalGet($entity->toUrl());
+    $this->assertSession()->statusCodeEquals(200);
+    $this->assertSession()->linkExists('View');
+    $this->assertSession()->linkExists('Edit');
+    $this->assertSession()->linkNotExists('Latest version');
+
+    // Do not change any storage fields this time.
+    $entity = $entityStorage->createRevision($entity, FALSE);
+    $entity->moderation_state = 'draft';
+    $entity->save();
+    $this->drupalGet($entity->toUrl());
+    $this->assertSession()->statusCodeEquals(200);
+    $this->assertSession()->linkExists('View');
+    $this->assertSession()->linkExists('Edit');
+    $this->assertSession()->linkExists('Latest version');
+
+    // Run the transition to a new default revision, the 'Latest version' tab
+    // must no longer be present.
+    $scheduledTransition = ScheduledTransition::create([
+      'entity' => $entity,
+      'entity_revision_id' => $entity->getRevisionId(),
+      'author' => 1,
+      'workflow' => $workflow->id(),
+      'moderation_state' => 'published',
+      'transition_on' => (new \DateTime('1 year ago'))->getTimestamp(),
+    ]);
+    $scheduledTransition->save();
+    $this->runTransition($scheduledTransition);
+
+    $this->drupalGet($entity->toUrl());
+    $this->assertSession()->linkExists('View');
+    $this->assertSession()->linkExists('Edit');
+    $this->assertSession()->linkNotExists('Latest version');
   }
 
 }

@@ -2,7 +2,6 @@
 
 namespace Drupal\ds\Plugin\views\Entity\Render;
 
-use Drupal\Component\Utility\Unicode;
 use Drupal\views\Entity\Render\EntityTranslationRendererBase;
 
 /**
@@ -24,7 +23,7 @@ abstract class RendererBase extends EntityTranslationRendererBase {
   protected function dsPreRender(array $result, $translation = FALSE) {
     if ($result) {
       // Get all entities which will be used to render in rows.
-      $view_builder = $this->view->rowPlugin->entityManager->getViewBuilder($this->entityType->id());
+      $view_builder = \Drupal::entityTypeManager()->getViewBuilder($this->entityType->id());
 
       $i = 0;
       $grouping = [];
@@ -52,7 +51,7 @@ abstract class RendererBase extends EntityTranslationRendererBase {
         // Change the view mode per row.
         if ($this->view->rowPlugin->options['alternating_fieldset']['alternating']) {
           // Check for paging to determine the view mode.
-          $page = \Drupal::request()->get('page');
+          $page = $this->view->getPager()->getCurrentPage();
           if (!empty($page) && isset($this->view->rowPlugin->options['alternating_fieldset']['allpages']) && !$this->view->rowPlugin->options['alternating_fieldset']['allpages']) {
             $view_mode = $this->view->rowPlugin->options['view_mode'];
           }
@@ -121,13 +120,15 @@ abstract class RendererBase extends EntityTranslationRendererBase {
           // New way of creating the alias.
           if (strpos($group_field, '|') !== FALSE) {
             list(, $ffield) = explode('|', $group_field);
-            $group_field = $this->view->sort[$ffield]->tableAlias . '_' . $this->view->sort[$ffield]->realField;
+            if (isset($this->view->sort[$ffield]->realField)) {
+              $group_field = $this->view->sort[$ffield]->tableAlias . '_' . $this->view->sort[$ffield]->realField;
+            }
           }
 
           // Note, the keys in the $row object are cut of at 60 chars.
           // see views_plugin_query_default.inc.
-          if (Unicode::strlen($group_field) > 60) {
-            $group_field = Unicode::substr($group_field, 0, 60);
+          if (mb_strlen($group_field) > 60) {
+            $group_field = mb_substr($group_field, 0, 60);
           }
 
           $raw_group_value = isset($row->{$group_field}) ? $row->{$group_field} : '';
@@ -141,7 +142,7 @@ abstract class RendererBase extends EntityTranslationRendererBase {
             }
           }
 
-          if (!isset($grouping[$group_value])) {
+          if (!isset($grouping[$group_value]) && !empty($group_value)) {
             $group_value_content = [
               '#markup' => '<h2 class="grouping-title">' . $group_value . '</h2>',
               '#weight' => -5,

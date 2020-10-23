@@ -4,6 +4,8 @@ declare(strict_types = 1);
 
 namespace Drupal\scheduled_transitions_test\Entity;
 
+use Drupal\Core\Entity\EntityChangedInterface;
+use Drupal\Core\Entity\EntityChangedTrait;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\entity_test_revlog\Entity\EntityTestWithRevisionLog;
@@ -49,7 +51,9 @@ use Drupal\entity_test_revlog\Entity\EntityTestWithRevisionLog;
  *   translatable = TRUE,
  * )
  */
-class ScheduledTransitionsTestEntity extends EntityTestWithRevisionLog {
+class ScheduledTransitionsTestEntity extends EntityTestWithRevisionLog implements EntityChangedInterface {
+
+  use EntityChangedTrait;
 
   /**
    * {@inheritdoc}
@@ -61,6 +65,12 @@ class ScheduledTransitionsTestEntity extends EntityTestWithRevisionLog {
       ->setLabel(t('Revision translation affected'))
       ->setDescription(t('Indicates if the last edit of a translation belongs to current revision.'))
       ->setReadOnly(TRUE)
+      ->setRevisionable(TRUE)
+      ->setTranslatable(TRUE);
+
+    $fields['changed'] = BaseFieldDefinition::create('changed')
+      ->setLabel(t('Changed'))
+      ->setDescription(t('The time that the entity was last edited.'))
       ->setRevisionable(TRUE)
       ->setTranslatable(TRUE);
 

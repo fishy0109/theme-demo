@@ -2,10 +2,12 @@
 
 namespace Drupal\environment_indicator;
 
-
 use Drupal\Core\Entity\EntityForm;
 use Drupal\Core\Form\FormStateInterface;
 
+/**
+ * Form field specifications.
+ */
 class EnvironmentIndicatorForm extends EntityForm {
 
   /**
@@ -60,7 +62,7 @@ class EnvironmentIndicatorForm extends EntityForm {
   public function save(array $form, FormStateInterface $form_state) {
     $environment = $this->getEntity();
     $environment->save();
-    drupal_set_message($this->t('Saved the %label environment.', [
+    $this->messenger()->addMessage($this->t('Saved the %label environment.', [
       '%label' => $environment->label(),
     ]));
 

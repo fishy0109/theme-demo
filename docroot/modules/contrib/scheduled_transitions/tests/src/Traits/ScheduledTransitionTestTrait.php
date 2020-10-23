@@ -4,6 +4,8 @@ declare(strict_types = 1);
 
 namespace Drupal\Tests\scheduled_transitions\Traits;
 
+use Drupal\scheduled_transitions\Entity\ScheduledTransitionInterface;
+
 /**
  * Test trait helpers.
  */
@@ -28,6 +30,18 @@ trait ScheduledTransitionTestTrait {
     \Drupal::configFactory()->getEditable('scheduled_transitions.settings')
       ->set('bundles', $enabledBundles)
       ->save(TRUE);
+  }
+
+  /**
+   * Checks and runs any ready transitions.
+   *
+   * @param \Drupal\scheduled_transitions\Entity\ScheduledTransitionInterface $scheduledTransition
+   *   A scheduled transition.
+   */
+  protected function runTransition(ScheduledTransitionInterface $scheduledTransition): void {
+    /** @var \Drupal\scheduled_transitions\ScheduledTransitionsRunnerInterface $runner */
+    $runner = \Drupal::service('scheduled_transitions.runner');
+    $runner->runTransition($scheduledTransition);
   }
 
 }

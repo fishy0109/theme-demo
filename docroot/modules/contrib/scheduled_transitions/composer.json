@@ -3,7 +3,8 @@
     "description": "Allows users to schedule a revision to change state.",
     "type": "drupal-module",
     "require": {
-        "php": ">=7.1.0"
+        "php": "^7.3",
+        "drupal/core": "^8.9 || ^9"
     },
     "extra": {
         "drush": {

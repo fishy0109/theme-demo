@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 
 /**
- * Route provider for Scheduled Transitions.
+ * Route provider for host entities of Scheduled Transitions.
  */
 class ScheduledTransitionsRouteProvider implements EntityRouteProviderInterface {
 

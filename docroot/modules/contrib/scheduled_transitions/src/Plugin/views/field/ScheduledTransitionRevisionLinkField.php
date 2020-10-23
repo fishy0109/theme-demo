@@ -6,8 +6,11 @@ namespace Drupal\scheduled_transitions\Plugin\views\field;
 
 use Drupal\Core\Access\AccessManagerInterface;
 use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\EntityRepositoryInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Entity\TranslatableInterface;
+use Drupal\Core\Language\LanguageManagerInterface;
+use Drupal\scheduled_transitions\Entity\ScheduledTransition;
 use Drupal\views\Plugin\views\field\LinkBase;
 use Drupal\views\ResultRow;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -18,13 +21,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @ViewsField("scheduled_transitions_revision_link")
  */
 class ScheduledTransitionRevisionLinkField extends LinkBase {
-
-  /**
-   * The entity type manager.
-   *
-   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
-   */
-  protected $entityTypeManager;
 
   /**
    * Constructs a new ScheduledTransitionRevisionLinkField.
@@ -39,9 +35,13 @@ class ScheduledTransitionRevisionLinkField extends LinkBase {
    *   The access manager.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    *   The entity type manager.
+   * @param \Drupal\Core\Entity\EntityRepositoryInterface $entityRepository
+   *   The entity repository.
+   * @param \Drupal\Core\Language\LanguageManagerInterface $languageManager
+   *   The language manager.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, AccessManagerInterface $access_manager, EntityTypeManagerInterface $entityTypeManager) {
-    parent::__construct($configuration, $plugin_id, $plugin_definition, $access_manager);
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, AccessManagerInterface $access_manager, EntityTypeManagerInterface $entityTypeManager, EntityRepositoryInterface $entityRepository, LanguageManagerInterface $languageManager) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition, $access_manager, $entityTypeManager, $entityRepository, $languageManager);
     $this->entityTypeManager = $entityTypeManager;
   }
 
@@ -54,7 +54,9 @@ class ScheduledTransitionRevisionLinkField extends LinkBase {
       $plugin_id,
       $plugin_definition,
       $container->get('access_manager'),
-      $container->get('entity_type.manager')
+      $container->get('entity_type.manager'),
+      $container->get('entity.repository'),
+      $container->get('language_manager'),
     );
   }
 
@@ -65,7 +67,7 @@ class ScheduledTransitionRevisionLinkField extends LinkBase {
     /** @var \Drupal\scheduled_transitions\Entity\ScheduledTransitionInterface $scheduledTransition */
     $scheduledTransition = $this->getEntity($row);
     $entity = $scheduledTransition->getEntity();
-    if (!$entity->getEntityType()->hasLinkTemplate('revision')) {
+    if (!$entity || !$entity->getEntityType()->hasLinkTemplate('revision')) {
       return AccessResult::neutral('Entity does not have a revision/canonical template.');
     }
     return parent::checkUrlAccess($row);
@@ -83,6 +85,12 @@ class ScheduledTransitionRevisionLinkField extends LinkBase {
     $entityRevision = $this->entityTypeManager
       ->getStorage($entity->getEntityTypeId())
       ->loadRevision($entityRevisionId);
+
+    if (!$entityRevision) {
+      // Use the original entity if this revision cannot be loaded.
+      $entityRevision = $entity;
+    }
+
     $language = $scheduledTransition->getEntityRevisionLanguage();
     if ($language && $entityRevision instanceof TranslatableInterface && $entityRevision->hasTranslation($language)) {
       $entityRevision = $entityRevision->getTranslation($language);
@@ -103,12 +111,18 @@ class ScheduledTransitionRevisionLinkField extends LinkBase {
     $scheduledTransition = $this->getEntity($row);
 
     $entity = $scheduledTransition->getEntity();
+    if (!$entity) {
+      return '';
+    }
     $entityRevisionId = $scheduledTransition->getEntityRevisionId();
     $entityRevision = $this->entityTypeManager
       ->getStorage($entity->getEntityTypeId())
       ->loadRevision($entityRevisionId);
     if (!$entityRevision) {
-      return '';
+      $options = $scheduledTransition->getOptions();
+      return isset($options[ScheduledTransition::OPTION_LATEST_REVISION])
+        ? $this->t('Latest revision')
+        : $this->t('Dynamic');
     }
     $text = parent::renderLink($row);
     $this->options['alter']['query'] = $this->getDestinationArray();

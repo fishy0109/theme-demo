@@ -6,6 +6,7 @@ namespace Drupal\scheduled_transitions\Plugin\Menu\LocalTask;
 
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Language\LanguageInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Menu\LocalTaskDefault;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
@@ -102,10 +103,11 @@ class ScheduledTransitionsLocalTask extends LocalTaskDefault implements Containe
       $count = $transitionStorage->getQuery()
         ->condition('entity__target_type', $entity->getEntityTypeId())
         ->condition('entity__target_id', $entity->id())
-        ->condition('entity_revision_langcode', $this->languageManager->getCurrentLanguage()->getId())
+        ->condition('entity_revision_langcode', $this->languageManager->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)->getId())
         ->count()
         ->execute();
-      return $this->t('Scheduled transitions (@count)', [
+      return $this->t('@title (@count)', [
+        '@title' => parent::getTitle($request),
         '@count' => $count,
       ]);
     }

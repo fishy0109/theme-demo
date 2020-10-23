@@ -7,16 +7,19 @@ namespace Drupal\scheduled_transitions;
 use Drupal\Component\Datetime\TimeInterface;
 use Drupal\content_moderation\ModerationInformationInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Entity\EntityChangedInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Entity\RevisionLogInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Drupal\Core\TypedData\TranslatableInterface;
 use Drupal\Core\Utility\Token;
 use Drupal\scheduled_transitions\Entity\ScheduledTransition;
 use Drupal\scheduled_transitions\Entity\ScheduledTransitionInterface;
+use Drupal\scheduled_transitions\Event\ScheduledTransitionsEvents;
+use Drupal\scheduled_transitions\Event\ScheduledTransitionsNewRevisionEvent;
 use Drupal\scheduled_transitions\Exception\ScheduledTransitionMissingEntity;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
  * Executes transitions.
@@ -70,6 +73,13 @@ class ScheduledTransitionsRunner implements ScheduledTransitionsRunnerInterface 
   protected $configFactory;
 
   /**
+   * The event dispatcher.
+   *
+   * @var \Symfony\Component\EventDispatcher\EventDispatcherInterface
+   */
+  protected $eventDispatcher;
+
+  /**
    * Constructs a new ScheduledTransitionsRunner.
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
@@ -84,14 +94,17 @@ class ScheduledTransitionsRunner implements ScheduledTransitionsRunnerInterface 
    *   General service for moderation-related questions about Entity API.
    * @param \Drupal\Core\Utility\Token $token
    *   The token replacement system.
+   * @param \Symfony\Component\EventDispatcher\EventDispatcherInterface $eventDispatcher
+   *   The event dispatcher.
    */
-  public function __construct(EntityTypeManagerInterface $entityTypeManager, ConfigFactoryInterface $configFactory, TimeInterface $time, LoggerInterface $logger, ModerationInformationInterface $moderationInformation, Token $token) {
+  public function __construct(EntityTypeManagerInterface $entityTypeManager, ConfigFactoryInterface $configFactory, TimeInterface $time, LoggerInterface $logger, ModerationInformationInterface $moderationInformation, Token $token, EventDispatcherInterface $eventDispatcher) {
     $this->entityTypeManager = $entityTypeManager;
     $this->configFactory = $configFactory;
     $this->time = $time;
     $this->logger = $logger;
     $this->moderationInformation = $moderationInformation;
     $this->token = $token;
+    $this->eventDispatcher = $eventDispatcher;
   }
 
   /**
@@ -109,23 +122,16 @@ class ScheduledTransitionsRunner implements ScheduledTransitionsRunnerInterface 
       throw new ScheduledTransitionMissingEntity(sprintf('Entity does not exist for scheduled transition #%s', $scheduledTransitionId));
     }
 
+    $event = new ScheduledTransitionsNewRevisionEvent($scheduledTransition);
+    $this->eventDispatcher->dispatch(ScheduledTransitionsEvents::NEW_REVISION, $event);
+
+    $newRevision = $event->getNewRevision();
+    if (!$newRevision) {
+      throw new ScheduledTransitionMissingEntity(sprintf('No revision could be determined to transition to for scheduled transition #%s', $scheduledTransitionId));
+    }
+
     /** @var \Drupal\Core\Entity\EntityStorageInterface|\Drupal\Core\Entity\RevisionableStorageInterface $entityStorage */
     $entityStorage = $this->entityTypeManager->getStorage($entity->getEntityTypeId());
-
-    $entityRevisionId = $scheduledTransition->getEntityRevisionId();
-    if ($entityRevisionId) {
-      /** @var \Drupal\Core\Entity\EntityInterface|\Drupal\Core\Entity\RevisionableInterface $newRevision */
-      $newRevision = $entityStorage->loadRevision($entityRevisionId);
-    }
-    if (!isset($newRevision)) {
-      $this->logger->info('Target revision does not exist for scheduled transition #@id', $targs);
-      throw new ScheduledTransitionMissingEntity(sprintf('Target revision does not exist for scheduled transition #%s', $scheduledTransitionId));
-    }
-
-    $entityRevisionLanguage = $scheduledTransition->getEntityRevisionLanguage();
-    if ($entityRevisionLanguage && $newRevision instanceof TranslatableInterface && $newRevision->hasTranslation($entityRevisionLanguage)) {
-      $newRevision = $newRevision->getTranslation($entityRevisionLanguage);
-    }
 
     $latestRevisionId = $entityStorage->getLatestRevisionId($entity->id());
     if ($latestRevisionId) {
@@ -157,6 +163,9 @@ class ScheduledTransitionsRunner implements ScheduledTransitionsRunnerInterface 
    *   The latest current revision.
    */
   protected function transitionEntity(ScheduledTransitionInterface $scheduledTransition, EntityInterface $newRevision, EntityInterface $latest): void {
+    /** @var \Drupal\Core\Entity\RevisionableStorageInterface $entityStorage */
+    $entityStorage = $this->entityTypeManager->getStorage($newRevision->getEntityTypeId());
+
     $settings = $this->configFactory->get('scheduled_transitions.settings');
 
     // Check this now before any new saves.
@@ -164,7 +173,7 @@ class ScheduledTransitionsRunner implements ScheduledTransitionsRunnerInterface 
 
     /** @var \Drupal\Core\Entity\EntityInterface|\Drupal\Core\Entity\RevisionableInterface $newRevision */
     /** @var \Drupal\Core\Entity\EntityInterface|\Drupal\Core\Entity\RevisionableInterface $latest */
-    $entityRevisionId = $scheduledTransition->getEntityRevisionId();
+    $entityRevisionId = $newRevision->getRevisionId();
 
     $workflow = $this->moderationInformation->getWorkflowForEntity($latest);
     $workflowPlugin = $workflow->getTypePlugin();
@@ -194,8 +203,18 @@ class ScheduledTransitionsRunner implements ScheduledTransitionsRunnerInterface 
     // Start the transition process.
     // Determine if latest before calling setNewRevision on $newRevision.
     $newIsLatest = $newRevision->getRevisionId() === $latest->getRevisionId();
+
+    // Creating revisions via createRevision to invoke
+    // setRevisionTranslationAffected and whatever other logic doesn't happen
+    // automatically by simply setting setNewRevision on its own.
+    // 'default' param: will be changed by content moderation anyway, and
+    // ->setNewRevision() is called.
+    $newRevision = $entityStorage->createRevision($newRevision, FALSE);
     $newRevision->moderation_state = $newState->id();
-    $newRevision->setNewRevision();
+
+    if ($newRevision instanceof EntityChangedInterface) {
+      $newRevision->setChangedTime($this->time->getRequestTime());
+    }
 
     // If publishing the latest revision, then only set moderation state.
     if ($newIsLatest) {
@@ -226,7 +245,7 @@ class ScheduledTransitionsRunner implements ScheduledTransitionsRunnerInterface 
         // To republish, this revision cannot be published, and the state for
         // this revision must still exist.
         if (!$isLatestRevisionPublished && $originalLatestState) {
-          $latest->setNewRevision();
+          $latest = $entityStorage->createRevision($latest, FALSE);
           $this->logger->info('Reverted @original_latest_state revision #@original_revision_id back to top', $targs);
           if ($latest instanceof RevisionLogInterface) {
             $template = $settings->get('message_transition_copy_latest_draft');

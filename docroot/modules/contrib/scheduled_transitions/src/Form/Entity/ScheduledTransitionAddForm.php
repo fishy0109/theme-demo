@@ -7,6 +7,7 @@ namespace Drupal\scheduled_transitions\Form\Entity;
 use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Component\Utility\Xss;
 use Drupal\content_moderation\ModerationInformationInterface;
+use Drupal\content_moderation\StateTransitionValidationInterface;
 use Drupal\Core\Datetime\DateFormatterInterface;
 use Drupal\Core\Entity\ContentEntityForm;
 use Drupal\Core\Entity\EntityInterface;
@@ -16,17 +17,25 @@ use Drupal\Core\Entity\RevisionLogInterface;
 use Drupal\Core\Entity\TranslatableInterface;
 use Drupal\Core\Entity\TranslatableRevisionableInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Language\LanguageInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Render\Element\Tableselect;
 use Drupal\scheduled_transitions\Entity\ScheduledTransition;
-use Drupal\workflows\TransitionInterface;
+use Drupal\workflows\Transition;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Scheduled transitions add form.
  */
 class ScheduledTransitionAddForm extends ContentEntityForm {
+
+  /**
+   * Constant indicating the form key representing: latest revision.
+   *
+   * @internal will be made protected when PHP version is raised.
+   */
+  const LATEST_REVISION = 'latest_revision';
 
   /**
    * Various date related functionality.
@@ -41,6 +50,13 @@ class ScheduledTransitionAddForm extends ContentEntityForm {
    * @var \Drupal\content_moderation\ModerationInformationInterface
    */
   protected $moderationInformation;
+
+  /**
+   * Validates whether a certain state transition is allowed.
+   *
+   * @var \Drupal\content_moderation\StateTransitionValidationInterface
+   */
+  protected $stateTransitionValidation;
 
   /**
    * The language manager.
@@ -62,13 +78,16 @@ class ScheduledTransitionAddForm extends ContentEntityForm {
    *   Various date related functionality.
    * @param \Drupal\content_moderation\ModerationInformationInterface $moderationInformation
    *   General service for moderation-related questions about Entity API.
+   * @param \Drupal\content_moderation\StateTransitionValidationInterface $stateTransitionValidation
+   *   Validates whether a certain state transition is allowed.
    * @param \Drupal\Core\Language\LanguageManagerInterface $languageManager
    *   The language manager.
    */
-  public function __construct(EntityRepositoryInterface $entity_repository, EntityTypeBundleInfoInterface $entity_type_bundle_info, TimeInterface $time, DateFormatterInterface $dateFormatter, ModerationInformationInterface $moderationInformation, LanguageManagerInterface $languageManager) {
+  public function __construct(EntityRepositoryInterface $entity_repository, EntityTypeBundleInfoInterface $entity_type_bundle_info, TimeInterface $time, DateFormatterInterface $dateFormatter, ModerationInformationInterface $moderationInformation, StateTransitionValidationInterface $stateTransitionValidation, LanguageManagerInterface $languageManager) {
     parent::__construct($entity_repository, $entity_type_bundle_info, $time);
     $this->dateFormatter = $dateFormatter;
     $this->moderationInformation = $moderationInformation;
+    $this->stateTransitionValidation = $stateTransitionValidation;
     $this->languageManager = $languageManager;
   }
 
@@ -82,6 +101,7 @@ class ScheduledTransitionAddForm extends ContentEntityForm {
       $container->get('datetime.time'),
       $container->get('date.formatter'),
       $container->get('content_moderation.moderation_information'),
+      $container->get('content_moderation.state_transition_validation'),
       $container->get('language_manager')
     );
   }
@@ -97,7 +117,8 @@ class ScheduledTransitionAddForm extends ContentEntityForm {
    * {@inheritdoc}
    */
   public function form(array $form, FormStateInterface $form_state): array {
-    $form['#theme'] = 'scheduled_transitions_form_add';
+    $account = $this->currentUser();
+    $form['scheduled_transitions']['#theme'] = 'scheduled_transitions_form_add';
 
     $entity = $this->getEntity();
 
@@ -111,13 +132,20 @@ class ScheduledTransitionAddForm extends ContentEntityForm {
     }
 
     $newMetaWrapperId = 'new-meta-wrapper';
-    $toOptionsWrapperId = 'to-options-wrapper';
 
-    $form['revision'] = [
+    $input = $form_state->getUserInput();
+    $revisionOptions = $this->getRevisionOptions($entity);
+
+    // Use the selected option (if form is being rebuilt from AJAX), otherwise
+    // select latest revision if it exists.
+    $revision = $input['revision'] ??
+      (isset($revisionOptions[static::LATEST_REVISION]) ? static::LATEST_REVISION : NULL);
+
+    $form['scheduled_transitions']['revision'] = [
       '#type' => 'tableselect',
       '#header' => $header,
       '#caption' => $this->t('Select which revision you wish to move to a new state.'),
-      '#options' => $this->getRevisionOptions($entity),
+      '#options' => $revisionOptions,
       '#multiple' => FALSE,
       '#footer' => [
         [
@@ -132,9 +160,10 @@ class ScheduledTransitionAddForm extends ContentEntityForm {
         '::revisionProcess',
       ],
       '#new_meta_wrapper_id' => $newMetaWrapperId,
+      '#default_value' => $revision,
     ];
 
-    $form['new_meta'] = [
+    $form['scheduled_transitions']['new_meta'] = [
       '#type' => 'container',
       '#attributes' => ['class' => ['container-inline']],
       '#prefix' => '<div id="' . $newMetaWrapperId . '">',
@@ -145,60 +174,71 @@ class ScheduledTransitionAddForm extends ContentEntityForm {
     $workflowPlugin = $workflow->getTypePlugin();
 
     // Populate options with nothing.
-    $stateOptions = [];
-    $input = $form_state->getUserInput();
-    $revision = $input['revision'] ?? 0;
-    if ($revision > 0) {
+    if (is_numeric($revision) && $revision > 0) {
       $entityStorage = $this->entityTypeManager->getStorage($entity->getEntityTypeId());
-
       $entityRevision = $entityStorage->loadRevision($revision);
-      $state = $entityRevision->moderation_state->value;
-
-      /** @var \Drupal\workflows\TransitionInterface[] $toTransitions */
-      $toTransitions = $workflowPlugin->getTransitionsForState($state, TransitionInterface::DIRECTION_FROM);
-      foreach ($toTransitions as $toTransition) {
-        $stateOptions[$toTransition->to()->id()] = $toTransition->label();
-      }
+      $toTransitions = $this->stateTransitionValidation
+        ->getValidTransitions($entityRevision, $this->currentUser());
+    }
+    elseif (is_string($revision)) {
+      // Show all transitions as we cannot be sure what will be available.
+      // Cannot use getValidTransitions since it is only valid for the current
+      // state of the entity passed to it:
+      $toTransitions = array_filter($workflowPlugin->getTransitions(), function (Transition $transition) use ($workflow, $account) {
+        return $account->hasPermission('use ' . $workflow->id() . ' transition ' . $transition->id());
+      });
     }
 
-    if ($revision > 0) {
-      $form['new_meta']['state_help']['#markup'] = $this->t('<strong>Execute transition</strong>');
-      $form['new_meta']['state'] = [
+    if (isset($toTransitions)) {
+      $transitionOptions = [];
+      foreach ($toTransitions as $toTransition) {
+        $transitionOptions[$toTransition->id()] = $toTransition->label();
+      }
+
+      $form['scheduled_transitions']['new_meta']['transition_help']['#markup'] = $this->t('<strong>Execute transition</strong>');
+      $form['scheduled_transitions']['new_meta']['transition'] = [
         '#type' => 'select',
-        '#options' => $stateOptions,
+        '#options' => $transitionOptions,
         '#empty_option' => $this->t('- Select -'),
         '#required' => TRUE,
-        '#ajax' => [
-          'callback' => '::ajaxCallbackToOptions',
-          'wrapper' => $toOptionsWrapperId,
-          'effect' => 'fade',
-        ],
       ];
 
-      $form['new_meta']['on_help']['#markup'] = $this->t('<strong>on date</strong>');
-      $form['new_meta']['on'] = [
+      $form['scheduled_transitions']['new_meta']['on_help']['#markup'] = $this->t('<strong>on date</strong>');
+      $form['scheduled_transitions']['new_meta']['on'] = [
         '#type' => 'datetime',
         '#default_value' => new \DateTime(),
         '#required' => TRUE,
       ];
     }
     else {
-      $form['new_meta']['state_help']['#markup'] = $this->t('Select a revision above');
+      $form['scheduled_transitions']['new_meta']['transition_help']['#markup'] = $this->t('Select a revision above');
     }
 
-    /** @var \Drupal\content_moderation\ContentModerationState|null $to */
-    $to = isset($input['state']) ? $workflowPlugin->getState($input['state']) : NULL;
-    $form['to_options'] = [
+    $form['scheduled_transitions']['to_options'] = [
       '#type' => 'container',
-      '#prefix' => '<div id="' . $toOptionsWrapperId . '">',
-      '#suffix' => '</div>',
     ];
-    if ($to && $to->isDefaultRevisionState()) {
-      $form['to_options']['recreate_non_default_head'] = [
+
+    if (isset($toTransitions) && count($toTransitions) > 0) {
+      // Its too difficult to have a checkbox with default TRUE with conditional
+      // existence, as AJAX reloads, will sometimes show the checkbox as
+      // unchecked. See https://www.drupal.org/project/drupal/issues/1100170.
+      // Instead show this checkbox depending on value of other fields. The
+      // checkbox will always be present therefore preserving its state.
+      $conditions = [];
+      foreach ($toTransitions as $transition) {
+        if ($transition->to()->isDefaultRevisionState()) {
+          $conditions[] = [':input[name="transition"]' => ['value' => $transition->id()]];
+        }
+      }
+
+      $form['scheduled_transitions']['to_options']['recreate_non_default_head'] = [
         '#type' => 'checkbox',
         '#title' => $this->t('Recreate pending revision'),
         '#description' => $this->t('Before creating this revision, check if there is any pending work. If so then recreate it. Regardless of choice, revisions are safely retained in history, and can be reverted manually.'),
         '#default_value' => TRUE,
+        '#states' => [
+          'visible' => $conditions,
+        ],
       ];
     }
 
@@ -239,14 +279,7 @@ class ScheduledTransitionAddForm extends ContentEntityForm {
    * Ajax handler for new meta container.
    */
   public function ajaxCallbackNewMeta($form, FormStateInterface $form_state): array {
-    return $form['new_meta'];
-  }
-
-  /**
-   * Ajax handler for to options container.
-   */
-  public function ajaxCallbackToOptions($form, FormStateInterface $form_state): array {
-    return $form['to_options'];
+    return $form['scheduled_transitions']['new_meta'];
   }
 
   /**
@@ -254,7 +287,7 @@ class ScheduledTransitionAddForm extends ContentEntityForm {
    */
   public function validateForm(array &$form, FormStateInterface $form_state): void {
     if (empty($form_state->getValue('revision'))) {
-      $form_state->setError($form['revision'], $this->t('Revision must be selected.'));
+      $form_state->setError($form['scheduled_transitions']['revision'], $this->t('Revision must be selected.'));
     }
   }
 
@@ -263,23 +296,35 @@ class ScheduledTransitionAddForm extends ContentEntityForm {
    */
   public function submitForm(array &$form, FormStateInterface $form_state): void {
     $entity = $this->getEntity();
-    $entityRevisionId = $form_state->getValue('revision');
-    $workflow = $this->moderationInformation->getWorkflowForEntity($entity);
-    $newState = $form_state->getValue(['state']);
-    /** @var \Drupal\Core\Datetime\DrupalDateTime $onDate */
-    $onDate = $form_state->getValue(['on']);
-
     $options = [];
+
     if ($form_state->getValue('recreate_non_default_head')) {
       $options[ScheduledTransition::OPTION_RECREATE_NON_DEFAULT_HEAD] = TRUE;
     }
+
+    $revisionOption = $form_state->getValue('revision');
+    $entityRevisionId = 0;
+    if ($revisionOption === static::LATEST_REVISION) {
+      $options[ScheduledTransition::OPTION_LATEST_REVISION] = TRUE;
+    }
+    else {
+      $entityRevisionId = $revisionOption;
+    }
+
+    $workflow = $this->moderationInformation->getWorkflowForEntity($entity);
+    $transition = $form_state->getValue(['transition']);
+    $workflowPlugin = $workflow->getTypePlugin();
+    $newState = $workflowPlugin->getTransition($transition)->to()->id();
+
+    /** @var \Drupal\Core\Datetime\DrupalDateTime $onDate */
+    $onDate = $form_state->getValue(['on']);
 
     $scheduledTransitionStorage = $this->entityTypeManager->getStorage('scheduled_transition');
     /** @var \Drupal\scheduled_transitions\Entity\ScheduledTransitionInterface $scheduledTransition */
     $scheduledTransition = $scheduledTransitionStorage->create([
       'entity' => [$entity],
       'entity_revision_id' => $entityRevisionId,
-      'entity_revision_langcode' => $this->languageManager->getCurrentLanguage()->getId(),
+      'entity_revision_langcode' => $this->languageManager->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)->getId(),
       'author' => [$this->currentUser()->id()],
       'workflow' => $workflow->id(),
       'moderation_state' => $newState,
@@ -338,7 +383,7 @@ class ScheduledTransitionAddForm extends ContentEntityForm {
     $ids = $entityStorage->getQuery()
       ->allRevisions()
       ->condition($entityDefinition->getKey('id'), $entity->id())
-      ->condition($entityDefinition->getKey('langcode'), $this->languageManager->getCurrentLanguage()->getId())
+      ->condition($entityDefinition->getKey('langcode'), $this->languageManager->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)->getId())
       ->sort($entityDefinition->getKey('revision'), 'DESC')
       ->execute();
 
@@ -348,7 +393,7 @@ class ScheduledTransitionAddForm extends ContentEntityForm {
       // When the entity is translatable, load the translation for the current
       // language.
       if ($revision instanceof TranslatableInterface) {
-        $revision = $revision->getTranslation($this->languageManager->getCurrentLanguage()->getId());
+        $revision = $revision->getTranslation($this->languageManager->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)->getId());
       }
       return $revision;
     }, array_combine($revisionIds, $revisionIds));
@@ -360,7 +405,7 @@ class ScheduledTransitionAddForm extends ContentEntityForm {
       return $revision instanceof TranslatableRevisionableInterface ? $revision->isRevisionTranslationAffected() : TRUE;
     });
 
-    return array_map(
+    $options = array_map(
       function (EntityInterface $entityRevision) use ($workflowStates): array {
         /** @var \Drupal\Core\Entity\EntityInterface|\Drupal\Core\Entity\RevisionableInterface $entityRevision */
         $option = [];
@@ -385,7 +430,16 @@ class ScheduledTransitionAddForm extends ContentEntityForm {
           $option['revision_time']['data']['#plain_text'] = $this->dateFormatter
             ->format($entityRevision->getRevisionCreationTime());
           $revisionUser = $entityRevision->getRevisionUser();
-          $option['revision_author']['data'] = $revisionUser ? $revisionUser->toLink() : $this->t('- Missing user -');
+          if ($revisionUser) {
+            $option['revision_author']['data'] = $this->moduleHandler->moduleExists('user') ? [
+              '#theme' => 'username',
+              '#account' => $revisionUser,
+            ] : $revisionUser->toLink();
+          }
+          else {
+            $option['revision_author']['data'] = $this->t('- Missing user -');
+          }
+
           if ($revisionLog = $entityRevision->getRevisionLogMessage()) {
             $option['revision_log']['data'] = [
               '#markup' => $revisionLog,
@@ -401,6 +455,20 @@ class ScheduledTransitionAddForm extends ContentEntityForm {
       },
       $entityRevisions
     );
+
+    $options = [
+      static::LATEST_REVISION => [
+        'revision_id' => [
+          'data' => $this->t('Latest revision'),
+        ],
+        'state' => [
+          'data' => $this->t('Automatically determines the latest revision at time of transition.'),
+          'colspan' => $entity instanceof RevisionLogInterface ? 4 : 1,
+        ],
+      ],
+    ] + $options;
+
+    return $options;
   }
 
 }

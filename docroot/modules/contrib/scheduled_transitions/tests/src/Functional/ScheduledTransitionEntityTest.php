@@ -25,6 +25,11 @@ class ScheduledTransitionEntityTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
+  protected $defaultTheme = 'classy';
+
+  /**
+   * {@inheritdoc}
+   */
   protected static $modules = [
     'entity_test_revlog',
     'scheduled_transitions_test',

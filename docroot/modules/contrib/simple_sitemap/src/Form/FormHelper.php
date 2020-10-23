@@ -15,7 +15,6 @@ use Drupal\Core\Session\AccountProxyInterface;
 class FormHelper {
   use StringTranslationTrait;
 
-  const PRIORITY_DEFAULT = 0.5;
   const PRIORITY_HIGHEST = 10;
   const PRIORITY_DIVIDER = 10;
 
@@ -341,7 +340,7 @@ class FormHelper {
         '#description' => $this->getEntityCategory() === 'instance'
           ? $this->t('The frequency with which this <em>@bundle</em> entity changes. Search engine bots may take this as an indication of how often to index it.', ['@bundle' => $bundle_name])
           : $this->t('The frequency with which entities of this type change. Search engine bots may take this as an indication of how often to index them.'),
-        '#default_value' => $this->settings[$variant]['changefreq'],
+        '#default_value' => !empty($this->settings[$variant]['changefreq']) ? $this->settings[$variant]['changefreq'] : null,
         '#options' => $this->getChangefreqSelectValues(),
         '#states' => [
           'visible' => [':input[name="index_' . $variant . '_' . $this->getEntityTypeId() . '_settings"]' => ['value' => 1]],
@@ -359,7 +358,7 @@ class FormHelper {
         '#description' => $this->getEntityCategory() === 'instance'
           ? $this->t('Determines if images referenced by this <em>@bundle</em> entity should be included in the sitemap.', ['@bundle' => $bundle_name])
           : $this->t('Determines if images referenced by entities of this type should be included in the sitemap.'),
-        '#default_value' => (int) $this->settings[$variant]['include_images'],
+        '#default_value' => isset($this->settings[$variant]['include_images']) ? (int) $this->settings[$variant]['include_images'] : NULL,
         '#options' => [$this->t('No'), $this->t('Yes')],
         '#states' => [
           'visible' => [':input[name="index_' . $variant . '_' . $this->getEntityTypeId() . '_settings"]' => ['value' => 1]],
@@ -427,7 +426,7 @@ class FormHelper {
   /**
    * Gets the object entity of the form if available.
    *
-   * @return \Drupal\Core\Entity\Entity|false
+   * @return \Drupal\Core\Entity\EntityBase|false
    *   Entity or FALSE if non-existent or if form operation is
    *   'delete'.
    */

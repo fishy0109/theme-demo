@@ -223,6 +223,17 @@ class ScheduledTransitionsSettingsForm extends ConfigFormBase {
       '#empty_option' => $this->t('- Disabled -'),
       '#default_value' => $settings->get('mirror_operations.add scheduled transition'),
     ];
+    $form['entity_operations']['mirror_operation_reschedule'] = [
+      '#type' => 'select',
+      '#title' => 'Mirror reschedule scheduled transitions',
+      '#description' => $this->t('When attempting to <em>reschedule scheduled transitions</em> for an entity, defer access to another operation.'),
+      '#field_suffix' => $this->t('operation'),
+      '#options' => [
+        'update' => $this->t('Update'),
+      ],
+      '#empty_option' => $this->t('- Disable -'),
+      '#default_value' => $settings->get('mirror_operations.reschedule scheduled transitions'),
+    ];
 
     $form['messages'] = [
       '#type' => 'details',
@@ -260,6 +271,7 @@ class ScheduledTransitionsSettingsForm extends ConfigFormBase {
     $settings = $this->config('scheduled_transitions.settings')
       ->set('mirror_operations.view scheduled transition', $form_state->getValue('mirror_operation_view'))
       ->set('mirror_operations.add scheduled transition', $form_state->getValue('mirror_operation_add'))
+      ->set('mirror_operations.reschedule scheduled transitions', $form_state->getValue('mirror_operation_reschedule'))
       ->set('automation.cron_create_queue_items', (bool) $form_state->getValue('cron_create_queue_items'))
       ->set('message_transition_latest', $form_state->getValue('message_transition_latest'))
       ->set('message_transition_historical', $form_state->getValue('message_transition_historical'))

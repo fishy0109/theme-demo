@@ -10,6 +10,7 @@ use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Entity\ContentEntityType;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Entity\TranslatableInterface;
 use Drupal\scheduled_transitions\Form\Entity\ScheduledTransitionAddForm;
 use Drupal\scheduled_transitions\Form\ScheduledTransitionForm;
 use Drupal\scheduled_transitions\Form\ScheduledTransitionsSettingsForm as SettingsForm;
@@ -123,6 +124,17 @@ class ScheduledTransitionsEntityHooks implements ContainerInjectionInterface {
   }
 
   /**
+   * Implements hook_entity_revision_delete().
+   *
+   * @see \scheduled_transitions_entity_revision_delete()
+   */
+  public function entityRevisionDelete(EntityInterface $entity): void {
+    $transitionStorage = $this->entityTypeManager->getStorage('scheduled_transition');
+    $transitionsForEntity = $this->loadByHostEntity($entity, TRUE);
+    $transitionStorage->delete($transitionsForEntity);
+  }
+
+  /**
    * Implements hook_entity_access().
    *
    * @see \scheduled_transitions_entity_access()
@@ -165,6 +177,21 @@ class ScheduledTransitionsEntityHooks implements ContainerInjectionInterface {
       }
     }
 
+    if ($operation === Permissions::ENTITY_OPERATION_RESCHEDULE_TRANSITIONS) {
+      $access->cachePerPermissions();
+      $permission = Permissions::rescheduleScheduledTransitionsPermission($entity->getEntityTypeId(), $entity->bundle());
+      if ($account->hasPermission($permission)) {
+        $access->addCacheTags([SettingsForm::SETTINGS_TAG]);
+        $mirrorOperation = $this->mirrorOperations('reschedule scheduled transitions');
+        if (isset($mirrorOperation)) {
+          $access = $access->orIf($entity->access($mirrorOperation, $account, TRUE));
+        }
+      }
+      else {
+        $access = $access->andIf(AccessResult::forbidden("The '$permission' permission is required."));
+      }
+    }
+
     return $access;
   }
 
@@ -186,16 +213,27 @@ class ScheduledTransitionsEntityHooks implements ContainerInjectionInterface {
   /**
    * Load a list of scheduled transitions by host entity.
    *
+   * @param \Drupal\Core\Entity\EntityInterface $entity
+   *   Entity.
+   * @param bool $revision_match
+   *   TRUE to match revision too.
+   *
    * @return \Drupal\scheduled_transitions\Entity\ScheduledTransitionInterface[]
    *   A list of scheduled transitions for the given entity.
    */
-  protected function loadByHostEntity(EntityInterface $entity): array {
+  protected function loadByHostEntity(EntityInterface $entity, bool $revision_match = FALSE): array {
     $transitionStorage = $this->entityTypeManager->getStorage('scheduled_transition');
-    $ids = $transitionStorage->getQuery()
+    $query = $transitionStorage->getQuery()
       ->condition('entity.target_id', $entity->id())
       ->condition('entity.target_type', $entity->getEntityTypeId())
-      ->accessCheck(FALSE)
-      ->execute();
+      ->accessCheck(FALSE);
+    if ($revision_match) {
+      $query->condition('entity_revision_id', $entity->getRevisionId());
+    }
+    if ($entity instanceof TranslatableInterface && !$entity->isDefaultTranslation()) {
+      $query->condition('entity_revision_langcode', $entity->language()->getId());
+    }
+    $ids = $query->execute();
     return $transitionStorage->loadMultiple($ids);
   }
 

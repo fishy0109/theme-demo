@@ -1,6 +1,7 @@
 mirror_operations:
   view scheduled transition: 'update'
   add scheduled transition: 'update'
+  reschedule scheduled transitions: 'update'
 automation:
   cron_create_queue_items: true
 message_transition_latest: 'Scheduled transition: transitioning latest revision from [scheduled-transitions:from-state] to [scheduled-transitions:to-state]'

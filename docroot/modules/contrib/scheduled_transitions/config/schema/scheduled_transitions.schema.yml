@@ -11,6 +11,9 @@ scheduled_transitions.settings:
         add scheduled transition:
           type: string
           label: 'An entity operation.  When attempting to add scheduled transitions for an entity, defer access to another operation.'
+        reschedule scheduled transitions:
+          type: string
+          label: 'An entity operation.  When attempting to reschedule scheduled transitions for an entity, defer access to another operation.'
     automation:
       type: mapping
       mapping:

@@ -12,7 +12,7 @@ use Drupal\Core\StringTranslation\TranslationInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Generates permissions for scheduled transitions.
+ * Generates permissions for host entity types for scheduled transitions.
  */
 class ScheduledTransitionsPermissions implements ContainerInjectionInterface {
 
@@ -27,6 +27,11 @@ class ScheduledTransitionsPermissions implements ContainerInjectionInterface {
    * Entity operation for adding transitions to an individual entity.
    */
   public const ENTITY_OPERATION_ADD_TRANSITION = 'add scheduled transition';
+
+  /**
+   * Entity operation for rescheduling all transitions for an individual entity.
+   */
+  public const ENTITY_OPERATION_RESCHEDULE_TRANSITIONS = 'reschedule scheduled transitions';
 
   /**
    * The entity type manager.
@@ -101,6 +106,8 @@ class ScheduledTransitionsPermissions implements ContainerInjectionInterface {
         $permissions[$viewPermission] = ['title' => $this->t('View scheduled transitions for @entity_type:@bundle entities', $tArgs)];
         $addPermission = static::addScheduledTransitionsPermission($entityTypeId, $bundleId);
         $permissions[$addPermission] = ['title' => $this->t('Add scheduled transitions for @entity_type:@bundle entities', $tArgs)];
+        $reschedulePermission = static::rescheduleScheduledTransitionsPermission($entityTypeId, $bundleId);
+        $permissions[$reschedulePermission] = ['title' => $this->t('Reschedule scheduled transitions for @entity_type:@bundle entities', $tArgs)];
       }
     }
 
@@ -135,6 +142,21 @@ class ScheduledTransitionsPermissions implements ContainerInjectionInterface {
    */
   public static function addScheduledTransitionsPermission(string $entityTypeId, string $bundle): string {
     return sprintf('add scheduled transitions %s %s', $entityTypeId, $bundle);
+  }
+
+  /**
+   * Creates a permission for rescheduling scheduled transitions for a bundle.
+   *
+   * @param string $entityTypeId
+   *   An entity type ID.
+   * @param string $bundle
+   *   A bundle ID.
+   *
+   * @return string
+   *   Permission ID for this bundle.
+   */
+  public static function rescheduleScheduledTransitionsPermission(string $entityTypeId, string $bundle): string {
+    return sprintf('reschedule scheduled transitions %s %s', $entityTypeId, $bundle);
   }
 
 }

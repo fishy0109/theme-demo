@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace Drupal\scheduled_transitions;
 
+use Drupal\Component\Serialization\Json;
 use Drupal\Core\Datetime\DateFormatterInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityListBuilder;
@@ -45,7 +46,7 @@ class ScheduledTransitionsListBuilder extends EntityListBuilder {
   public static function createInstance(ContainerInterface $container, EntityTypeInterface $entity_type) {
     return new static(
       $entity_type,
-      $container->get('entity.manager')->getStorage($entity_type->id()),
+      $container->get('entity_type.manager')->getStorage($entity_type->id()),
       $container->get('date.formatter')
     );
   }
@@ -97,6 +98,48 @@ class ScheduledTransitionsListBuilder extends EntityListBuilder {
     $row['date'] = $this->dateFormatter->format($time);
 
     return $row + parent::buildRow($entity);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function getDefaultOperations(EntityInterface $entity) {
+    $operations = parent::getDefaultOperations($entity);
+
+    $rescheduleUrl = $entity->toUrl('reschedule-form');
+    // @todo improve access cacheability after
+    // https://www.drupal.org/project/drupal/issues/3106517 +
+    // https://www.drupal.org/project/drupal/issues/2473873 for now permissions
+    // cache context is added manually in buildOperations.
+    if ($rescheduleUrl->access()) {
+      $operations['reschedule'] = [
+        'title' => $this->t('Reschedule'),
+        'weight' => 20,
+        'url' => $this->ensureDestination($rescheduleUrl),
+        'attributes' => [
+          'class' => ['use-ajax'],
+          'data-dialog-type' => 'modal',
+          'data-dialog-options' => Json::encode([
+            'width' => 500,
+          ]),
+        ],
+      ];
+    }
+
+    return $operations;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function buildOperations(EntityInterface $entity) {
+    $build = parent::buildOperations($entity);
+
+    // Add access cacheability, remove after @todo in getDefaultOperations is
+    // completed.
+    $build['#cache']['contexts'][] = 'user.permissions';
+
+    return $build;
   }
 
 }

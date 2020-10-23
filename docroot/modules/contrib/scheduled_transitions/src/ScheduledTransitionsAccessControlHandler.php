@@ -8,6 +8,7 @@ use Drupal\Core\Access\AccessResultInterface;
 use Drupal\Core\Entity\EntityAccessControlHandler;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\scheduled_transitions\Entity\ScheduledTransitionInterface;
 
 /**
  * Access control handler for scheduled transitions.
@@ -26,6 +27,14 @@ class ScheduledTransitionsAccessControlHandler extends EntityAccessControlHandle
       if ($entity) {
         // Defer access to associated entity.
         return $entity->access($operation, $account, TRUE);
+      }
+    }
+
+    if ($operation === ScheduledTransitionInterface::ENTITY_OPERATION_RESCHEDULE) {
+      $entity = $entity->getEntity();
+      if ($entity) {
+        // Defer access to associated entity.
+        $access = $access->andIf($entity->access(ScheduledTransitionsPermissions::ENTITY_OPERATION_RESCHEDULE_TRANSITIONS, $account, TRUE));
       }
     }
 

@@ -28,10 +28,25 @@ use Drupal\Tests\UnitTestCase;
  */
 class ScheduledTransitionsEntityHooksUnitTest extends UnitTestCase {
 
+  /**
+   * A test config factory.
+   *
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   */
   protected $testConfigFactory;
 
+  /**
+   * A test entity type manager service.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
   protected $testEntityTypeManager;
 
+  /**
+   * A test moderation information service.
+   *
+   * @var \Drupal\content_moderation\ModerationInformationInterface
+   */
   protected $testModerationInformation;
 
   /**

@@ -19,7 +19,7 @@ class LayoutPluginTest extends TestBase {
     $this->assertSession()->responseContains('Test Two column');
 
     $layout = [
-      'layout' => 'dstest_2col',
+      'ds_layout' => 'dstest_2col',
     ];
 
     $assert = [
@@ -62,7 +62,7 @@ class LayoutPluginTest extends TestBase {
    */
   public function testResetLayout() {
     $layout = [
-      'layout' => 'ds_reset',
+      'ds_layout' => 'ds_reset',
     ];
 
     $assert = [
@@ -108,14 +108,14 @@ class LayoutPluginTest extends TestBase {
         'ds_content' => '<td colspan="8">' . t('Content') . '</td>',
       ],
     ];
-    $this->dsSelectLayout(['layout' => 'ds_1col'], $assert);
+    $this->dsSelectLayout(['ds_layout' => 'ds_1col'], $assert);
 
     // Go to the node.
     $this->drupalGet('node/' . $node->id());
 
     // Check we don't have empty wrappers.
     $elements = $this->xpath('//div[@class="node node--type-article node--view-mode-full ds-1col clearfix"]/div/p');
-    $this->assertTrue(count($elements) == 1);
+    $this->assertCount(1, $elements);
     $this->assertTrimEqual($elements[0]->getText(), $node->get('body')->value);
 
     // Switch theme.
@@ -128,7 +128,7 @@ class LayoutPluginTest extends TestBase {
     $this->drupalGet('node/' . $node->id());
     $this->assertSession()->responseContains('id="overridden-ds-1-col-template"');
     $elements = $this->xpath('//div[@class="node node--type-article node--view-mode-full ds-1col clearfix"]/div/p');
-    $this->assertTrue(count($elements) == 1);
+    $this->assertCount(1, $elements);
     $this->assertTrimEqual($elements[0]->getText(), $node->get('body')->value);
 
   }

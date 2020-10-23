@@ -18,8 +18,18 @@ use Drupal\Tests\UnitTestCase;
  */
 class ScheduledTransitionsCronUnitTest extends UnitTestCase {
 
+  /**
+   * A test config factory.
+   *
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   */
   protected $testConfigFactory;
 
+  /**
+   * Test jobs.
+   *
+   * @var \Drupal\scheduled_transitions\ScheduledTransitionsJobsInterface
+   */
   protected $testJobs;
 
   /**

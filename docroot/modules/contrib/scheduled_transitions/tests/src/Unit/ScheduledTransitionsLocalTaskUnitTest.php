@@ -33,6 +33,7 @@ class ScheduledTransitionsLocalTaskUnitTest extends UnitTestCase {
     $plugin_id = '';
     $plugin_definition = [
       'base_route' => 'entity.st_entity_test.canonical',
+      'title' => 'Scheduled transitions',
     ];
     $assertCount = 42;
     $currentUserLanguage = 'de';

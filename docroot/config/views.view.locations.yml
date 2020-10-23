@@ -15,6 +15,7 @@ dependencies:
     - image
     - link
     - node
+    - options
     - user
 id: locations
 label: Locations
@@ -35,7 +36,7 @@ display:
         options:
           perm: 'access content'
       cache:
-        type: tag
+        type: none
         options: {  }
       query:
         type: views_query
@@ -48,11 +49,11 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Apply
+          submit_button: Filter
           reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
+          expose_sort_order: false
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
@@ -165,7 +166,7 @@ display:
             suffix: ''
             target: ''
             nl2br: false
-            max_length: 80
+            max_length: 200
             word_boundary: true
             ellipsis: true
             more_link: false
@@ -644,7 +645,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "['<a href=\"{{ field_website }}\"><h4>{{ title }}</a></h4> <p>{{ field_description }}</p><a href=\"{{ field_website }}\">Visit website</a>', {{ field_latitude }}, {{ field_longitude }}, {{ counter }},'http://192.168.1.129{{ field_marker_image }}','http://192.168.1.129{{ field_marker_image_large }}','http://192.168.1.129{{ field_marker_image_small }}'],\r\n"
+            text: "['<a href=\"{{ field_website }}\"><h4>{{ title }}</a></h4> <p>{{ field_description }}</p><a href=\"{{ field_website }}\">Visit website</a>', {{ field_latitude }}, {{ field_longitude }}, {{ counter }},'https://nca-new.iconinc.com.au{{ field_marker_image }}','https://nca-new.iconinc.com.au{{ field_marker_image_large }}','https://nca-new.iconinc.com.au{{ field_marker_image_small }}'],\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -708,19 +709,83 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
+        field_type_value:
+          id: field_type_value
+          table: node__field_type
+          field: field_type_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_type_value_op
+            label: 'Type (field_type)'
+            description: null
+            use_operator: false
+            operator: field_type_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_type_value
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: true
+          group_info:
+            label: Category
+            description: ''
+            identifier: field_type_value
+            optional: true
+            widget: radios
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Amenity
+                operator: or
+                value:
+                  Amenity: Amenity
+              2:
+                title: Attraction
+                operator: or
+                value:
+                  Attraction: Attraction
+          reduce_duplicates: false
+          plugin_id: list_field
       sorts: {  }
       title: Locations
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: '<h4>No locations found.</h4>'
+          plugin_id: text_custom
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+      use_ajax: false
+      group_by: false
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -744,6 +809,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - 'user.node_grants:view'
         - user.permissions
       tags:

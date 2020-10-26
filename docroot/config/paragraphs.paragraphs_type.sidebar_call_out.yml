@@ -1,0 +1,10 @@
+uuid: 3efdfc31-5e8c-4356-8f65-949dea7ca558
+langcode: en
+status: true
+dependencies: {  }
+id: sidebar_call_out
+label: 'Sidebar call out'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

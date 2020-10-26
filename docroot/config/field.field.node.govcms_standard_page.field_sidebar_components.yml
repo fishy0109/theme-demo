@@ -1,0 +1,79 @@
+uuid: 4d666176-8ab3-4a73-a130-75fdd9fc8734
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sidebar_components
+    - node.type.govcms_standard_page
+    - paragraphs.paragraphs_type.sidebar_call_out
+  module:
+    - entity_reference_revisions
+id: node.govcms_standard_page.field_sidebar_components
+field_name: field_sidebar_components
+entity_type: node
+bundle: govcms_standard_page
+label: 'Sidebar Components'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      sidebar_call_out: sidebar_call_out
+    target_bundles_drag_drop:
+      accordion:
+        weight: 18
+        enabled: false
+      accordion_group:
+        weight: 19
+        enabled: false
+      call_to_action_group:
+        weight: 20
+        enabled: false
+      call_to_action_link:
+        weight: 21
+        enabled: false
+      color_background_modifier:
+        weight: 22
+        enabled: false
+      content:
+        weight: 23
+        enabled: false
+      custom_linear_gradient_modifier:
+        weight: 24
+        enabled: false
+      image_bg_modifier:
+        weight: 25
+        enabled: false
+      item:
+        weight: 26
+        enabled: false
+      item_list:
+        weight: 27
+        enabled: false
+      node_list:
+        weight: 28
+        enabled: false
+      padding_modifier:
+        weight: 29
+        enabled: false
+      parallax_bg_modifier:
+        weight: 30
+        enabled: false
+      relative_height_modifier:
+        weight: 31
+        enabled: false
+      sidebar_call_out:
+        enabled: true
+        weight: 32
+      slider:
+        weight: 33
+        enabled: false
+      slider_banner:
+        weight: 34
+        enabled: false
+field_type: entity_reference_revisions

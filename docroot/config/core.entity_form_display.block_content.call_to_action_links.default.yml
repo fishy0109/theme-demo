@@ -1,0 +1,35 @@
+uuid: a14d5029-f0ff-458e-aa62-fbd1cccdea4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.call_to_action_links
+    - field.field.block_content.call_to_action_links.field_call_links
+  module:
+    - paragraphs
+id: block_content.call_to_action_links.default
+targetEntityType: block_content
+bundle: call_to_action_links
+mode: default
+content:
+  field_call_links:
+    type: entity_reference_paragraphs
+    weight: 26
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

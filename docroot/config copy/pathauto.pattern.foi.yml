@@ -1,0 +1,24 @@
+uuid: 76e46913-9684-415e-b504-45f394c22bad
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: s3Y3xlLQDiI3fdd5ZC2ho2tlaWfpp13OpRc6GLENVOo
+id: foi
+label: FOI
+type: 'canonical_entities:node'
+pattern: 'freedom-of-information/[node:title]'
+selection_criteria:
+  fa14121d-b350-41b9-849f-25aa78bab9dd:
+    id: node_type
+    bundles:
+      govcms_foi: govcms_foi
+    negate: false
+    context_mapping:
+      node: node
+    uuid: fa14121d-b350-41b9-849f-25aa78bab9dd
+selection_logic: and
+weight: -5
+relationships: {  }

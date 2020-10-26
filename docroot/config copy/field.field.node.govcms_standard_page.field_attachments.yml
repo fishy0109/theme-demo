@@ -1,0 +1,38 @@
+uuid: 373bad36-e56d-4803-a8ff-6058cfbf7f2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_attachments
+    - media.type.audio
+    - media.type.file
+    - media.type.image
+    - media.type.remote_video
+    - media.type.video
+    - node.type.govcms_standard_page
+_core:
+  default_config_hash: YCSVZtKcMTi6U36c2laA2HEdSlIMrLH1h50IKqJEQME
+id: node.govcms_standard_page.field_attachments
+field_name: field_attachments
+entity_type: node
+bundle: govcms_standard_page
+label: Resources
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      audio: audio
+      file: file
+      image: image
+      remote_video: remote_video
+      video: video
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: file
+field_type: entity_reference

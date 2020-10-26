@@ -1,0 +1,17 @@
+uuid: ddd0030a-1bac-4aed-9e0b-5ab9e4ece2a9
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: '-dqRUtx5k2ZkWOq0I4STB_5TdBXXW0jWuenGoN1baxA'
+name: featured
+label: Featured
+effects:
+  9db5d62f-c134-4dc6-bb77-eda136ac9b86:
+    uuid: 9db5d62f-c134-4dc6-bb77-eda136ac9b86
+    id: image_scale
+    weight: 1
+    data:
+      width: 1200
+      height: null
+      upscale: false

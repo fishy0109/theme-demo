@@ -1,0 +1,12 @@
+uuid: f95f4411-a65d-4bd5-949e-356ec7f4a276
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 264PTUkRrZGaX6N2zEyRLE6x6QzPNcxZ_-YRhJsWLfQ
+id: parallax_bg_modifier
+label: 'Parallax Background Modifier'
+icon_uuid: null
+icon_default: null
+description: null
+behavior_plugins: {  }

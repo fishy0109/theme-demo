@@ -1,0 +1,7 @@
+uuid: e54dac4a-4fbe-4413-a058-7c237fc254ca
+langcode: en
+status: true
+dependencies: {  }
+name: sidebar_image
+label: 'Sidebar image'
+effects: {  }

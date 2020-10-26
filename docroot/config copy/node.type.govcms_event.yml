@@ -1,0 +1,19 @@
+uuid: d47e2e16-69c3-4fd7-a916-c304d2e65a48
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+_core:
+  default_config_hash: bI53ZqXWidLVbTfZ5ohal_4I4fdEFuNs_JpgmvUNHMs
+name: Event
+type: govcms_event
+description: 'Use <em>Event</em> to reach your target audience.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

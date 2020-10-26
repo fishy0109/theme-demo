@@ -1,0 +1,111 @@
+uuid: 7332070a-adf0-4b7c-b0f8-dc982250065f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.file.field_featured_on_homepage
+    - field.field.media.file.field_image
+    - field.field.media.file.field_media_file
+    - field.field.media.file.field_tags
+    - image.style.thumbnail
+    - media.type.file
+  module:
+    - ds
+    - file
+    - image
+    - taxonomy
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      ds_content:
+        - uid
+        - name
+        - created
+        - field_image
+        - field_tags
+        - field_media_file
+_core:
+  default_config_hash: K9mWVaQxLMn3TaYWpYVuWbbFlq2Lj_LknmiGTsmPhV0
+id: media.file.default
+targetEntityType: media
+bundle: file
+mode: default
+content:
+  created:
+    type: timestamp
+    weight: 2
+    region: ds_content
+    label: above
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
+  field_featured_on_homepage:
+    weight: 6
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_image:
+    weight: 3
+    label: hidden
+    settings:
+      image_style: thumbnail
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: ds_content
+  field_media_file:
+    weight: 5
+    label: hidden
+    settings:
+      use_description_as_link_text: false
+    third_party_settings: {  }
+    type: file_default
+    region: ds_content
+  field_tags:
+    type: entity_reference_rss_category
+    weight: 4
+    region: ds_content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  name:
+    type: string
+    weight: 1
+    region: ds_content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  uid:
+    type: author
+    weight: 0
+    region: ds_content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  search_api_excerpt: true
+  thumbnail: true

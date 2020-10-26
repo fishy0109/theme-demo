@@ -1,0 +1,21 @@
+uuid: ab7fa4a2-6b48-4ad9-8d13-eb3792515252
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_group_title
+    - paragraphs.paragraphs_type.call_to_action_group
+  module:
+    - text
+id: paragraph.call_to_action_group.field_group_title
+field_name: field_group_title
+entity_type: paragraph
+bundle: call_to_action_group
+label: 'Group Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

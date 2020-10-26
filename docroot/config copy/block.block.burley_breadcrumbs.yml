@@ -1,0 +1,22 @@
+uuid: c91dddbc-691f-4bb4-9a16-c1e866c2d7e9
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - burley
+_core:
+  default_config_hash: Mri_q32TjWrLy9eDVRCwiLnDNe5V8jeP8S8ri-PGDTw
+id: burley_breadcrumbs
+theme: burley
+region: breadcrumb
+weight: -4
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,16 @@
+uuid: 83186acc-cbc8-4692-85b6-16f6981a97dc
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access shortcuts'
+  - 'opt-in or out of google analytics tracking'
+  - 'search content'
+  - 'view media'

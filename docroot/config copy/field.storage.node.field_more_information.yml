@@ -1,0 +1,21 @@
+uuid: 8f3263a2-5292-413a-81be-c1cf202d71c7
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - node
+_core:
+  default_config_hash: oxGhJ1tRFDL_KxtV5A0r_tmCpx3B4qrp6zNzzzFzc_U
+id: node.field_more_information
+field_name: field_more_information
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

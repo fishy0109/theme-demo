@@ -1,0 +1,94 @@
+uuid: 6b1abc43-ffc1-4b01-beaf-9886fb716b79
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.remote_video.field_download_link
+    - field.field.media.remote_video.field_featured_on_homepage
+    - field.field.media.remote_video.field_media_oembed_video
+    - field.field.media.remote_video.field_tags
+    - field.field.media.remote_video.field_transcript
+    - media.type.remote_video
+  module:
+    - field_group
+    - link
+    - media
+    - text
+third_party_settings:
+  field_group:
+    group_transcript_container:
+      children:
+        - group_trans
+      parent_name: ''
+      weight: 1
+      format_type: accordion
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        effect: none
+      label: 'Transcript container'
+    group_trans:
+      children:
+        - field_transcript
+      parent_name: group_transcript_container
+      weight: 20
+      format_type: accordion_item
+      region: content
+      format_settings:
+        formatter: closed
+        id: ''
+        classes: ''
+      label: 'Video transcript'
+_core:
+  default_config_hash: fFIqq1pvuW-TgMq-NjoJtAxOtQzk4ynQ7MxBUtKQSuE
+id: media.remote_video.default
+targetEntityType: media
+bundle: remote_video
+mode: default
+content:
+  field_download_link:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_featured_on_homepage:
+    weight: 21
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_media_oembed_video:
+    type: oembed
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      max_width: 0
+      max_height: 0
+    third_party_settings: {  }
+  field_transcript:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  created: true
+  field_tags: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

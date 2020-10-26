@@ -1,0 +1,100 @@
+uuid: 1dc64c60-06fa-44b7-bd90-f082cb82efd0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.embed
+    - field.field.media.remote_video.field_download_link
+    - field.field.media.remote_video.field_featured_on_homepage
+    - field.field.media.remote_video.field_media_oembed_video
+    - field.field.media.remote_video.field_tags
+    - field.field.media.remote_video.field_transcript
+    - media.type.remote_video
+  module:
+    - field_group
+    - link
+    - linked_field
+    - media
+    - text
+third_party_settings:
+  field_group:
+    group_transcript_container:
+      children:
+        - group_transcript
+      parent_name: ''
+      weight: 2
+      format_type: accordion
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        effect: none
+      label: 'Transcript container'
+    group_transcript:
+      children:
+        - field_transcript
+      parent_name: group_transcript_container
+      weight: 10
+      format_type: accordion_item
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+      label: Transcript
+_core:
+  default_config_hash: fFIqq1pvuW-TgMq-NjoJtAxOtQzk4ynQ7MxBUtKQSuE
+id: media.remote_video.embed
+targetEntityType: media
+bundle: remote_video
+mode: embed
+content:
+  field_download_link:
+    type: link
+    weight: 4
+    region: content
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_media_oembed_video:
+    type: oembed
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      max_width: 0
+      max_height: 0
+    third_party_settings: {  }
+  field_transcript:
+    type: text_default
+    weight: 3
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  name:
+    type: string
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      linked_field:
+        linked: '1'
+        type: field
+        destination: field_media_oembed_video
+        advanced: {  }
+hidden:
+  created: true
+  field_featured_on_homepage: true
+  field_tags: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

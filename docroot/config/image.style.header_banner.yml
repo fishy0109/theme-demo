@@ -1,0 +1,15 @@
+uuid: 1b255a16-037f-4116-8976-05108575be87
+langcode: en
+status: true
+dependencies: {  }
+name: header_banner
+label: 'Header Banner'
+effects:
+  05a1a398-09c3-4770-a1cd-13706fcf3ebc:
+    uuid: 05a1a398-09c3-4770-a1cd-13706fcf3ebc
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1140
+      height: 300
+      anchor: center-center

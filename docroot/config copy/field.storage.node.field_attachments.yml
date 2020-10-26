@@ -1,0 +1,22 @@
+uuid: d5683da1-6d02-412a-a9ab-16ef23a361b8
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - node
+_core:
+  default_config_hash: vray_IYtO0cIbJOq2cSOTO0QH_sJObg8RR-Qv5Q3HLc
+id: node.field_attachments
+field_name: field_attachments
+entity_type: node
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

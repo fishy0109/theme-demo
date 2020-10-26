@@ -1,0 +1,27 @@
+uuid: 1bea433b-77b7-4160-a4dc-4301c50e5561
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_type
+field_name: field_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Amenity
+      label: Amenity
+    -
+      value: Attraction
+      label: Attraction
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

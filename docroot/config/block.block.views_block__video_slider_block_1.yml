@@ -1,0 +1,30 @@
+uuid: ca56bfac-d452-4b68-a1a4-845fe3549d21
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.video_slider
+  module:
+    - system
+    - views
+  theme:
+    - burley
+id: views_block__video_slider_block_1
+theme: burley
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:video_slider-block_1'
+settings:
+  id: 'views_block:video_slider-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

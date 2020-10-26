@@ -1,0 +1,207 @@
+uuid: c8530733-23dd-42b1-8e1c-3c0f1ee0fb64
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.govcms_media_image_browser
+    - field.field.node.govcms_standard_page.body
+    - field.field.node.govcms_standard_page.field_attachments
+    - field.field.node.govcms_standard_page.field_category
+    - field.field.node.govcms_standard_page.field_components
+    - field.field.node.govcms_standard_page.field_featured_image
+    - field.field.node.govcms_standard_page.field_order
+    - field.field.node.govcms_standard_page.field_related_links
+    - field.field.node.govcms_standard_page.field_related_media
+    - field.field.node.govcms_standard_page.field_sidebar_components
+    - field.field.node.govcms_standard_page.field_thumbnail
+    - field.field.node.govcms_standard_page.panelizer
+    - node.type.govcms_standard_page
+  module:
+    - entity_browser
+    - link
+    - media_library
+    - paragraphs
+    - path
+    - text
+_core:
+  default_config_hash: 86eC976mzjPRXgOP3mHbopqVo9iGBrLuei0d29Jsxds
+id: node.govcms_standard_page.default
+targetEntityType: node
+bundle: govcms_standard_page
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 8
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_attachments:
+    weight: 12
+    settings:
+      entity_browser: govcms_media_file_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: thumbnail
+      field_widget_replace: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  field_category:
+    weight: 11
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_components:
+    type: entity_reference_paragraphs
+    weight: 10
+    settings:
+      title: Component
+      title_plural: Components
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    region: content
+  field_featured_image:
+    weight: 9
+    settings:
+      entity_browser: govcms_media_image_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: thumbnail
+      field_widget_replace: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  field_order:
+    weight: 26
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_related_links:
+    weight: 14
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_related_media:
+    type: media_library_widget
+    weight: 13
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+  field_sidebar_components:
+    type: entity_reference_paragraphs
+    weight: 17
+    settings:
+      title: 'Sidebar Component'
+      title_plural: 'Sidebar Components'
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    region: content
+  field_thumbnail:
+    weight: 15
+    settings:
+      entity_browser: govcms_media_image_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: thumbnail
+      field_widget_replace: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 6
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 3
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 7
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 16
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  panelizer: true

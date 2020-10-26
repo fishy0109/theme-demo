@@ -1,0 +1,8 @@
+uuid: b2dcd2f1-6f48-42fb-852e-913a2c9ffb6b
+langcode: en
+status: true
+dependencies: {  }
+id: call_out_one_link_
+label: 'Sidebar Call out'
+revision: 0
+description: ''

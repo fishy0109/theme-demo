@@ -1,0 +1,27 @@
+uuid: c32d9fd3-df79-49e6-870a-62c1dd1de35b
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - burley
+_core:
+  default_config_hash: D4YvToX78F0ht3jsw5aiWxvezcjejyD6WGoZkZ9G3Sw
+id: burley_footer
+theme: burley
+region: footer
+weight: -4
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: Footer
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

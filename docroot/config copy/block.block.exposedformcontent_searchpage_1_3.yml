@@ -1,0 +1,23 @@
+uuid: fdcaf365-2d0d-4a80-a670-0e2c92b28825
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.content_search
+  module:
+    - views
+  theme:
+    - burley
+id: exposedformcontent_searchpage_1_3
+theme: burley
+region: header_search
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:content_search-page_1'
+settings:
+  id: 'views_exposed_filter_block:content_search-page_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility: {  }

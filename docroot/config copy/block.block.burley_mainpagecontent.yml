@@ -1,0 +1,22 @@
+uuid: d542e817-b1b8-48bf-861f-b7656e8a6c34
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - burley
+_core:
+  default_config_hash: XK1mJFOKYcXbRSRdi-tJqwP97remqgav8sljQsyTZhs
+id: burley_mainpagecontent
+theme: burley
+region: content
+weight: -2
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

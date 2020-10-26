@@ -1,0 +1,133 @@
+uuid: 365b7cbe-b9b8-4646-88cf-ad87062c820c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - field.storage.node.field_event_date
+    - field.storage.node.field_event_location
+    - search_api.server.database_search
+  module:
+    - node
+    - search_api
+_core:
+  default_config_hash: bRDAIgbrsxdkC35OL6rsCgbcaZhcEeb5WRFA9eynC0Q
+id: database_search_index
+name: 'Database search index'
+description: 'Default search index using the database search server'
+read_only: false
+field_settings:
+  body:
+    label: Body
+    datasource_id: 'entity:node'
+    property_path: body
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.body
+  field_event_date:
+    label: 'Event date'
+    datasource_id: 'entity:node'
+    property_path: field_event_date
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_event_date
+  field_event_location:
+    label: Location
+    datasource_id: 'entity:node'
+    property_path: field_event_location
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_event_location
+  rendered_item:
+    label: 'Rendered HTML output'
+    property_path: rendered_item
+    type: text
+    configuration:
+      roles:
+        anonymous: anonymous
+      view_mode:
+        'entity:node':
+          govcms_event: ''
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: !!float 3
+    dependencies:
+      module:
+        - node
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
+    dependencies:
+      module:
+        - node
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  entity_status: {  }
+  highlight:
+    highlight: always
+    highlight_partial: false
+    excerpt: true
+    excerpt_length: 256
+    exclude_fields: {  }
+    prefix: '<strong>'
+    suffix: '</strong>'
+    weights:
+      postprocess_query: 0
+  html_filter:
+    all_fields: true
+    fields:
+      - body
+      - field_event_location
+      - rendered_item
+      - title
+      - type
+    title: true
+    alt: true
+    tags:
+      b: 2
+      em: 1
+      h1: 5
+      h2: 3
+      h3: 2
+      strong: 2
+      u: 1
+    weights:
+      preprocess_index: -15
+      preprocess_query: -15
+  ignorecase:
+    all_fields: true
+    fields:
+      - body
+      - field_event_location
+      - rendered_item
+      - title
+      - type
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+  language_with_fallback: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: database_search

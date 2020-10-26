@@ -1,0 +1,31 @@
+uuid: cdabb2a8-4a68-4df5-abdf-fc7f26e6934a
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:call_to_action_links:064b2ae2-a152-47eb-b4f7-2311c11889d1'
+  module:
+    - block_content
+    - system
+  theme:
+    - burley
+id: bottomcalltoactionlinks
+theme: burley
+region: content
+weight: 1
+provider: null
+plugin: 'block_content:064b2ae2-a152-47eb-b4f7-2311c11889d1'
+settings:
+  id: 'block_content:064b2ae2-a152-47eb-b4f7-2311c11889d1'
+  label: 'Bottom call to action links'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

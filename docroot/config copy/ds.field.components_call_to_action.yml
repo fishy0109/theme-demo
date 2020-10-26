@@ -1,0 +1,9 @@
+id: components_call_to_action
+label: 'Components bottom'
+ui_limit: ''
+properties:
+  ds_plugin: 'bundle_field:paragraph'
+type: copy
+type_label: 'Copy field'
+entities:
+  block_content: block_content

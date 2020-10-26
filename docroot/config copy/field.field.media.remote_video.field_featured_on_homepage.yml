@@ -1,0 +1,23 @@
+uuid: 2bba7acf-873f-4774-b4a0-ad0a2a32e48d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_featured_on_homepage
+    - media.type.remote_video
+id: media.remote_video.field_featured_on_homepage
+field_name: field_featured_on_homepage
+entity_type: media
+bundle: remote_video
+label: 'Featured on homepage'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

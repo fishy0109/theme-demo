@@ -1,0 +1,72 @@
+uuid: 3d76e592-dd2b-4739-8c05-3ee67abfc65d
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.govcms_media_image_browser
+    - field.field.paragraph.sidebar_call_out.field_button
+    - field.field.paragraph.sidebar_call_out.field_file
+    - field.field.paragraph.sidebar_call_out.field_heading
+    - field.field.paragraph.sidebar_call_out.field_image
+    - field.field.paragraph.sidebar_call_out.field_links
+    - field.field.paragraph.sidebar_call_out.field_text
+    - paragraphs.paragraphs_type.sidebar_call_out
+  module:
+    - entity_browser
+    - link
+    - media_library
+id: paragraph.sidebar_call_out.default
+targetEntityType: paragraph
+bundle: sidebar_call_out
+mode: default
+content:
+  field_file:
+    type: media_library_widget
+    weight: 3
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+  field_heading:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_image:
+    type: entity_browser_entity_reference
+    weight: 1
+    settings:
+      entity_browser: govcms_media_image_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: thumbnail
+      field_widget_replace: false
+    third_party_settings: {  }
+    region: content
+  field_links:
+    weight: 4
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_text:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+hidden:
+  created: true
+  field_button: true
+  status: true

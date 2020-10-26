@@ -1,0 +1,30 @@
+uuid: f010e105-9945-4105-9834-2518cb53681e
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.electrical_safety_resources
+  module:
+    - system
+    - views
+  theme:
+    - eso_bootstrap
+id: views_block__electrical_safety_resources_block_1
+theme: eso_bootstrap
+region: content
+weight: -1
+provider: null
+plugin: 'views_block:electrical_safety_resources-block_1'
+settings:
+  id: 'views_block:electrical_safety_resources-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

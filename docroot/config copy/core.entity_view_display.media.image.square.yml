@@ -1,0 +1,35 @@
+uuid: 7864c64a-0194-41c1-b728-8e538b79e42d
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.media.square
+    - field.field.media.image.field_media_image
+    - field.field.media.image.field_tags
+    - image.style.square
+    - media.type.image
+  module:
+    - image
+_core:
+  default_config_hash: FMlzJg5psn96EnqyzKLMemmaCd95ZT3I8qluJQAV_qI
+id: media.image.square
+targetEntityType: media
+bundle: image
+mode: square
+content:
+  field_media_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: square
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  created: true
+  field_tags: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

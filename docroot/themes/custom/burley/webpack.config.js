@@ -3,12 +3,12 @@ const webpack = require('webpack')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const UglifyWebpackPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = env => {
 
   const isProduction = env.NODE_ENV === 'production'
-  const assetPath = env.NODE_ENV === 'production' ? 'dist' : 'dev'
+  const assetPath = 'dist'
 
   // Helper to resolve paths
   const resolve = file => path.resolve(__dirname, file)
@@ -75,10 +75,8 @@ module.exports = env => {
         // Standalone JS
         {
           test: /\.js$/,
+          loader: 'babel-loader',
           exclude: /node_modules/,
-          use: {
-            loader: 'babel-loader'
-          }
         },
         // Embed or load static assets
         {
@@ -103,6 +101,7 @@ module.exports = env => {
     },
 
     plugins: [
+
       // Extract CSS to new file
       new MiniCSSExtractPlugin({
         filename: 'css/[name].css',
@@ -138,13 +137,12 @@ module.exports = env => {
   if (isProduction) {
     config.optimization = {
       minimizer: [
-        new UglifyWebpackPlugin({
-          uglifyOptions: {
-            compress: {
-              collapse_vars: false
-            }
-          }
-        })
+        new TerserPlugin({
+          parallel: true,
+          terserOptions: {
+            ecma: 6,
+          },
+        }),
       ]
     }
   }

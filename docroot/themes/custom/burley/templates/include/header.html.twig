@@ -5,10 +5,30 @@
     <div class="header">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6">{{ page.header_logo }}</div>
                 <div class="col-sm-6">
-                    {{ page.seconday_menu }}
-                    {{ page.header_search }}
+                    <a class="header__logo" href="/">
+                        <img src="{{ base_path ~ directory }}/logo.svg" class="img-logo">
+                    </a></div>
+                <div class="col-sm-5">
+                    <ul class="header-menu">
+                        <li><a href="/about-us">About us</a> </li>
+                        <li><a href="/contact-us">Contact us</a></li>
+                    </ul>
+                </div>
+
+                <div class="header-site-search-content-wrapper col-md-1">
+                    <div class="header-search-form">
+                        <div id="remote-search" class="input-wrap">
+                            {{ core_areas_of_study }}
+                            {#<button type="submit">#}
+                            {#<i class="far fa-search fa-2x"></i>#}
+                            {#<span class="sr-only">Search</span>#}
+                            {#</button>#}
+                        </div>
+                    </div>
+                    <div class="search-trigger">
+                        <i class="fal fa-search fa-2x"></i>
+                    </div>
                 </div>
 
                 {# Button to clone in menu #}

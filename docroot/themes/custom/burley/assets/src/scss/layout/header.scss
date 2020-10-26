@@ -13,78 +13,139 @@
 }
 
 header .header {
-  background: $jungle;
-  padding-top: 10px;
+  padding: 1rem 0;
+
+  .row {
+    align-items: center;
+  }
 
   .img-logo {
     object-fit: cover;
     // Md+ screens
     height: 64px;
     width: 268px;
-    margin-left: $spacer;
-    margin-right: $spacer;
-    margin-bottom: $spacer;
   }
 
-  .region-header-search {
-    #remote-search {
-      margin-top: $spacer;
-      display: flex;
-      position: relative;
+  .header-menu {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0;
 
-      .form-type-textfield {
-        width: 100%;
-        margin-bottom: 0;
-
-        input {
-          border-radius: $round-input-border-radius;
-          padding: $spacer * 0.7;
-          border: none;
-          text-align: center;
-          height: 100%;
-          color: $black;
-
-          &:focus {
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-          }
-        }
-      }
-
-      button {
-        position: absolute;
-        right: $spacer * 0.8;
-        top: $spacer * 0.8;
-        border: none;
-        background-color: transparent;
-        bottom: 22px;
-        color: $nca-orange;
-
-        .svg-inline--fa {
-          width: $h3-font-size-md;
-          height: $h3-font-size-md;
-        }
-
-        svg {
-          font-size: $h3-font-size-md;
-          -webkit-transition: all 0.3s;
-          -moz-transition: all 0.3s;
-          -ms-transition: all 0.3s;
-          -o-transition: all 0.3s;
-          transition: all 0.3s;
-        }
+    li {
+      a {
+        display: block;
+        color: $nca-black;
+        padding: .5rem 1rem;
+        font-family: $headings-font-family;
+        font-size: $small-font-size;
 
         &:hover {
-          color: $nca-red;
-          svg {
-            -webkit-transform: scale(1.2);
-            -moz-transform: scale(1.2);
-            -ms-transform: scale(1.2);
-            -o-transform: scale(1.2);
-            transform: scale(1.2);
-          }
+          color: $nca-orange;
         }
       }
     }
+  }
+
+  .header-site-search-content-wrapper {
+    z-index: 2;
+    height: 40px;
+    width: 40px;
+    margin: auto;
+    position: relative;
+
+    &.open{
+      .input-wrap{
+        width: 910px;
+        //transition-delay: 0.25s;
+        background-color: $gray-100;
+      }
+
+      .js-form-submit  {
+        //transition-delay: 0.25s;
+        background-color: transparent;
+        width: 40px !important;
+        top: 0;
+        right: -10px;
+      }
+
+      .search-trigger{
+        //transition-delay: 0.1s;
+        opacity: 0;
+        z-index: -1;
+      }
+    }
+
+    .js-form-submit ,
+    .search-trigger{
+      position: absolute;
+      top: -2px;
+      right: 0;
+      height: 40px;
+      width: 40px;
+      text-align: center;
+      padding: 10px;
+      border: 0 none;
+      box-shadow: none;
+      outline: 0 none;
+      cursor: pointer;
+      z-index: 2;
+      // transition: all 0.2s ease 0.3s;
+    }
+
+    .js-form-submit  {
+      background-color: transparent;
+      margin: -1rem 0;
+      background: none;
+      font-family: 'Font Awesome 5 Pro';
+      color: $nca-black;
+      font-weight: 400;
+      font-size: $large-font-size;
+    }
+
+    .search-trigger{
+      //transition: all 0.3s ease 0.48s;
+      background-color: white;
+      border: 1px solid $gray-200;
+      border-radius: 50%;
+
+      svg{
+        color: $nca-black;
+        font-size: 19px;
+        height: auto;
+        transition: all 0.1s ease;
+      }
+
+      &:hover {
+        svg {
+          font-size: $large-font-size;
+        }
+      }
+    }
+
+    .input-wrap{
+      height: 40px;
+      width: 58px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+      padding: 0 20px;
+      border-radius: 32px;
+      transition: width 0.25s;
+
+      input[type]{
+        width: 100%;
+        background-color: transparent;
+        border: 0 none;
+        box-shadow: none;
+        outline: 0 none;
+        padding: 0;
+        margin: 0;
+      }
+    }
+
   }
 }
 

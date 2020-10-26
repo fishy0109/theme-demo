@@ -61,7 +61,8 @@ $grey-50:     #999999;
 $grey-25:     #CCCCCC;
 $grey-10:     #F0F0F0;
 
-$font-family-base: 'Roboto', Arial, sans-serif;
+$font-family-base: 'Open Sans', sans-serif;
+$headings-font-family: 'Montserrat', sans-serif;
 
 // Fonts
 //
@@ -133,3 +134,7 @@ $grid-breakpoints: (
   lg: 992px,
   xl: 1460px
 );
+
+$global-transition-speed: 0.1s;
+$arrow-animation-movement: 5px;
+$global-img-zoom: 1.1;

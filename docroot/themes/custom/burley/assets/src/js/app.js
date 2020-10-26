@@ -224,3 +224,65 @@ function checkInput(theinput, themessage) {
   }
 }
 
+/* search form functions */
+var searchInput = $('.header-search-form .form-item input');
+var searchButton = $('.search-trigger');
+var searchForm = $('.header-site-search-content-wrapper');
+var searchInputBtn = $('.header-site-search-content-wrapper .js-form-submit');
+
+// Open search form helper function.
+var searchOpen = function(searchForm, searchInput) {
+  $(searchForm).addClass('open');
+  /*$(this).attr('aria-expanded', 'true');*/
+
+  // Wait for the width to transition before setting focus.
+  setTimeout(function() {
+    $(searchInput).focus();
+  }, 250);
+};
+
+// Close search form helper function.
+var searchClose = function(focusItem, searchForm) {
+  $(searchForm).removeClass('open');
+  //$(searchButton).attr('aria-expanded', 'false');
+  $(focusItem).focus();
+};
+
+// If they click the search icon, open the form.
+$(searchButton).on('click', function () {
+  searchOpen(searchForm, searchInput);
+  return false;
+});
+
+
+// If they click the search button, but haven't entered keywords, close it.
+$(searchInputBtn).click(function (){
+  if (!$(searchInput).val()) {
+    searchClose(searchButton, searchForm);
+    return false;
+  }
+});
+
+// If they click outside of the search form when it's open, close it.
+$(document).click(function(e) {
+  if( searchForm.hasClass('open') && searchForm.has(e.target).length === 0) {
+    searchClose(searchButton, searchForm);
+  }
+});
+
+// If they the search form is focused when not active, open it.
+$(searchInput).focus(function() {
+  if(!searchForm.hasClass('open')) {
+    searchOpen(searchForm, searchInput);
+  }
+});
+
+// If they tab or esc without entering keywords, close it.
+$(searchForm).keydown(function(e) {
+  var keyCode = e.keyCode || e.which;
+
+  if (!$(searchInput).val() && (keyCode == 9 || keyCode == 27)) {
+    searchClose(searchButton, searchForm);
+  }
+});
+

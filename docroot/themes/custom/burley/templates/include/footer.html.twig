@@ -6,9 +6,46 @@
     {% endblock %}
 </div>
 
-<footer id="footer">
-    <a id="to-top" href="" aria-label="back to top"><i
-                class="fas fa-angle-up fa-2x"></i></a>
+<footer id="footer" class="container">
+    <div class="social-links row">
+        <div class="col-12">
+            <a href=""><i class="fab fa-facebook-f"></i></a>
+            <a href=""><i class="fab fa-twitter"></i></a>
+            <a href=""><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    <div class="footer-menu row">
+        <ul class="col-12">
+            <li><a href="/">Attractions</a> </li>
+            <li><a href="/">Events</a></li>
+            <li><a href="/">Education</a></li>
+            <li><a href="/">Parking</a></li>
+            <li><a href="/">Planning</a></li>
+            <li><a href="/">Environment</a></li>
+            <li><a href="/">About us</a></li>
+            <li><a href="/">Contact us</a></li>
+        </ul>
+    </div>
+    <div class="footer-text row">
+        <div class="col-12">
+            <h2>Canberra is Ngunnawal country.<br><a href="">Discover more</a> about the Traditional Owners of this land.</h2>
+        </div>
+    </div>
+    <div class="footer-bottom row">
+        <div class="col-md-6">
+            <a class="footer__logo" href="/">
+                <img src="{{ base_path ~ directory }}/assets/src/images/logo.svg" class="img-logo">
+            </a>
+        </div>
+        <div class="col-md-6">
+            <ul class="footer-bottom-menu">
+                <li><a href="/">AusTender</a> </li>
+                <li><a href="/">Copyright</a></li>
+                <li><a href="/">Disclaimer</a></li>
+                <li><a href="/">Privacy</a></li>
+            </ul>
+        </div>
+    </div>
     {% block footer %}
         <div class="{{ container }}">
             {% if page.footer %}

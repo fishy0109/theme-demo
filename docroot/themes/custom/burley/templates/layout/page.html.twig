@@ -100,14 +100,6 @@
         {% endif %}
         <div id="main-wrapper" class="layout-main-wrapper clearfix">
 
-            {% if content_type is not empty %}
-                <div class="section-header">
-                    <div class="container section-name">
-                        {{ content_type }}
-                    </div>
-                </div>
-            {% endif %}
-
             {% block content %}
                 <div id="main" class="container">
                         {% if page.sidebar %}

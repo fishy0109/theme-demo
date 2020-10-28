@@ -1,4 +1,4 @@
-index: 1
+index: true
 priority: '0.5'
 _core:
   default_config_hash: 6faYTsd8nMYo9hCK0tKSEoHIf97MT9Y9TGeBfTIQSBw

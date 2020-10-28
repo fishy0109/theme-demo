@@ -58,6 +58,11 @@ targetEntityType: node
 bundle: govcms_standard_page
 mode: stack_simple
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_thumbnail:
     type: entity_reference_entity_view
     weight: 0
@@ -75,8 +80,13 @@ content:
 hidden:
   body: true
   field_attachments: true
+  field_category: true
   field_components: true
   field_featured_image: true
+  field_order: true
+  field_related_links: true
+  field_related_media: true
+  field_sidebar_components: true
   links: true
   panelizer: true
   search_api_excerpt: true

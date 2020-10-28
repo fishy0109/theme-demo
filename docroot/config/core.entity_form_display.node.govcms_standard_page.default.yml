@@ -151,4 +151,14 @@ content:
       match_limit: 10
     region: content
     third_party_settings: {  }
-hidden: {  }
+  url_redirects:
+    weight: 50
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_category: true
+  field_order: true
+  field_related_links: true
+  field_related_media: true
+  field_sidebar_components: true

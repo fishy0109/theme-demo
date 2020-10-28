@@ -69,6 +69,11 @@ content:
     settings:
       trim_length: 160
     third_party_settings: {  }
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_thumbnail:
     type: entity_reference_entity_view
     weight: 0
@@ -85,8 +90,13 @@ content:
         advanced: {  }
 hidden:
   field_attachments: true
+  field_category: true
   field_components: true
   field_featured_image: true
+  field_order: true
+  field_related_links: true
+  field_related_media: true
+  field_sidebar_components: true
   links: true
   panelizer: true
   search_api_excerpt: true

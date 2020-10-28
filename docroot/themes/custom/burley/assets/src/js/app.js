@@ -14,8 +14,18 @@ import(
   new module.default()
 });
 
-import Slick from './app/slick';
-new Slick();
+let Flickity = require('flickity');
+new Flickity( '.field--name-field-components', {
+  // options...
+  autoPlay: true,
+  wrapAround: true
+});
+
+new Flickity( '.carousel', {
+  // options...
+  freeScroll: true,
+  wrapAround: true
+});
 
 (function ($, Drupal) {
 

@@ -1,0 +1,23 @@
+uuid: 6992ccd9-147c-4e65-8c63-5dccce297ccc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.attraction
+  module:
+    - text
+id: node.attraction.body
+field_name: body
+entity_type: node
+bundle: attraction
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

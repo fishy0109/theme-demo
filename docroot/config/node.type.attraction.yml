@@ -1,0 +1,18 @@
+uuid: 66617fab-6e5a-4cf1-9b1b-05f419413fe5
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:menu_link_content:0e691d04-c39c-4e22-a4e3-64fce3b3011f'
+name: Attraction
+type: attraction
+description: 'A content type for creating attractions: Places to visit, parks and lakes...'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

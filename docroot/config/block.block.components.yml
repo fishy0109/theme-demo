@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - ctools_block
+    - system
   theme:
     - burley
 id: components
@@ -26,4 +27,9 @@ settings:
     weight: 0
   context_mapping:
     entity: '@node.node_route_context:node'
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

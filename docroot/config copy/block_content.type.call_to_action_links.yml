@@ -1,8 +1,0 @@
-uuid: 88ed49a3-3559-4849-a7a4-93d3787847bb
-langcode: en
-status: true
-dependencies: {  }
-id: call_to_action_links
-label: 'Call to action links'
-revision: 0
-description: ''

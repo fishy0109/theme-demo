@@ -1,15 +1,12 @@
-uuid: cd89e1ff-733c-401a-a1d9-308d1d5b0858
+uuid: 8fa8e599-efba-4fc6-8a60-20c615487b4a
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_components
     - node.type.govcms_standard_page
-    - paragraphs.paragraphs_type.accordion
-    - paragraphs.paragraphs_type.accordion_group
     - paragraphs.paragraphs_type.content
-    - paragraphs.paragraphs_type.item_list
-    - paragraphs.paragraphs_type.node_list
+    - paragraphs.paragraphs_type.slider
   module:
     - entity_reference_revisions
 _core:
@@ -30,37 +27,40 @@ settings:
     negate: 0
     target_bundles:
       content: content
-      item_list: item_list
-      node_list: node_list
-      accordion: accordion
-      accordion_group: accordion_group
+      slider: slider
     target_bundles_drag_drop:
+      accordion:
+        weight: 13
+        enabled: false
+      accordion_group:
+        weight: 14
+        enabled: false
+      call_to_action_group:
+        weight: 19
+        enabled: false
+      call_to_action_link:
+        weight: 20
+        enabled: false
+      color_background_modifier:
+        weight: 21
+        enabled: false
       content:
         enabled: true
         weight: 5
+      custom_linear_gradient_modifier:
+        weight: 17
+        enabled: false
+      image_bg_modifier:
+        weight: 13
+        enabled: false
       item:
         weight: 6
         enabled: false
       item_list:
-        enabled: true
         weight: 7
+        enabled: false
       node_list:
-        enabled: true
         weight: 8
-      accordion:
-        enabled: true
-        weight: 13
-      image_bg_modifier:
-        weight: 13
-        enabled: false
-      accordion_group:
-        enabled: true
-        weight: 14
-      custom_colors_modifier:
-        weight: 16
-        enabled: false
-      custom_linear_gradient_modifier:
-        weight: 17
         enabled: false
       padding_modifier:
         weight: 18
@@ -70,5 +70,14 @@ settings:
         enabled: false
       relative_height_modifier:
         weight: 20
+        enabled: false
+      sidebar_call_out:
+        weight: 32
+        enabled: false
+      slider:
+        enabled: true
+        weight: 31
+      slider_banner:
+        weight: 32
         enabled: false
 field_type: entity_reference_revisions

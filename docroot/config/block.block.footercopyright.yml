@@ -1,6 +1,6 @@
 uuid: dcc31d67-6a5c-4ef9-b8e7-035692203d3a
 langcode: en
-status: true
+status: false
 dependencies:
   content:
     - 'block_content:standard_block:3c12714f-43b6-4e45-affc-a015460ea871'
@@ -10,7 +10,7 @@ dependencies:
     - burley
 id: footercopyright
 theme: burley
-region: footer_first
+region: announcement
 weight: 0
 provider: null
 plugin: 'block_content:3c12714f-43b6-4e45-affc-a015460ea871'

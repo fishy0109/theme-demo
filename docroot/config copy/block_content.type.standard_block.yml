@@ -1,8 +1,0 @@
-uuid: 275b5646-c6aa-4d51-9985-96235f0af583
-langcode: en
-status: true
-dependencies: {  }
-id: standard_block
-label: 'Standard Block'
-revision: 0
-description: ''

@@ -48,7 +48,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/chunk/" + ({"vendors~mmenu":"vendors~mmenu"}[chunkId]||chunkId) + "-" + {"0":"4d116574415ab5e4db22","1":"3e839fe3a80717d7bec9","2":"e6012d860af9217c2bbd","3":"89dd5ff00e2887062a00","vendors~mmenu":"7dbc7373e6877ad53991"}[chunkId] + ".js"
+/******/ 		return __webpack_require__.p + "js/chunk/" + ({"vendors~mmenu":"vendors~mmenu"}[chunkId]||chunkId) + "-" + {"0":"4d116574415ab5e4db22","1":"5bcae732c0e0ca2e8ced","2":"e6012d860af9217c2bbd","3":"89dd5ff00e2887062a00","vendors~mmenu":"7dbc7373e6877ad53991"}[chunkId] + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -86,7 +86,7 @@
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "css/chunks/" + ({"vendors~mmenu":"vendors~mmenu"}[chunkId]||chunkId) + "-" + "ab6cb7ccd38a4689" + ".css";
+/******/ 				var href = "css/chunks/" + ({"vendors~mmenu":"vendors~mmenu"}[chunkId]||chunkId) + "-" + "a7e963a7d2d0155a" + ".css";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {
@@ -254,16 +254,13 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(jQuery, Drupal) {/* harmony import */ var core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es6.regexp.replace */ "./node_modules/core-js/modules/es6.regexp.replace.js");
-/* harmony import */ var core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var core_js_modules_es6_array_find__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es6.array.find */ "./node_modules/core-js/modules/es6.array.find.js");
-/* harmony import */ var core_js_modules_es6_array_find__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_find__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _scss_app_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/scss/app.scss */ "./assets/src/scss/app.scss");
-/* harmony import */ var _scss_app_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_scss_app_scss__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery */ "jquery");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _app_slick__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app/slick */ "./assets/src/js/app/slick.js");
-
+/* WEBPACK VAR INJECTION */(function(jQuery, Drupal) {/* harmony import */ var core_js_modules_es6_array_find__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es6.array.find */ "./node_modules/core-js/modules/es6.array.find.js");
+/* harmony import */ var core_js_modules_es6_array_find__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_array_find__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _scss_app_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/scss/app.scss */ "./assets/src/scss/app.scss");
+/* harmony import */ var _scss_app_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_scss_app_scss__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _app_slick__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app/slick */ "./assets/src/js/app/slick.js");
 
 
 /**
@@ -273,12 +270,12 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
-window.$ = window.JQuery = jquery__WEBPACK_IMPORTED_MODULE_3___default.a;
+window.$ = window.JQuery = jquery__WEBPACK_IMPORTED_MODULE_2___default.a;
 Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! @/js/app/fontawesome */ "./assets/src/js/app/fontawesome.js")).then(function (module) {
   new module.default();
 });
 
-new _app_slick__WEBPACK_IMPORTED_MODULE_4__["default"]();
+new _app_slick__WEBPACK_IMPORTED_MODULE_3__["default"]();
 
 (function ($, Drupal) {
   'use strict';
@@ -286,16 +283,7 @@ new _app_slick__WEBPACK_IMPORTED_MODULE_4__["default"]();
   Drupal.behaviors.nca = {
     attach: function attach(context, settings) {
       // Document.ready function
-      $(document).ready(function () {
-        $('.bnr-gw2-search #srch-sel-cont').click(function () {
-          searchArrowClick();
-          return false;
-        });
-        $('.bnr-gw2-search .srch-sel-site li, #gw-mobile-menu-wrap .srch-sel-site li').click(function () {
-          searchSelClick($(this));
-          return false;
-        });
-      });
+      $(document).ready(function () {});
     }
   };
 })(jQuery, Drupal);
@@ -304,7 +292,7 @@ new _app_slick__WEBPACK_IMPORTED_MODULE_4__["default"]();
  */
 
 
-jquery__WEBPACK_IMPORTED_MODULE_3___default()(window).on('resize', function () {
+jquery__WEBPACK_IMPORTED_MODULE_2___default()(window).on('resize', function () {
   var width = document.documentElement.clientWidth;
   var done = document.body.classList.contains('mm-once');
   document.body.classList.add('mm-once');
@@ -312,172 +300,106 @@ jquery__WEBPACK_IMPORTED_MODULE_3___default()(window).on('resize', function () {
     new module.default();
   });
 });
-jquery__WEBPACK_IMPORTED_MODULE_3___default()(window).resize();
+jquery__WEBPACK_IMPORTED_MODULE_2___default()(window).resize();
 /**
  * Move to top
  */
 
-jquery__WEBPACK_IMPORTED_MODULE_3___default()(window).scroll(function () {
-  if (jquery__WEBPACK_IMPORTED_MODULE_3___default()(this).scrollTop() != 0) {
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()("#to-top").fadeIn();
+jquery__WEBPACK_IMPORTED_MODULE_2___default()(window).scroll(function () {
+  if (jquery__WEBPACK_IMPORTED_MODULE_2___default()(this).scrollTop() != 0) {
+    jquery__WEBPACK_IMPORTED_MODULE_2___default()("#to-top").fadeIn();
   } else {
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()("#to-top").fadeOut();
+    jquery__WEBPACK_IMPORTED_MODULE_2___default()("#to-top").fadeOut();
   }
 });
-jquery__WEBPACK_IMPORTED_MODULE_3___default()("#to-top").click(function (e) {
+jquery__WEBPACK_IMPORTED_MODULE_2___default()("#to-top").click(function (e) {
   e.preventDefault();
-  jquery__WEBPACK_IMPORTED_MODULE_3___default()("body,html").animate({
+  jquery__WEBPACK_IMPORTED_MODULE_2___default()("body,html").animate({
     scrollTop: 0
   }, 500);
 }); //Main nav hover showing second level menu items
 
-var $dropdown = jquery__WEBPACK_IMPORTED_MODULE_3___default()("#main-navigation .dropdown");
-var $dropdownToggle = jquery__WEBPACK_IMPORTED_MODULE_3___default()("#main-navigation .dropdown-toggle");
-var $dropdownMenu = jquery__WEBPACK_IMPORTED_MODULE_3___default()("#main-navigation .dropdown-menu");
+var $dropdown = jquery__WEBPACK_IMPORTED_MODULE_2___default()("#main-navigation .dropdown");
+var $dropdownToggle = jquery__WEBPACK_IMPORTED_MODULE_2___default()("#main-navigation .dropdown-toggle");
+var $dropdownMenu = jquery__WEBPACK_IMPORTED_MODULE_2___default()("#main-navigation .dropdown-menu");
 var showClass = "show";
-jquery__WEBPACK_IMPORTED_MODULE_3___default()(window).on("load resize", function () {
+jquery__WEBPACK_IMPORTED_MODULE_2___default()(window).on("load resize", function () {
   if (this.matchMedia("(min-width: 768px)").matches) {
     $dropdown.hover(function () {
-      var $this = jquery__WEBPACK_IMPORTED_MODULE_3___default()(this);
+      var $this = jquery__WEBPACK_IMPORTED_MODULE_2___default()(this);
       $this.addClass(showClass);
       $this.find($dropdownToggle).attr("aria-expanded", "true");
       $this.find($dropdownMenu).addClass(showClass);
     }, function () {
-      var $this = jquery__WEBPACK_IMPORTED_MODULE_3___default()(this);
+      var $this = jquery__WEBPACK_IMPORTED_MODULE_2___default()(this);
       $this.removeClass(showClass);
       $this.find($dropdownToggle).attr("aria-expanded", "false");
       $this.find($dropdownMenu).removeClass(showClass);
     });
     $dropdown.click(function () {
-      var $this = jquery__WEBPACK_IMPORTED_MODULE_3___default()(this);
+      var $this = jquery__WEBPACK_IMPORTED_MODULE_2___default()(this);
       $this.removeClass(showClass);
     });
   } else {
     $dropdown.off("mouseenter mouseleave");
   }
 });
+/* search form functions */
 
-function searchSelClick(listitem) {
-  jquery__WEBPACK_IMPORTED_MODULE_3___default()('.srch-sel-site li').removeClass('srch-selected');
+var searchInput = jquery__WEBPACK_IMPORTED_MODULE_2___default()('.header-search-form .form-item input');
+var searchButton = jquery__WEBPACK_IMPORTED_MODULE_2___default()('.search-trigger');
+var searchForm = jquery__WEBPACK_IMPORTED_MODULE_2___default()('.header-site-search-content-wrapper');
+var searchInputBtn = jquery__WEBPACK_IMPORTED_MODULE_2___default()('.header-site-search-content-wrapper .js-form-submit'); // Open search form helper function.
 
-  if (listitem.hasClass('srch-sel-anu')) {
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#qt').attr('placeholder', 'Search ANU web, staff & maps');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#qt1').attr('placeholder', 'Search ANU web, staff & maps');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('.srch-sel-anu').addClass('srch-selected');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#qt').attr('name', 'q');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#qt1').attr('name', 'q');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('.srch-dn').attr('name', 'c-dnavs');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('.srch-q').attr('name', 'c-q');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#qt').attr('data-name', 'q');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#qt1').attr('data-name', 'q');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('.srch-dn').attr('data-name', 'c-dnavs');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('.srch-q').attr('data-name', 'c-q');
-    useThisHidden = 'srch-sel-gsa-hidden';
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#bnr-gwy #SearchForm').attr('action', '//find.anu.edu.au/search');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('.bnr-gw2-search #SearchFormMini').attr('action', '//find.anu.edu.au/search');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#gw-mobile-menu-wrap #SearchForm1').attr('action', '//find.anu.edu.au/search');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#bnr-gwy #SearchForm').attr('method', 'get');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('.bnr-gw2-search #SearchFormMini').attr('method', 'get');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#gw-mobile-menu-wrap #SearchForm1').attr('method', 'get');
-  } else if (listitem.hasClass('srch-sel-currentsite')) {
-    searchname = jquery__WEBPACK_IMPORTED_MODULE_3___default()('#srch-sel-currentsite-bnr').attr('data-anu-searchname');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#qt').attr('placeholder', 'Search current site');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#qt1').attr('placeholder', 'Search current site');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('.srch-sel-currentsite').addClass('srch-selected');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#qt').attr('name', 'as_q');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#qt1').attr('name', 'as_q');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('.srch-dn').attr('name', 'dnavs');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('.srch-q').attr('name', 'q');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#qt').attr('data-name', 'as_q');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#qt1').attr('data-name', 'as_q');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('.srch-dn').attr('data-name', 'dnavs');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('.srch-q').attr('data-name', 'q');
-    useThisHidden = 'srch-sel-gsa-hidden';
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#bnr-gwy #SearchForm').attr('action', '//find.anu.edu.au/search');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('.bnr-gw2-search #SearchFormMini').attr('action', '//find.anu.edu.au/search');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#gw-mobile-menu-wrap #SearchForm1').attr('action', '//find.anu.edu.au/search');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#bnr-gwy #SearchForm').attr('method', 'get');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('.bnr-gw2-search #SearchFormMini').attr('method', 'get');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#gw-mobile-menu-wrap #SearchForm1').attr('method', 'get');
-  } else {
-    s_action = listitem.attr('data-anu-searchaction');
-    s_q = listitem.attr('data-anu-searchq');
-    s_ph = listitem.attr('data-anu-searchplaceholder');
-    s_meth = listitem.attr('data-anu-searchmethod');
-    useThisHidden = listitem.attr('data-anu-searchextrahidden');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#qt').attr('placeholder', s_ph);
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#qt1').attr('placeholder', s_ph);
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#qt').attr('name', s_q);
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#qt1').attr('name', s_q);
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#bnr-gwy #SearchForm').attr('action', s_action);
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('.bnr-gw2-search #SearchFormMini').attr('action', s_action);
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#gw-mobile-menu-wrap #SearchForm1').attr('action', s_action);
+var searchOpen = function searchOpen(searchForm, searchInput) {
+  jquery__WEBPACK_IMPORTED_MODULE_2___default()(searchForm).addClass('open');
+  /*$(this).attr('aria-expanded', 'true');*/
+  // Wait for the width to transition before setting focus.
 
-    if (s_meth == 'post') {
-      jquery__WEBPACK_IMPORTED_MODULE_3___default()('#bnr-gwy #SearchForm').attr('method', 'post');
-      jquery__WEBPACK_IMPORTED_MODULE_3___default()('.bnr-gw2-search #SearchFormMini').attr('method', 'post');
-      jquery__WEBPACK_IMPORTED_MODULE_3___default()('#gw-mobile-menu-wrap #SearchForm1').attr('method', 'post');
-    } else {
-      jquery__WEBPACK_IMPORTED_MODULE_3___default()('#bnr-gwy #SearchForm').attr('method', 'get');
-      jquery__WEBPACK_IMPORTED_MODULE_3___default()('.bnr-gw2-search #SearchFormMini').attr('method', 'get');
-      jquery__WEBPACK_IMPORTED_MODULE_3___default()('#gw-mobile-menu-wrap #SearchForm1').attr('method', 'get');
-    }
+  setTimeout(function () {
+    jquery__WEBPACK_IMPORTED_MODULE_2___default()(searchInput).focus();
+  }, 250);
+}; // Close search form helper function.
+
+
+var searchClose = function searchClose(focusItem, searchForm) {
+  jquery__WEBPACK_IMPORTED_MODULE_2___default()(searchForm).removeClass('open'); //$(searchButton).attr('aria-expanded', 'false');
+
+  jquery__WEBPACK_IMPORTED_MODULE_2___default()(focusItem).focus();
+}; // If they click the search icon, open the form.
+
+
+jquery__WEBPACK_IMPORTED_MODULE_2___default()(searchButton).on('click', function () {
+  searchOpen(searchForm, searchInput);
+  return false;
+}); // If they click the search button, but haven't entered keywords, close it.
+
+jquery__WEBPACK_IMPORTED_MODULE_2___default()(searchInputBtn).click(function () {
+  if (!jquery__WEBPACK_IMPORTED_MODULE_2___default()(searchInput).val()) {
+    searchClose(searchButton, searchForm);
+    return false;
   }
+}); // If they click outside of the search form when it's open, close it.
 
-  jquery__WEBPACK_IMPORTED_MODULE_3___default()('#bnr-gwy #SearchForm input[type=hidden], .bnr-gw2-search #SearchFormMini input[type=hidden], #gw-mobile-menu-wrap #SearchForm1 input[type=hidden]').each(function () {
-    var inputHidden = jquery__WEBPACK_IMPORTED_MODULE_3___default()(this);
-
-    if (inputHidden.hasClass(useThisHidden)) {
-      if (inputHidden.attr('data-name')) {
-        inputHidden.attr('name', inputHidden.attr('data-name'));
-      }
-    } else {
-      if (inputHidden.attr('name')) {
-        inputHidden.attr('data-name', inputHidden.attr('name'));
-        inputHidden.attr('name', '');
-      }
-    }
-  });
-  jquery__WEBPACK_IMPORTED_MODULE_3___default()('#gw-mobile-menu-wrap .srch-sel-site, .bnr-gw2-search  .srch-sel-site').slideUp('fast');
-  jquery__WEBPACK_IMPORTED_MODULE_3___default()('#srch-sel-arrow').attr('src', '//style.anu.edu.au/_anu/4/images/buttons/arrow-down-black.png');
-  jquery__WEBPACK_IMPORTED_MODULE_3___default()('#srch-sel-arrow1').attr('src', '//style.anu.edu.au/_anu/4/images/buttons/arrow-down-black.png');
-}
-
-function searchArrowClick() {
-  if (jquery__WEBPACK_IMPORTED_MODULE_3___default()('.srch-sel-site').css('display') == 'none') {
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('.srch-sel-site').slideDown('fast');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('.srch-sel-site').css('display', 'block');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#srch-sel-arrow1').attr('src', '//style.anu.edu.au/_anu/4/images/buttons/arrow-up-black.png');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#srch-sel-arrow').attr('src', '//style.anu.edu.au/_anu/4/images/buttons/arrow-up-black.png');
-  } else {
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('.srch-sel-site').slideUp('fast');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#srch-sel-arrow1').attr('src', '//style.anu.edu.au/_anu/4/images/buttons/arrow-down-black.png');
-    jquery__WEBPACK_IMPORTED_MODULE_3___default()('#srch-sel-arrow').attr('src', '//style.anu.edu.au/_anu/4/images/buttons/arrow-down-black.png');
+jquery__WEBPACK_IMPORTED_MODULE_2___default()(document).click(function (e) {
+  if (searchForm.hasClass('open') && searchForm.has(e.target).length === 0) {
+    searchClose(searchButton, searchForm);
   }
-}
+}); // If they the search form is focused when not active, open it.
 
-jquery__WEBPACK_IMPORTED_MODULE_3___default()('.view-id-locations input[type=checkbox]').click(function () {
-  alert('clicked');
+jquery__WEBPACK_IMPORTED_MODULE_2___default()(searchInput).focus(function () {
+  if (!searchForm.hasClass('open')) {
+    searchOpen(searchForm, searchInput);
+  }
+}); // If they tab or esc without entering keywords, close it.
+
+jquery__WEBPACK_IMPORTED_MODULE_2___default()(searchForm).keydown(function (e) {
+  var keyCode = e.keyCode || e.which;
+
+  if (!jquery__WEBPACK_IMPORTED_MODULE_2___default()(searchInput).val() && (keyCode == 9 || keyCode == 27)) {
+    searchClose(searchButton, searchForm);
+  }
 });
-
-function checkInput(theinput, themessage) {
-  elem = document.getElementById(theinput);
-
-  if (elem) {
-    oldelem = elem.value;
-    elem.value = elem.value.replace(/^\s+|\s+$/g, '');
-
-    if (elem.value == "" || elem.value == elem.defaultValue) {
-      clearInput(elem);
-      alert(themessage);
-      elem.focus();
-      return false;
-    }
-
-    elem.value = oldelem;
-    setCookie('anuSearch', getCheckedValue('stype'), expdate, '/', null);
-  }
-}
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "jquery"), __webpack_require__(/*! drupal */ "drupal")))
 
 /***/ }),

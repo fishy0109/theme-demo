@@ -18,6 +18,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.10.0",
     "@fortawesome/free-regular-svg-icons": "^5.10.0",
     "@fortawesome/free-solid-svg-icons": "^5.10.0",
+    "@fortawesome/pro-light-svg-icons": "^5.15.1",
     "accessible-submenu": "^1.0.1",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.4",
@@ -72,6 +73,15 @@
         "@babel/preset-env",
         {
           "useBuiltIns": "usage",
+          "targets": {
+            "browsers": [
+              "IE >= 11",
+              "Edge >= 15",
+              "Safari >= 9.1",
+              "Chrome >= 49",
+              "Firefox >= 31"
+            ]
+          },
           "debug": false
         }
       ]

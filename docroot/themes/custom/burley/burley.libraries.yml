@@ -4,9 +4,10 @@ fonts:
       '//fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7Cfamily=Montserrat:300,400,500,600,700': { type: external, minified: true  }
 global-styling:
   version: VERSION
+  header: true
   css:
-    component:
-      assets/src/fonts/fontawesome/css/all.min.css: {}
+    theme:
+      assets/src/fonts/fontawesome/css/all.css: {}
       assets/dist/css/app.css: {}
   dependencies:
     - core/jquery

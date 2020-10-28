@@ -57,7 +57,7 @@ header .header {
 
     &.open{
       .input-wrap{
-        width: 910px;
+        width: 800px;
         //transition-delay: 0.25s;
         background-color: $gray-100;
       }
@@ -81,7 +81,7 @@ header .header {
     .search-trigger{
       position: absolute;
       top: -2px;
-      right: 0;
+      right: 15px;
       height: 40px;
       width: 40px;
       text-align: center;
@@ -129,7 +129,7 @@ header .header {
       width: 58px;
       position: absolute;
       top: 0;
-      right: 0;
+      right: 15px;
       z-index: 1;
       padding: 0 20px;
       border-radius: 32px;
@@ -213,11 +213,12 @@ header .header {
 }
 
 .main-navigation {
-  background: $grey-10;
+  background: $black;
 
-  #block-mainnavigation {
+  #block-mainnavigation-2 {
     ul {
       flex-direction: row;
+      justify-content: space-evenly;
 
       li.nav-item {
         ul.dropdown-menu {
@@ -234,7 +235,8 @@ header .header {
       li {
         a {
           padding: $spacer;
-          color: $black;
+          color: $white;
+          font-family: $headings-font-family;
 
           &:hover {
             color: $white;

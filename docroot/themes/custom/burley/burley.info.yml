@@ -6,7 +6,8 @@ description: 'A Bootstrap Barrio Sub-theme by Icon Agency Canberra'
 base theme: bootstrap_barrio
 
 libraries:
-  - burley/bootstrap_cdn
+  - burley/global-styling
+  - burley/global-js
 
 regions:
   announcement: 'Announcement'

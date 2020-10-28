@@ -68,11 +68,11 @@ $headings-font-family: 'Montserrat', sans-serif;
 //
 $font-size-base: 1rem; // Assumes the browser default, typically `16px`
 
-$h1-font-size:                                $font-size-base * 2.5;
-$h2-font-size:                                $font-size-base * 1.75;
-$h3-font-size:                                $font-size-base * 1.5;
+$h1-font-size:                                $font-size-base * 2.75; //44px
+$h2-font-size:                                $font-size-base * 1.875;  //30px
+$h3-font-size:                                $font-size-base * 1.25;  //20px
 $h4-font-size:                                $font-size-base * 1.25;
-$h5-font-size:                                $font-size-base * 1.1;
+$h5-font-size:                                $font-size-base * 1.125;  //18px
 $h6-font-size:                                $font-size-base;
 
 $h1-font-size-md: 42px;

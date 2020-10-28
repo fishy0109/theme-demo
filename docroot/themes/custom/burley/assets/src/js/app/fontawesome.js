@@ -1,20 +1,54 @@
-import {library, dom, icon} from '@fortawesome/fontawesome-svg-core'
-import {faTwitter, faFacebookSquare, faLinkedin, faInstagram} from '@fortawesome/free-brands-svg-icons'
-import {faMapMarker, faCalendar, faEnvelope, faMicrophone, faShare, faQuoteLeft,
-  faRss, faListUl, faTh, faTimesCircle, faBars, faSearch, faAngleUp, faPrint,
-  faChevronLeft, faChevronRight, faBell, faInfoCircle, faExclamationTriangle} from '@fortawesome/free-solid-svg-icons'
+FontAwesomeConfig = {
+  keepOriginalSource: false,
+  searchPseudoElements: true
+}
+
+import {library, dom} from '@fortawesome/fontawesome-svg-core'
+
+import {
+  faInstagram,
+  faFacebookF,
+  faTwitter
+} from '@fortawesome/free-brands-svg-icons'
+
+import {
+
+} from '@fortawesome/pro-regular-svg-icons'
+
+import {
+
+} from '@fortawesome/pro-solid-svg-icons'
+
+import {
+  faSearch as falSearch
+} from '@fortawesome/pro-light-svg-icons'
 
 export default class FontAwesome {
   constructor() {
-    // free-brands-svg-icons
-    library.add(faTwitter, faFacebookSquare, faLinkedin, faInstagram)
 
-    // free-solid-svg-icons
-    library.add(faBell, faInfoCircle, faExclamationTriangle, faMapMarker,
-      faCalendar, faEnvelope, faMicrophone, faShare, faQuoteLeft, faRss,
-      faListUl, faTh, faTimesCircle, faBars, faSearch, faAngleUp, faPrint,
-      faChevronLeft, faChevronRight)
+    library.add(
+
+      // free-brands-svg-icons
+      faInstagram,
+      faFacebookF,
+      faTwitter,
+
+      // pro-regular-svg-icons
+
+
+      // pro-solid-svg-icons
+
+
+      // pro-light-svg-icons
+      falSearch
+    );
 
     dom.watch();
+
+    this.inserted()
+  }
+
+  inserted() {
+    // Anything extra to bind or insert manually.
   }
 }

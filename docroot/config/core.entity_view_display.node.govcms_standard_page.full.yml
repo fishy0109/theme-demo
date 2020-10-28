@@ -6,21 +6,27 @@ dependencies:
     - core.entity_view_mode.node.full
     - field.field.node.govcms_standard_page.body
     - field.field.node.govcms_standard_page.field_attachments
+    - field.field.node.govcms_standard_page.field_category
     - field.field.node.govcms_standard_page.field_components
     - field.field.node.govcms_standard_page.field_featured_image
+    - field.field.node.govcms_standard_page.field_order
+    - field.field.node.govcms_standard_page.field_related_links
+    - field.field.node.govcms_standard_page.field_related_media
+    - field.field.node.govcms_standard_page.field_sidebar_components
     - field.field.node.govcms_standard_page.field_thumbnail
     - field.field.node.govcms_standard_page.panelizer
     - node.type.govcms_standard_page
   module:
-    - file
+    - ds
+    - media
     - panelizer
     - text
     - user
 third_party_settings:
   panelizer:
-    enable: true
+    enable: false
     custom: false
-    allow: true
+    allow: false
     default: page_8_4
     displays:
       page_edgy:
@@ -576,6 +582,26 @@ third_party_settings:
         pattern: panelizer
         builder: standard
         static_context: {  }
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      ds_content:
+        - body
+        - field_attachments
 _core:
   default_config_hash: FbhbeOYh3Mj4LkJEOSDqvJd7pvlLOOaDP-cc3_aJrrU
 id: node.govcms_standard_page.full
@@ -586,29 +612,21 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 101
+    weight: 0
     settings: {  }
     third_party_settings: {  }
-    region: content
-  content_moderation_control:
-    weight: -20
-    settings: {  }
-    third_party_settings: {  }
-    region: content
+    region: ds_content
   field_attachments:
-    weight: 102
+    weight: 1
     label: above
     settings:
-      use_description_as_link_text: true
+      image_style: ''
+      image_link: ''
     third_party_settings: {  }
-    type: file_default
-    region: content
-  links:
-    weight: 100
-    region: content
-    settings: {  }
-    third_party_settings: {  }
+    type: media_thumbnail
+    region: ds_content
 hidden:
+  content_moderation_control: true
   field_category: true
   field_components: true
   field_featured_image: true
@@ -617,5 +635,6 @@ hidden:
   field_related_media: true
   field_sidebar_components: true
   field_thumbnail: true
+  links: true
   panelizer: true
   search_api_excerpt: true

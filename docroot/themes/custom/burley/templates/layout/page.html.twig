@@ -82,22 +82,14 @@
                 </nav>
             </div>
         </div>
-        {% if page.highlighted %}
-            <div class="highlighted">
+        {% if page.banner %}
+            <div class="banner">
                 <aside class="{{ container }} section clearfix" role="complementary">
-                    {{ page.highlighted }}
+                    {{ page.banner }}
                 </aside>
             </div>
         {% endif %}
-        {% if page.featured_top %}
-            {% block featured %}
-                <div class="featured-top">
-                    <aside class="featured-top__inner section {{ container }} clearfix" role="complementary">
-                        {{ page.featured_top }}
-                    </aside>
-                </div>
-            {% endblock %}
-        {% endif %}
+        
         <div id="main-wrapper" class="layout-main-wrapper clearfix">
 
             {% block content %}

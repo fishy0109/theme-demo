@@ -14,19 +14,6 @@ import(
   new module.default()
 });
 
-let Flickity = require('flickity');
-new Flickity( '.field--name-field-components', {
-  // options...
-  autoPlay: true,
-  wrapAround: true
-});
-
-new Flickity( '.carousel', {
-  // options...
-  freeScroll: true,
-  wrapAround: true
-});
-
 (function ($, Drupal) {
 
   'use strict';
@@ -35,6 +22,8 @@ new Flickity( '.carousel', {
     attach: function (context, settings) {
       // Document.ready function
       $(document).ready(function() {
+        $(".field--name-field-components").append('<div class="carousel-counter"><p class="carousel-status"></p></div>');
+
 
       });
     }
@@ -168,5 +157,31 @@ $(searchForm).keydown(function(e) {
   if (!$(searchInput).val() && (keyCode == 9 || keyCode == 27)) {
     searchClose(searchButton, searchForm);
   }
+});
+
+//Flickity
+
+let Flickity = require('flickity');
+
+let flkty = new Flickity( '.field--name-field-components', {
+  // options...
+  autoPlay: true,
+  wrapAround: true
+});
+
+
+function updateStatus() {
+  let slideNumber = flkty.selectedIndex + 1;
+  $('.carousel-status').html('<strong>' + slideNumber + '</strong> of ' + flkty.slides.length);
+  console.log(slideNumber)
+}
+updateStatus();
+
+flkty.on( 'select', updateStatus );
+
+new Flickity( '.carousel', {
+  // options...
+  freeScroll: true,
+  wrapAround: true
 });
 

@@ -159,29 +159,29 @@ $(searchForm).keydown(function(e) {
 });
 
 //Flickity
-$(".block-field-blocknodelanding-pagefield-slider").append('<div class="carousel-counter"><p class="carousel-status"></p></div>');
-
-let Flickity = require('flickity');
-
-let flkty = new Flickity( '.block-field-blocknodelanding-pagefield-slider', {
-  // options...
-  autoPlay: true,
-  wrapAround: true
-});
-
-
-function updateStatus() {
-  let slideNumber = flkty.selectedIndex + 1;
-  $('.carousel-status').html('<strong>' + slideNumber + '</strong> of ' + flkty.slides.length);
-  console.log(slideNumber)
-}
-updateStatus();
-
-flkty.on( 'select', updateStatus );
-
-new Flickity( '.carousel', {
-  // options...
-  freeScroll: true,
-  wrapAround: true
-});
+// $(".block-field-blocknodelanding-pagefield-slider").append('<div class="carousel-counter"><p class="carousel-status"></p></div>');
+//
+// let Flickity = require('flickity');
+//
+// let flkty = new Flickity( '.block-field-blocknodelanding-pagefield-slider', {
+//   // options...
+//   autoPlay: true,
+//   wrapAround: true
+// });
+//
+//
+// function updateStatus() {
+//   let slideNumber = flkty.selectedIndex + 1;
+//   $('.carousel-status').html('<strong>' + slideNumber + '</strong> of ' + flkty.slides.length);
+//   console.log(slideNumber)
+// }
+// updateStatus();
+//
+// flkty.on( 'select', updateStatus );
+//
+// new Flickity( '.carousel', {
+//   // options...
+//   freeScroll: true,
+//   wrapAround: true
+// });
 

@@ -48,7 +48,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/chunk/" + ({"vendors~mmenu":"vendors~mmenu"}[chunkId]||chunkId) + "-" + {"0":"2d13d1efcd3dd58887fd","1":"1db2d5db57c5d04f5597","2":"245e06658b9d014f5dd3","3":"c1d2531b77b6db16985f","vendors~mmenu":"7dbc7373e6877ad53991"}[chunkId] + ".js"
+/******/ 		return __webpack_require__.p + "js/chunk/" + ({"vendors~mmenu":"vendors~mmenu"}[chunkId]||chunkId) + "-" + {"0":"2d13d1efcd3dd58887fd","1":"8d04600ed50343a41023","2":"245e06658b9d014f5dd3","3":"f9cb5fd5db98644ae9ba","vendors~mmenu":"7dbc7373e6877ad53991"}[chunkId] + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -86,7 +86,7 @@
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "css/chunks/" + ({"vendors~mmenu":"vendors~mmenu"}[chunkId]||chunkId) + "-" + "2c72807b13d8c081" + ".css";
+/******/ 				var href = "css/chunks/" + ({"vendors~mmenu":"vendors~mmenu"}[chunkId]||chunkId) + "-" + "aae90bea43deb2c4" + ".css";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {
@@ -274,26 +274,15 @@ Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2)])
   new module.default();
 });
 
-var Flickity = __webpack_require__(/*! flickity */ "./node_modules/flickity/js/index.js");
-
-new Flickity('.field--name-field-components', {
-  // options...
-  autoPlay: true,
-  wrapAround: true
-});
-new Flickity('.carousel', {
-  // options...
-  freeScroll: true,
-  wrapAround: true
-});
-
 (function ($, Drupal) {
   'use strict';
 
   Drupal.behaviors.nca = {
     attach: function attach(context, settings) {
       // Document.ready function
-      $(document).ready(function () {});
+      $(document).ready(function () {
+        $(".field--name-field-components").append('<div class="carousel-counter"><p class="carousel-status"></p></div>');
+      });
     }
   };
 })(jQuery, Drupal);
@@ -409,6 +398,28 @@ jquery__WEBPACK_IMPORTED_MODULE_2___default()(searchForm).keydown(function (e) {
   if (!jquery__WEBPACK_IMPORTED_MODULE_2___default()(searchInput).val() && (keyCode == 9 || keyCode == 27)) {
     searchClose(searchButton, searchForm);
   }
+}); //Flickity
+
+var Flickity = __webpack_require__(/*! flickity */ "./node_modules/flickity/js/index.js");
+
+var flkty = new Flickity('.field--name-field-components', {
+  // options...
+  autoPlay: true,
+  wrapAround: true
+});
+
+function updateStatus() {
+  var slideNumber = flkty.selectedIndex + 1;
+  jquery__WEBPACK_IMPORTED_MODULE_2___default()('.carousel-status').html('<strong>' + slideNumber + '</strong> of ' + flkty.slides.length);
+  console.log(slideNumber);
+}
+
+updateStatus();
+flkty.on('select', updateStatus);
+new Flickity('.carousel', {
+  // options...
+  freeScroll: true,
+  wrapAround: true
 });
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "jquery"), __webpack_require__(/*! drupal */ "drupal")))
 

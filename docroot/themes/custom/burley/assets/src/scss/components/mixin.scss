@@ -69,6 +69,16 @@
   background: $background !important;
   border-color: lighten($background, 10%);
   text-transform: uppercase;
+  font-family: $headings-font-family;
+  font-weight: $weight-bold;
+  border-radius: 32px;
+  border: 1px solid $text-color;
+  text-align: center;
+
+  a {
+    color: $text-color;
+    text-decoration: none;
+  }
 
   &:hover {
     color: $text-color !important;

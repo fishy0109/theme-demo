@@ -9695,6 +9695,9 @@ a.ce-update {
   .region-header-search {
     display: none; } }
 
+.path-frontpage .page-layout__content-top {
+  width: 100%; }
+
 .path-frontpage .block-field-blocknodelanding-pagefield-slider {
   margin-bottom: 6rem; }
   .path-frontpage .block-field-blocknodelanding-pagefield-slider .paragraph--type--slider {
@@ -9706,7 +9709,8 @@ a.ce-update {
     .path-frontpage .block-field-blocknodelanding-pagefield-slider .banner-hero .field--name-field-slide-image {
       position: relative;
       overflow: hidden;
-      max-height: 550px; }
+      max-height: 550px;
+      width: 100%; }
       .path-frontpage .block-field-blocknodelanding-pagefield-slider .banner-hero .field--name-field-slide-image img {
         width: 100%;
         height: 100%;
@@ -9742,6 +9746,9 @@ a.ce-update {
           color: #0b3c52 !important;
           background: #e6e5e5 !important; }
 
+.node__content {
+  margin-top: 0; }
+
 .region-home-news .views-row img {
   width: 100%;
   height: auto;
@@ -9776,7 +9783,7 @@ a.ce-update {
   .flickity-prev-next-button:hover {
     background-color: transparent; }
     .flickity-prev-next-button:hover.previous:before, .flickity-prev-next-button:hover.next:before {
-      color: #1A2023; }
+      opacity: 0.8; }
   .flickity-prev-next-button.previous {
     left: calc(50% - 50px); }
     .flickity-prev-next-button.previous svg {
@@ -9814,7 +9821,7 @@ a.ce-update {
   right: 0;
   bottom: 28px;
   margin: auto;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.5);
   width: 120px;
   height: 40px;
   border-radius: 32px; }

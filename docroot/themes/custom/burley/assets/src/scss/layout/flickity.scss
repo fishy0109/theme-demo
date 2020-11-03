@@ -16,7 +16,7 @@
 
     &.previous, &.next {
       &:before {
-        color: $jungle;
+        opacity: 0.8;
       }
     }
   }
@@ -68,7 +68,7 @@
   right: 0;
   bottom: 28px;
   margin: auto;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.5);
   width: 120px;
   height: 40px;
   border-radius: 32px;

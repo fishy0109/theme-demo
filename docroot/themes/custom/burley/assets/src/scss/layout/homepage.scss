@@ -1,4 +1,8 @@
 .path-frontpage {
+  .page-layout__content-top {
+    width: 100%;
+  }
+
   .block-field-blocknodelanding-pagefield-slider {
     margin-bottom: 6rem;
 
@@ -15,6 +19,7 @@
         position: relative;
         overflow: hidden;
         max-height: 550px;
+        width: 100%;
 
         img {
           width: 100%;
@@ -34,7 +39,7 @@
           padding: 4rem;
           background-color: $white;
           border-radius: 10px;
-          
+
           .field--name-field-long-text {
             text-align: center;
           }
@@ -51,4 +56,8 @@
   }
 
 
+}
+
+.node__content {
+  margin-top: 0;
 }

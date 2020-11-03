@@ -9695,33 +9695,35 @@ a.ce-update {
   .region-header-search {
     display: none; } }
 
-.path-frontpage .field--name-field-components {
+.path-frontpage .block-field-blocknodelanding-pagefield-slider {
   margin-bottom: 6rem; }
-  .path-frontpage .field--name-field-components .field__item {
+  .path-frontpage .block-field-blocknodelanding-pagefield-slider .paragraph--type--slider {
     width: 100%; }
-  .path-frontpage .field--name-field-components .banner-hero {
+  .path-frontpage .block-field-blocknodelanding-pagefield-slider .banner-hero {
     position: relative;
     height: 45vw;
     max-height: 550px; }
-    .path-frontpage .field--name-field-components .banner-hero .field--name-field-slide-image {
+    .path-frontpage .block-field-blocknodelanding-pagefield-slider .banner-hero .field--name-field-slide-image {
       position: relative;
       overflow: hidden;
       max-height: 550px; }
-      .path-frontpage .field--name-field-components .banner-hero .field--name-field-slide-image img {
+      .path-frontpage .block-field-blocknodelanding-pagefield-slider .banner-hero .field--name-field-slide-image img {
         width: 100%;
         height: 100%;
         -o-object-fit: cover;
            object-fit: cover; }
-    .path-frontpage .field--name-field-components .banner-hero .banner-text {
+    .path-frontpage .block-field-blocknodelanding-pagefield-slider .banner-hero .banner-text {
       position: absolute;
       width: 100%;
       height: 100%;
       top: 0; }
-      .path-frontpage .field--name-field-components .banner-hero .banner-text .banner-text-wrapper {
+      .path-frontpage .block-field-blocknodelanding-pagefield-slider .banner-hero .banner-text .banner-text-wrapper {
         padding: 4rem;
         background-color: white;
         border-radius: 10px; }
-      .path-frontpage .field--name-field-components .banner-hero .banner-text .field--name-field-link {
+        .path-frontpage .block-field-blocknodelanding-pagefield-slider .banner-hero .banner-text .banner-text-wrapper .field--name-field-long-text {
+          text-align: center; }
+      .path-frontpage .block-field-blocknodelanding-pagefield-slider .banner-hero .banner-text .field--name-field-link {
         color: #0b3c52 !important;
         background: white !important;
         border-color: white;
@@ -9733,10 +9735,10 @@ a.ce-update {
         text-align: center;
         margin-top: 2rem;
         padding: 0.7rem 1rem; }
-        .path-frontpage .field--name-field-components .banner-hero .banner-text .field--name-field-link a {
+        .path-frontpage .block-field-blocknodelanding-pagefield-slider .banner-hero .banner-text .field--name-field-link a {
           color: #0b3c52;
           text-decoration: none; }
-        .path-frontpage .field--name-field-components .banner-hero .banner-text .field--name-field-link:hover {
+        .path-frontpage .block-field-blocknodelanding-pagefield-slider .banner-hero .banner-text .field--name-field-link:hover {
           color: #0b3c52 !important;
           background: #e6e5e5 !important; }
 

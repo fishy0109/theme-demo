@@ -22,7 +22,6 @@ import(
     attach: function (context, settings) {
       // Document.ready function
       $(document).ready(function() {
-        $(".field--name-field-components").append('<div class="carousel-counter"><p class="carousel-status"></p></div>');
 
 
       });
@@ -160,10 +159,11 @@ $(searchForm).keydown(function(e) {
 });
 
 //Flickity
+$(".block-field-blocknodelanding-pagefield-slider").append('<div class="carousel-counter"><p class="carousel-status"></p></div>');
 
 let Flickity = require('flickity');
 
-let flkty = new Flickity( '.field--name-field-components', {
+let flkty = new Flickity( '.block-field-blocknodelanding-pagefield-slider', {
   // options...
   autoPlay: true,
   wrapAround: true

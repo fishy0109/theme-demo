@@ -86,7 +86,7 @@
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "css/chunks/" + ({"vendors~mmenu":"vendors~mmenu"}[chunkId]||chunkId) + "-" + "aae90bea43deb2c4" + ".css";
+/******/ 				var href = "css/chunks/" + ({"vendors~mmenu":"vendors~mmenu"}[chunkId]||chunkId) + "-" + "d6372fe04dedcfba" + ".css";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {
@@ -280,9 +280,7 @@ Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2)])
   Drupal.behaviors.nca = {
     attach: function attach(context, settings) {
       // Document.ready function
-      $(document).ready(function () {
-        $(".field--name-field-components").append('<div class="carousel-counter"><p class="carousel-status"></p></div>');
-      });
+      $(document).ready(function () {});
     }
   };
 })(jQuery, Drupal);
@@ -400,9 +398,11 @@ jquery__WEBPACK_IMPORTED_MODULE_2___default()(searchForm).keydown(function (e) {
   }
 }); //Flickity
 
+jquery__WEBPACK_IMPORTED_MODULE_2___default()(".block-field-blocknodelanding-pagefield-slider").append('<div class="carousel-counter"><p class="carousel-status"></p></div>');
+
 var Flickity = __webpack_require__(/*! flickity */ "./node_modules/flickity/js/index.js");
 
-var flkty = new Flickity('.field--name-field-components', {
+var flkty = new Flickity('.block-field-blocknodelanding-pagefield-slider', {
   // options...
   autoPlay: true,
   wrapAround: true

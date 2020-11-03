@@ -1,0 +1,11 @@
+id: closing_div
+label: 'Closing div'
+ui_limit: ''
+properties:
+  content:
+    value: '</div>'
+    format: admin_html
+type: token
+type_label: 'Token field'
+entities:
+  paragraph: paragraph

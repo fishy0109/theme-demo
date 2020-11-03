@@ -5,8 +5,8 @@ dependencies: {  }
 _core:
   default_config_hash: 8Jy4TvuWNdqJTEzf36YOnjIoOtwnquv_mh5NnzwDPFw
 id: content
-label: Content
+label: 'HTML content'
 icon_uuid: null
 icon_default: null
-description: ''
+description: 'Generic HTML content'
 behavior_plugins: {  }

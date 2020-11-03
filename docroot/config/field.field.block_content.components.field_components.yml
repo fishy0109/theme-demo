@@ -1,0 +1,47 @@
+uuid: 907fb0da-bdea-433e-855c-3c79b174ddaa
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.components
+    - field.storage.block_content.field_components
+    - paragraphs.paragraphs_type.accordion
+    - paragraphs.paragraphs_type.call_to_action_link
+    - paragraphs.paragraphs_type.slider
+  module:
+    - entity_reference_revisions
+id: block_content.components.field_components
+field_name: field_components
+entity_type: block_content
+bundle: components
+label: Components
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      accordion: accordion
+      call_to_action_link: call_to_action_link
+      slider: slider
+    target_bundles_drag_drop:
+      accordion:
+        enabled: true
+        weight: 6
+      call_to_action_group:
+        weight: 7
+        enabled: false
+      call_to_action_link:
+        enabled: true
+        weight: 8
+      content:
+        weight: 9
+        enabled: false
+      slider:
+        enabled: true
+        weight: 10
+field_type: entity_reference_revisions

@@ -1,0 +1,11 @@
+id: title_class_wrapper
+label: 'Title class wrapper'
+ui_limit: ''
+properties:
+  content:
+    value: '<div class="[paragraph:field_title_colour_class:value]">'
+    format: admin_html
+type: token
+type_label: 'Token field'
+entities:
+  paragraph: paragraph

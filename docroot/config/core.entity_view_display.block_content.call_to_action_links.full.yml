@@ -1,13 +1,15 @@
-uuid: 42e04f44-04f3-40be-b9a4-5a5f0102d414
+uuid: ac313ae0-abdc-4549-beac-720f33c84b20
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - block_content.type.call_to_action_links
+    - core.entity_view_mode.block_content.full
     - field.field.block_content.call_to_action_links.field_call_links
   module:
     - ds
     - entity_reference_revisions
+    - layout_builder
 third_party_settings:
   ds:
     layout:
@@ -28,10 +30,13 @@ third_party_settings:
     regions:
       ds_content:
         - field_call_links
-id: block_content.call_to_action_links.default
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: block_content.call_to_action_links.full
 targetEntityType: block_content
 bundle: call_to_action_links
-mode: default
+mode: full
 content:
   field_call_links:
     type: entity_reference_revisions_entity_view
@@ -44,11 +49,32 @@ content:
       ds:
         ds_limit: ''
         ft:
-          id: default
+          id: expert
           settings:
             lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: div
+            fi-cl: fuck
+            fi-at: ''
+            suffix: ''
+            lbw: false
             lb-col: false
-            classes: {  }
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
     region: ds_content
 hidden:
   search_api_excerpt: true

@@ -4,13 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.call_to_action_link.field_icon
+    - field.field.paragraph.call_to_action_link.field_links
     - field.field.paragraph.call_to_action_link.field_title
     - field.field.paragraph.call_to_action_link.field_title_colour_class
     - field.field.paragraph.call_to_action_link.field_url
-    - image.style.thumbnail
     - paragraphs.paragraphs_type.call_to_action_link
   module:
-    - image
+    - file
     - link
 id: paragraph.call_to_action_link.default
 targetEntityType: paragraph
@@ -18,12 +18,19 @@ bundle: call_to_action_link
 mode: default
 content:
   field_icon:
-    weight: 4
+    weight: 6
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
+    type: file_generic
+    region: content
+  field_links:
+    weight: 5
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
     region: content
   field_title:
     weight: 1

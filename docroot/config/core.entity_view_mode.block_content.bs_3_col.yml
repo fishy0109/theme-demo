@@ -1,0 +1,10 @@
+uuid: 2f3bd983-b853-45e4-ada7-858b819d4e76
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.bs_3_col
+label: 'BS 3-col'
+targetEntityType: block_content
+cache: true

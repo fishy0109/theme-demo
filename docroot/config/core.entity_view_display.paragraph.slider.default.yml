@@ -89,7 +89,6 @@ third_party_settings:
       label: row
     group_column:
       children:
-        - field_title
         - field_long_text
         - field_link
       parent_name: group_row
@@ -105,7 +104,7 @@ third_party_settings:
         effect: none
         speed: fast
         id: ''
-        classes: col-md-6
+        classes: 'col-md-4 offset-md-8 banner-text-wrapper'
       label: column
 id: paragraph.slider.default
 targetEntityType: paragraph

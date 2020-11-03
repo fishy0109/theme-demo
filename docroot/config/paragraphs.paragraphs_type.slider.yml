@@ -3,8 +3,8 @@ langcode: en
 status: true
 dependencies: {  }
 id: slider
-label: 'Slide or tile'
+label: 'Slide banner'
 icon_uuid: null
 icon_default: null
-description: 'A slide in the sliding banner or a tile in the mega tile layout'
+description: 'A slide in the sliding banners'
 behavior_plugins: {  }

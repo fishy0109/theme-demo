@@ -1,13 +1,17 @@
-uuid: 42e04f44-04f3-40be-b9a4-5a5f0102d414
+uuid: 68a18b32-d621-463d-a690-e7c0599c67b9
 langcode: en
 status: true
 dependencies:
   config:
-    - block_content.type.call_to_action_links
-    - field.field.block_content.call_to_action_links.field_call_links
+    - block_content.type.components
+    - core.entity_view_mode.block_content.bs_3_col
+    - field.field.block_content.components.body
+    - field.field.block_content.components.field_components
   module:
     - ds
     - entity_reference_revisions
+    - layout_builder
+    - text
 third_party_settings:
   ds:
     layout:
@@ -27,15 +31,26 @@ third_party_settings:
           layout_class: {  }
     regions:
       ds_content:
-        - field_call_links
-id: block_content.call_to_action_links.default
+        - body
+        - field_components
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: block_content.components.bs_3_col
 targetEntityType: block_content
-bundle: call_to_action_links
-mode: default
+bundle: components
+mode: bs_3_col
 content:
-  field_call_links:
-    type: entity_reference_revisions_entity_view
+  body:
+    label: hidden
+    type: text_default
     weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: ds_content
+  field_components:
+    type: entity_reference_revisions_entity_view
+    weight: 1
     label: hidden
     settings:
       view_mode: default

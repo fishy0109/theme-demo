@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_sidebar_components
     - node.type.govcms_standard_page
-    - paragraphs.paragraphs_type.sidebar_call_out
   module:
     - entity_reference_revisions
 id: node.govcms_standard_page.field_sidebar_components
@@ -22,8 +21,7 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     negate: 0
-    target_bundles:
-      sidebar_call_out: sidebar_call_out
+    target_bundles: {  }
     target_bundles_drag_drop:
       accordion:
         weight: 18

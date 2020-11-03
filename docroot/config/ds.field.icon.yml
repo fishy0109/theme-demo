@@ -1,0 +1,12 @@
+id: icon
+label: 'Decorative icon'
+ui_limit: ''
+properties:
+  content:
+    value: '<img src="[paragraph:field_icon:entity:url]" alt=""/>'
+    format: admin_html
+type: token
+type_label: 'Token field'
+entities:
+  block_content: block_content
+  paragraph: paragraph

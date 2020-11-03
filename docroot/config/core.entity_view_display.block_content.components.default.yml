@@ -1,0 +1,85 @@
+uuid: 3ba7d873-cbec-4ba6-a874-269a7f6b80a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.components
+    - field.field.block_content.components.body
+    - field.field.block_content.components.field_components
+  module:
+    - ds
+    - entity_reference_revisions
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      ds_content:
+        - body
+        - field_components
+id: block_content.components.default
+targetEntityType: block_content
+bundle: components
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: ds_content
+  field_components:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis: true
+            fis-el: div
+            fis-cl: row
+            fis-at: ''
+            fi: true
+            fi-el: div
+            fi-cl: 'col-md-3 col-sm-4'
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis-def-at: false
+            fi-def-at: false
+    region: ds_content
+hidden:
+  search_api_excerpt: true

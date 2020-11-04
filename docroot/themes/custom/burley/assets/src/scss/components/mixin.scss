@@ -153,3 +153,39 @@
   }
 
 }
+
+@mixin link-tile($bg-color, $color) {
+  .field--name-dynamic-token-fieldparagraph-icon {
+    display: inline-block;
+    background-color: $bg-color;
+    border-radius: 10px;
+    padding: .8rem;
+
+    img {
+      width: 30px;
+    }
+  }
+
+  h3 {
+    color: $color;
+    margin-top: 1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+
+    li {
+      border-top: 1px solid $grey-10;
+
+      a {
+        display: block;
+        padding: 1rem 0;
+        font-family: $headings-font-family-light;
+        color: $black;
+        font-size: $font-size-base;
+      }
+    }
+  }
+}

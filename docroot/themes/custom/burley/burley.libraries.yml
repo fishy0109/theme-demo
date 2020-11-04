@@ -2,6 +2,7 @@ fonts:
   css:
     theme:
       '//fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7Cfamily=Montserrat:300,400,500,600,700': { type: external, minified: true  }
+      '//fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap': { type: external, minified: true  }
 global-styling:
   version: VERSION
   header: true

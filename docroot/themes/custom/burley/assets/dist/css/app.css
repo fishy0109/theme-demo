@@ -9749,6 +9749,169 @@ a.ce-update {
 .node__content {
   margin-top: 0; }
 
+.headline {
+  margin-bottom: 4rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.875rem;
+  line-height: 40px; }
+
+.link-tile [class^="theme-"] {
+  padding: 2rem 2rem 0 2rem;
+  border: 1px solid #F0F0F0;
+  border-radius: 15px;
+  margin-bottom: 3rem; }
+
+.link-tile .theme-green .field--name-dynamic-token-fieldparagraph-icon {
+  display: inline-block;
+  background-color: lightgreen;
+  border-radius: 10px;
+  padding: .8rem; }
+  .link-tile .theme-green .field--name-dynamic-token-fieldparagraph-icon img {
+    width: 30px; }
+
+.link-tile .theme-green h3 {
+  color: #3B8517;
+  margin-top: 1rem; }
+
+.link-tile .theme-green ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0; }
+  .link-tile .theme-green ul li {
+    border-top: 1px solid #F0F0F0; }
+    .link-tile .theme-green ul li a {
+      display: block;
+      padding: 1rem 0;
+      font-family: "Montserrat Light", sans-serif;
+      color: #1d1d1b;
+      font-size: 1rem; }
+
+.link-tile .theme-orange .field--name-dynamic-token-fieldparagraph-icon {
+  display: inline-block;
+  background-color: #fff0ea;
+  border-radius: 10px;
+  padding: .8rem; }
+  .link-tile .theme-orange .field--name-dynamic-token-fieldparagraph-icon img {
+    width: 30px; }
+
+.link-tile .theme-orange h3 {
+  color: #CE4102;
+  margin-top: 1rem; }
+
+.link-tile .theme-orange ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0; }
+  .link-tile .theme-orange ul li {
+    border-top: 1px solid #F0F0F0; }
+    .link-tile .theme-orange ul li a {
+      display: block;
+      padding: 1rem 0;
+      font-family: "Montserrat Light", sans-serif;
+      color: #1d1d1b;
+      font-size: 1rem; }
+
+.link-tile .theme-red .field--name-dynamic-token-fieldparagraph-icon {
+  display: inline-block;
+  background-color: #fff0ea;
+  border-radius: 10px;
+  padding: .8rem; }
+  .link-tile .theme-red .field--name-dynamic-token-fieldparagraph-icon img {
+    width: 30px; }
+
+.link-tile .theme-red h3 {
+  color: #cb0927;
+  margin-top: 1rem; }
+
+.link-tile .theme-red ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0; }
+  .link-tile .theme-red ul li {
+    border-top: 1px solid #F0F0F0; }
+    .link-tile .theme-red ul li a {
+      display: block;
+      padding: 1rem 0;
+      font-family: "Montserrat Light", sans-serif;
+      color: #1d1d1b;
+      font-size: 1rem; }
+
+.link-tile .theme-blue .field--name-dynamic-token-fieldparagraph-icon {
+  display: inline-block;
+  background-color: #fff0ea;
+  border-radius: 10px;
+  padding: .8rem; }
+  .link-tile .theme-blue .field--name-dynamic-token-fieldparagraph-icon img {
+    width: 30px; }
+
+.link-tile .theme-blue h3 {
+  color: #187EAB;
+  margin-top: 1rem; }
+
+.link-tile .theme-blue ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0; }
+  .link-tile .theme-blue ul li {
+    border-top: 1px solid #F0F0F0; }
+    .link-tile .theme-blue ul li a {
+      display: block;
+      padding: 1rem 0;
+      font-family: "Montserrat Light", sans-serif;
+      color: #1d1d1b;
+      font-size: 1rem; }
+
+.link-tile .theme-purple .field--name-dynamic-token-fieldparagraph-icon {
+  display: inline-block;
+  background-color: #fff0ea;
+  border-radius: 10px;
+  padding: .8rem; }
+  .link-tile .theme-purple .field--name-dynamic-token-fieldparagraph-icon img {
+    width: 30px; }
+
+.link-tile .theme-purple h3 {
+  color: #80388d;
+  margin-top: 1rem; }
+
+.link-tile .theme-purple ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0; }
+  .link-tile .theme-purple ul li {
+    border-top: 1px solid #F0F0F0; }
+    .link-tile .theme-purple ul li a {
+      display: block;
+      padding: 1rem 0;
+      font-family: "Montserrat Light", sans-serif;
+      color: #1d1d1b;
+      font-size: 1rem; }
+
+.link-tile .theme-ocean .field--name-dynamic-token-fieldparagraph-icon {
+  display: inline-block;
+  background-color: #fff0ea;
+  border-radius: 10px;
+  padding: .8rem; }
+  .link-tile .theme-ocean .field--name-dynamic-token-fieldparagraph-icon img {
+    width: 30px; }
+
+.link-tile .theme-ocean h3 {
+  color: #008295;
+  margin-top: 1rem; }
+
+.link-tile .theme-ocean ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0; }
+  .link-tile .theme-ocean ul li {
+    border-top: 1px solid #F0F0F0; }
+    .link-tile .theme-ocean ul li a {
+      display: block;
+      padding: 1rem 0;
+      font-family: "Montserrat Light", sans-serif;
+      color: #1d1d1b;
+      font-size: 1rem; }
+
 .region-home-news .views-row img {
   width: 100%;
   height: auto;

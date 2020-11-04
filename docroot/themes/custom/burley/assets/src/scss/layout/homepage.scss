@@ -61,3 +61,44 @@
 .node__content {
   margin-top: 0;
 }
+
+.headline {
+  margin-bottom: 4rem;
+  font-family: $headings-font-family;
+  font-weight: $weight-bold;
+  font-size: $h2-font-size;
+  line-height: 40px;
+}
+
+.link-tile {
+  [class^="theme-"] {
+    padding: 2rem 2rem 0 2rem;
+    border: 1px solid $grey-10;
+    border-radius: 15px;
+    margin-bottom: 3rem;
+  }
+
+  .theme-green {
+    @include link-tile(lightgreen, $nca-green);
+  }
+
+  .theme-orange {
+    @include link-tile($nca-orange-light, $nca-orange);
+  }
+
+  .theme-red {
+    @include link-tile($nca-orange-light, $nca-red);
+  }
+
+  .theme-blue {
+    @include link-tile($nca-orange-light, $nca-blue);
+  }
+
+  .theme-purple {
+    @include link-tile($nca-orange-light, $nca-purple);
+  }
+
+  .theme-ocean {
+    @include link-tile($nca-orange-light, $nca-teal);
+  }
+}

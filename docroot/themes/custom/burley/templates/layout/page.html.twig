@@ -118,6 +118,11 @@
                             </main>
                         {% endif %}
                     </div>
+                    {% if page.content_footer %}
+                        <div class="content-footer-wrapper container">
+                            {{ page.content_footer }}
+                        </div>
+                    {% endif %}
                 </div>
             {% endblock %}
         </div>

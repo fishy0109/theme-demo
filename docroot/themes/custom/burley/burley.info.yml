@@ -19,6 +19,7 @@ regions:
   breadcrumb: Breadcrumb
   content_header: 'Content header'
   content: Content
+  content_footer: 'Content footer'
   home_news: 'Homepage news'
   home_social: 'Homepage social'
   feature_slider: 'Feature slider'
@@ -26,7 +27,6 @@ regions:
   content_bottom: 'Content bottom'
   sidebar: Sidebar
   footer: Footer
-  footer_top: 'Footer top'
 
 core: '8.x'
 project: 'burley'

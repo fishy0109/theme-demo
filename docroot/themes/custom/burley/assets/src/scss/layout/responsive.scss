@@ -2,63 +2,15 @@
 }
 
 @media (max-width: 1460px) {
-  //Homepage
-  .path-frontpage {
-    .scholarship-action {
-      [class~='scholarship']:last-of-type {
-        padding: 0 6rem;
-      }
-    }
 
-    #block-burley-content {
-      .slick-dots {
-        left: calc((100vw - 960px)/2 + 860px);
-      }
-    }
-  }
 }
 
 @include media-breakpoint-down(lg) { //1200px
-  .path-frontpage {
-    #block-burley-content {
-      .slick-prev {
-        left: 2rem;
-      }
 
-      .slick-next {
-        right: 2rem;
-      }
-    }
-
-    #feature-slider {
-      .view-id-scholars {
-        .view-content {
-          .slick-prev {
-            left: 0;
-          }
-
-          .slick-next {
-            right: 0;
-          }
-        }
-      }
-    }
-
-
-  }
 }
 
 @include media-breakpoint-down(md) { //992px
-  //Header
-  .header {
-    > .container {
-      position: relative;
-    }
 
-    .col-sm-6:nth-child(2) {
-      display: none;
-    }
-  }
 
   #mobile-menu-button {
     position: absolute;
@@ -69,200 +21,32 @@
 
   //Homepage
   .path-frontpage {
-    #block-burley-content {
-      .slick-dots {
-        left: calc((100vw - 720px)/2 + 620px);
-      }
-    }
-
-    .scholarship-action{
-      .scholarship {
-        padding: 0 2rem;
-      }
-
-      [class~='scholarship']:last-of-type {
-        padding: 0 2rem;
-      }
-    }
-
-    .latest-news {
-      .homepage-social {
-        .view-homepage-news-and-social {
-          .view-content {
-            .views-row {
-              margin-top: 30px;
-              margin-bottom: 0;
-            }
-          }
-        }
-      }
-    }
-
-    #block-homepagebottomctablocks {
-      .scholarship:first-child {
-        .btn {
-          padding: 0.8rem 1rem;
-        }
-      }
-    }
-
-  }
-
-  //Footer
-  .footer-top {
-    .footer-top-logo-group {
-      .footer-top-logo {
-        margin-left: 0.7rem;
-
-        &:first-child {
-          margin-left: 0;
-        }
-      }
-    }
-  }
-
-  #footer {
-    .region-footer {
-      nav {
-        ul {
-          li {
-            a {
-              padding: $spacer * 0.5 $spacer;
-            }
+    .block-field-blocknodelanding-pagefield-slider {
+      .banner-hero {
+        .banner-text {
+          .banner-text-wrapper {
+            padding: 2rem;
           }
         }
       }
     }
   }
-
-  .node--type-page.node--view-mode-full {
-    .paragraph--type--image-with-caption {
-      display: flex;
-      flex-direction: column;
-    }
-  }
-
-  .path-documents {
-    .view-id-documents {
-      .view-filters {
-        #edit-submit-documents {
-          margin-top: 1rem;
-        }
-      }
-    }
-  }
-
 
 }
 
 @include media-breakpoint-down(sm) { //768px
-  //Header
-  #bnr-wrap {
-    #bnr-mid {
-      .left {
-        margin-left: -1rem;
-      }
-
-      h1 {
-        line-height: 1;
-      }
-    }
-  }
-
   .path-frontpage {
-    #block-burley-content {
-      .banner {
-        .slider-inner {
-          .col-md-6 {
-            margin-left: 0;
-            margin-bottom: 2rem;
+    .block-field-blocknodelanding-pagefield-slider {
+      .banner-hero {
+        height: 480px;
+
+        .field--name-field-slide-image {
+          height: 480px;
+
+          img {
+
           }
         }
-      }
-
-      .slick-dots {
-        left: calc((100vw - 540px)/2 + 440px);
-        bottom: 4.5rem;
-      }
-    }
-
-    .latest-news {
-      .homepage-news {
-        .view-homepage-news-and-social {
-          .views-row {
-            &:first-child {
-              margin-bottom: 30px;
-            }
-          }
-        }
-      }
-    }
-
-    .paragraph--type-view {
-      .view-homepage-news-and-social.view-display-id-event {
-        .node--type-event {
-          display: flex;
-          flex-wrap: wrap;
-        }
-
-        .event-group {
-          position: relative;
-          width: 100%;
-        }
-      }
-    }
-
-  }
-
-  .view-id-newsletters {
-    .views-row {
-      .field-name-field-feature-image {
-        img {
-          width: 100%;
-        }
-      }
-    }
-
-
-    .news-letter-group {
-      width: 100%;
-      position: relative;
-    }
-  }
-
-
-  //footer
-  .footer-top {
-    .footer-top-logo-group {
-      .footer-top-logo {
-        margin-left: 2rem;
-
-        &:first-child {
-          margin-left: 0;
-        }
-      }
-    }
-  }
-
-  //News
-  .node--type-news {
-    .group-right {
-      .field--name-dynamic-token-fieldnode-social-content-share-links {
-        margin-top: 2rem;
-      }
-    }
-  }
-
-  //Scholar
-  .view-scholars {
-    .burley-row {
-      .col-xs-12:not(:first-child) {
-        margin-top: 2rem;
-      }
-
-      .burley-col,
-      .scholar-name {
-        text-align: center;
       }
     }
   }
@@ -270,170 +54,10 @@
 }
 
 @include media-breakpoint-down(xs) { //576px
-  //Header
-  #bnr-wrap {
-    #mobile-menu-button {
-      right: 1rem;
-
-      .label {
-        display: none;
-      }
-    }
-  }
-
-  //Homepage
-  .path-frontpage {
-    #block-burley-content {
-      .banner {
-        .slider-inner {
-          .col-md-6 {
-            margin-bottom: 0;
-          }
-
-          .text {
-            font-size: $h3-font-size;
-          }
-        }
-      }
-
-      .slick-dots {
-        bottom: 3rem;
-      }
-    }
-
-    .scholarship-action {
-      .paragraph--type-free-text {
-        margin-bottom: 0;
-      }
-
-      .scholarship {
-        margin-top: 2rem;
-      }
-    }
-
-    #feature-slider {
-      #block-views-block-scholars-block-1 {
-        margin: 7rem auto;
-      }
-
-      .view-id-scholars {
-        .scholar-header {
-          padding-left: 15px;
-          padding-right: 15px;
-        }
-
-        .view-content {
-          .slide-item {
-            padding-left: 15px;
-          }
-
-          .node--type-scholar {
-            .text-center {
-              height: auto;
-            }
-          }
-
-          .slick-prev {
-            left: 3rem;
-          }
-
-          .slick-next {
-            right: 3rem;
-          }
-
-          .slick-dots {
-            bottom: -4rem;
-          }
-
-        }
-      }
-    }
-
-    #block-homepagebottomctablocks {
-      margin-top: 5rem;
-      margin-bottom: 5rem;
-
-      .scholarship {
-        margin-top: 2rem;
-      }
-    }
-
-  }
-
-  .node--type-page.node--view-mode-full {
-    .banner-inner-group {
-      justify-content: space-between;
-    }
-
-    .field--name-node-title {
-      margin-top: 5rem;
-    }
-
-    .banner-inner {
-      margin-left: -15px;
-      margin-right: -15px;
-
-      .text {
-        font-size: $h3-font-size;
-      }
-    }
-  }
-
-
-  .footer-top {
-    .field--name-body {
-      padding-left: 15px;
-      padding-right: 15px;
-    }
-
-    .footer-top-menu {
-      li {
-        padding-right: 1rem;
-      }
-    }
-  }
-
-  #footer {
-    .region-footer {
-      .col-md-3 {
-        width: 50%;
-      }
-    }
-  }
 
 }
 
 @media only screen and (max-width: 480px) { //mobile only
-  //Header
-  #bnr-wrap {
-    #bnr-gwy {
-      #bnr-left {
-        width: 120px;
-      }
-    }
-
-    #bnr-mid {
-      .bnr-line-1 {
-        a {
-          font-size: 1rem;
-        }
-      }
-    }
-  }
-
-  .path-frontpage {
-    #block-burley-content {
-      .slick-dots {
-        left: calc(100vw - 1.5rem - 60px);
-      }
-    }
-  }
-
-  .footer-top {
-    .footer-top-menu {
-      flex-wrap: wrap;
-    }
-  }
 
 
 }

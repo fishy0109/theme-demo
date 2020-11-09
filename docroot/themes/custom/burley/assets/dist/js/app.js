@@ -86,7 +86,7 @@
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "css/chunks/" + ({"vendors~mmenu":"vendors~mmenu"}[chunkId]||chunkId) + "-" + "26be45ec2ea21705" + ".css";
+/******/ 				var href = "css/chunks/" + ({"vendors~mmenu":"vendors~mmenu"}[chunkId]||chunkId) + "-" + "10864576a0424fe8" + ".css";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {
@@ -280,7 +280,9 @@ Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2)])
   Drupal.behaviors.nca = {
     attach: function attach(context, settings) {
       // Document.ready function
-      $(document).ready(function () {});
+      $(document).ready(function () {
+        $(".js-form-type-checkbox").append("<div class='control__indicator'></div>");
+      });
     }
   };
 })(jQuery, Drupal);

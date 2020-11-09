@@ -68,7 +68,7 @@
   color: $text-color !important;
   background: $background !important;
   border-color: lighten($background, 10%);
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-family: $headings-font-family;
   font-weight: $weight-bold;
   border-radius: 32px;

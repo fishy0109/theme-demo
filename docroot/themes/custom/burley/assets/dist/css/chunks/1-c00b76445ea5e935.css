@@ -1,0 +1,36 @@
+/*
+ * Colours
+ */
+/**
+ * Just some basic overrides to normal theme.
+ */
+.mm-menu {
+  --mm-color-background: #999999;
+  --mm-color-background-emphasis: #333333;
+  --mm-color-background-highlight: #1d1d1b;
+  --mm-color-border: #999999;
+  --mm-color-text: $black;
+  --mm-color-text-dimmed: #1d1d1b;
+  --mm-color-button: #1A2023; }
+
+.mm-listitem {
+  color: white; }
+
+.mm-listitem:after {
+  left: 0;
+  border-color: white !important; }
+
+.mm-navbar {
+  border-bottom: 2px solid white; }
+
+.mm-navbars_top {
+  height: 55px; }
+  .mm-navbars_top .mm-searchfield__input input {
+    background-color: white;
+    height: 37px; }
+
+.mm-searchfield__btn {
+  top: 5px; }
+
+
+/*# sourceMappingURL=1-c00b76445ea5e935.css.map*/

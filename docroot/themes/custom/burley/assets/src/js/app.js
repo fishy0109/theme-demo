@@ -22,7 +22,7 @@ import(
     attach: function (context, settings) {
       // Document.ready function
       $(document).ready(function() {
-
+        $(".js-form-type-checkbox").append("<div class='control__indicator'></div>");
 
       });
     }
@@ -178,4 +178,3 @@ function updateStatus() {
 updateStatus();
 
 flkty.on( 'select', updateStatus );
-

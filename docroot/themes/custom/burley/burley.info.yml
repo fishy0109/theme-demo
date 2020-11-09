@@ -17,6 +17,7 @@ regions:
   banner: Banner
   highlighted: Highlighted
   breadcrumb: Breadcrumb
+  content_header: 'Content header'
   content: Content
   home_news: 'Homepage news'
   home_social: 'Homepage social'

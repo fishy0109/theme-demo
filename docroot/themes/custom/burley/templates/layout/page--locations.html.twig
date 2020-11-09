@@ -96,28 +96,26 @@
                             {{ page.content_header }}
                         </div>
                     {% endif %}
-                    <div class="main-content-wrapper container">
-                        {% if page.sidebar %}
-                            <div class="row row-offcanvas row-offcanvas-left clearfix">
-                                <main class="col-lg-9">
-                                    <section class="section">
-                                        <a id="main-content" tabindex="-1"></a>
-                                        {{ page.content }}
-                                    </section>
-                                </main>
-                                <aside class="col-lg-3" role="complementary">
-                                    {{ page.sidebar }}
-                                </aside>
-                            </div>
-                        {% else %}
-                            <main>
+                    {% if page.sidebar %}
+                        <div class="row row-offcanvas row-offcanvas-left clearfix">
+                            <main class="col-lg-9">
                                 <section class="section">
                                     <a id="main-content" tabindex="-1"></a>
                                     {{ page.content }}
                                 </section>
                             </main>
-                        {% endif %}
-                    </div>
+                            <aside class="col-lg-3" role="complementary">
+                                {{ page.sidebar }}
+                            </aside>
+                        </div>
+                    {% else %}
+                        <main>
+                            <section class="section">
+                                <a id="main-content" tabindex="-1"></a>
+                                {{ page.content }}
+                            </section>
+                        </main>
+                    {% endif %}
                 </div>
             {% endblock %}
         </div>

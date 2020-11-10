@@ -9943,6 +9943,11 @@ a.ce-update {
         margin: 0 15px;
         width: 30%;
         padding-left: 0; }
+        .view-locations .view-filters #edit-type--wrapper #edit-type .js-form-type-checkbox:focus {
+          -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+                  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+          border-radius: 32px;
+          outline: none; }
         .view-locations .view-filters #edit-type--wrapper #edit-type .js-form-type-checkbox label {
           width: 100%;
           padding: 0.7rem 2rem;
@@ -9986,6 +9991,8 @@ a.ce-update {
         .view-locations .view-filters #edit-type--wrapper #edit-type .js-form-type-checkbox input[type="checkbox"]:checked ~ label {
           border-color: #3B8517;
           color: #3B8517; }
+          .view-locations .view-filters #edit-type--wrapper #edit-type .js-form-type-checkbox input[type="checkbox"]:checked ~ label:hover, .view-locations .view-filters #edit-type--wrapper #edit-type .js-form-type-checkbox input[type="checkbox"]:checked ~ label:focus {
+            background-color: #F0F0F0; }
   .view-locations .view-filters #edit-submit-locations {
     color: #3B8517 !important;
     background: white !important;

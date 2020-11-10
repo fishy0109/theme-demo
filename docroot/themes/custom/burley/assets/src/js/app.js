@@ -23,7 +23,7 @@ import(
       // Document.ready function
       $(document).ready(function() {
         $(".js-form-type-checkbox").append("<div class='control__indicator'></div>");
-
+        $(".js-form-type-checkbox").attr("tabindex", "0");
       });
     }
   };

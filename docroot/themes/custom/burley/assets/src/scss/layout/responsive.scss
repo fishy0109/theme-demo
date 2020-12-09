@@ -51,10 +51,22 @@
     }
   }
 
+  .view-locations .view-filters #edit-type--wrapper #edit-type {
+    display: block;
+
+    .js-form-type-checkbox {
+      width: 100%;
+      margin: 0 0 1rem 0;
+    }
+  }
+
 }
 
 @include media-breakpoint-down(xs) { //576px
-
+  .view-locations .view-filters #edit-type--wrapper #edit-type {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 
 @media only screen and (max-width: 480px) { //mobile only

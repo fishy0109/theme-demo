@@ -11,6 +11,38 @@ a {
   }
 }
 
+.bg-red {
+  background-color: $nca-red !important;
+}
+
+.bg-blue {
+  background-color: $nca-blue !important;
+}
+
+.bg-green {
+  background-color: $nca-green !important;
+}
+
+.bg-teal {
+  background-color: $nca-teal !important;
+}
+
+.bg-pink {
+  background-color: $nca-pink !important;
+}
+
+.bg-purple {
+  background-color: $nca-purple;
+}
+
+.bg-yellow {
+  background-color: $nca-yellow;
+}
+
+.bg-orange {
+  background-color: $nca-orange;
+}
+
 // Font size etc
 
 h1, h2, h3, h4, h5, h6 {

@@ -7,9 +7,9 @@ dependencies:
   module:
     - system
   theme:
-    - burley
+    - demo
 id: mainnavigation_2
-theme: burley
+theme: demo
 region: primary_menu
 weight: 0
 provider: null

@@ -5,11 +5,11 @@ dependencies:
   module:
     - system
   theme:
-    - burley
+    - demo
 _core:
   default_config_hash: XjBe5YAGFJ32-bLhwumQQ-D7MzZxlX9tC4OhvT06SMY
 id: burley_sitebranding
-theme: burley
+theme: demo
 region: header_logo
 weight: -4
 provider: null

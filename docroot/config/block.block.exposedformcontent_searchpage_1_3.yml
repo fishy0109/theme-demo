@@ -7,9 +7,9 @@ dependencies:
   module:
     - views
   theme:
-    - burley
+    - demo
 id: exposedformcontent_searchpage_1_3
-theme: burley
+theme: demo
 region: header_search
 weight: 0
 provider: null

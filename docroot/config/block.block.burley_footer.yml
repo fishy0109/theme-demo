@@ -7,11 +7,11 @@ dependencies:
   module:
     - system
   theme:
-    - burley
+    - demo
 _core:
   default_config_hash: D4YvToX78F0ht3jsw5aiWxvezcjejyD6WGoZkZ9G3Sw
 id: burley_footer
-theme: burley
+theme: demo
 region: footer
 weight: -4
 provider: null

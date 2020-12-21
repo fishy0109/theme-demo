@@ -5,11 +5,11 @@ dependencies:
   module:
     - system
   theme:
-    - burley
+    - demo
 _core:
   default_config_hash: Mri_q32TjWrLy9eDVRCwiLnDNe5V8jeP8S8ri-PGDTw
 id: burley_breadcrumbs
-theme: burley
+theme: demo
 region: breadcrumb
 weight: -4
 provider: null

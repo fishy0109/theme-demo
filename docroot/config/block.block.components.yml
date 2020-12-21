@@ -6,9 +6,9 @@ dependencies:
     - ctools_block
     - system
   theme:
-    - burley
+    - demo
 id: components
-theme: burley
+theme: demo
 region: banner
 weight: 0
 provider: null

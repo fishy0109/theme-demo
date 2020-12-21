@@ -1,0 +1,33 @@
+name: National Capital Authority Burley Theme
+type: theme
+description: 'A Bootstrap Barrio Sub-theme by Icon Agency Canberra'
+# version: VERSION
+# core: 8.x
+base theme: bootstrap_barrio
+
+libraries:
+  - demo/global-styling
+  - demo/global-js
+
+regions:
+  announcement: 'Announcement'
+  header_logo: 'Header logo'
+  header_search: 'Header search'
+  primary_menu: 'Primary menu'
+  banner: Banner
+  highlighted: Highlighted
+  breadcrumb: Breadcrumb
+  content_header: 'Content header'
+  content: Content
+  content_footer: 'Content footer'
+  home_news: 'Homepage news'
+  home_social: 'Homepage social'
+  feature_slider: 'Feature slider'
+  gallery: 'Gallery'
+  content_bottom: 'Content bottom'
+  sidebar: Sidebar
+  footer: Footer
+
+core: '8.x'
+project: 'demo'
+datestamp: 1574823667

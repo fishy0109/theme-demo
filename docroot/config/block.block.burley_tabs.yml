@@ -3,11 +3,11 @@ langcode: en
 status: true
 dependencies:
   theme:
-    - burley
+    - demo
 _core:
   default_config_hash: bnISVpZNgUaiMWJRBHpKuQ2vkbZvmF4UPj32ZKVcNoE
 id: burley_tabs
-theme: burley
+theme: demo
 region: content
 weight: -4
 provider: null
